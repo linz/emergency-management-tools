@@ -1,0 +1,3 @@
+.venv/
+*pyc
+flooding/Sentinel2_Water_Extraction/.ipynb_checkpoints/
