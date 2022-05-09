@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "sentinel2_water_extraction"
+version = "0.1.0"
+description = ""
+authors = ["Victor Engmark <vengmark@linz.govt.nz>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+gdal = "3.4.2"
+geopandas = "*"
+hatch-vcs = "*"
+jupyter = "*"
+matplotlib = "*"
+numpy = "*"
+rasterio = "*"
+rio-tiler = "*"
+sat-search = "*"
+shapely = "*"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

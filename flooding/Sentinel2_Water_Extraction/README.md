@@ -2,10 +2,11 @@
 The Sentinel2_Water_Extraction Jupyter Notebook was developed to extract water from Sentinel-2 imagery. 
 
 Below are the instructions to get the Notebook up and running 
-## Install Jupyter
-If not already install, You will need to install Jupyter. This can be installed via pip.
 
-`pip install jupyter`
+## Prerequisites
+
+- Python 3.7 or newer
+- GDAL 3.4
 
 ## Get the Jupyter Notebook
 Either clone or download the Jupyter Notebook
@@ -20,28 +21,14 @@ Alternatively, for those not familiar with git, download the repository. This ca
 
 ![download notebook](images/download.png "download notebook")
 
-
 ## Install Python dependencies
-Create and activate a [virtual environment](https://docs.python.org/3/library/venv.html) (optional but recommended).
 
+The following commands will install the dependencies for just this project:
 
-Install the virtual environment
-```
-pip install virtualenv
-```
-
-Start create and start virtual environment
-
-```
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-Install the required dependencies
-
-```
-pip install -r requirements.txt
-
+```shell
+pip install --upgrade pip
+pip install poetry
+poetry install --no-dev --no-root
 ```
 
 ## Start the Jupyter Notebook
@@ -53,7 +40,7 @@ Open the terminal and navigate to the notebook directory
 
 Start the notebook
 
-`$ jupyter notebook`
+`$ poetry run jupyter notebook Sentinel2_Water_Extraction.ipynb`
 
 Open the Jupyter Notebook by clicking on Sentinel2_Water_Extraction.ipynb (see image below)
 ![jupyter dir](images/jupyter.png "jupyter dir")

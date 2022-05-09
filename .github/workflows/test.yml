@@ -1,0 +1,22 @@
+name: Pull request
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - uses: cachix/install-nix-action@v17
+
+      - uses: cachix/cachix-action@v10
+        with:
+          name: linz
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+
+      - name: Run test
+        run: nix-shell --pure --run 'jupyter nbconvert --debug --execute --inplace --to=notebook Sentinel2_Water_Extraction.ipynb'
+        working-directory: flooding/Sentinel2_Water_Extraction
