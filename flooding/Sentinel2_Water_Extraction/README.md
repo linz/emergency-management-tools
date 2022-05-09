@@ -51,7 +51,7 @@ Open the terminal and navigate to the notebook directory
 
 `cd <path where downloaded to>/emergency-management/flooding/Sentinel2_Water_Extraction`
 
-Start the note book
+Start the notebook
 
 `$ jupyter notebook`
 
@@ -62,9 +62,9 @@ Open the Jupyter Notebook by clicking on Sentinel2_Water_Extraction.ipynb (see i
  ### Extract Water From Sentinel-2 imagery
  Follow the steps in the Notebook to extract water polygons.
 
- ## Trouble shooting 
+ ## Troubleshooting 
  ### SSL cert errors
- If encountering a SSL cert error, try exporting a reference to `ca-certificates.crt`
+ If encountering an SSL cert error, try exporting a reference to `ca-certificates.crt`
 
  e.g
  `export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`
