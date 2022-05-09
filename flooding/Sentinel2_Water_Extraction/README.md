@@ -59,12 +59,12 @@ Open the Jupyter Notebook by clicking on Sentinel2_Water_Extraction.ipynb (see i
 ![jupyter dir](images/jupyter.png "jupyter dir")
 
 
- ## Extract Water From Sentinel-2 imagery
- Follow the steps in the Notebook to extract water polygons.
+## Extract Water From Sentinel-2 imagery
+Follow the steps in the Notebook to extract water polygons.
 
- ## Troubleshooting 
- ### SSL cert errors
- If encountering an SSL cert error, try exporting a reference to `ca-certificates.crt`
+## Troubleshooting 
+### SSL cert errors
+If encountering an SSL cert error, try exporting a reference to `ca-certificates.crt`
 
- e.g
- `export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`
+e.g
+`export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`
