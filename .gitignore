@@ -1,3 +1,4 @@
+*.pyc
+.ipynb_checkpoints/
 .venv/
-*pyc
-flooding/Sentinel2_Water_Extraction/.ipynb_checkpoints/
+/.idea/
