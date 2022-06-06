@@ -4,7 +4,8 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  test:
+  test-nix:
+    name: Test using Nix
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -20,3 +21,64 @@ jobs:
       - name: Run test
         run: nix-shell --pure --run 'jupyter nbconvert --debug --execute --inplace --to=notebook Sentinel2_Water_Extraction.ipynb'
         working-directory: flooding/Sentinel2_Water_Extraction
+
+  test-poetry:
+    name: Test using Poetry on Python ${{ matrix.python }}
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        python:
+          - '3.7'
+          - '3.8'
+          - '3.9'
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Use Python ${{ matrix.python }}
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Cache pip
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key:
+            ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python }}-${{
+            hashFiles('./flooding/Sentinel2_Water_Extraction/poetry.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python }}-
+
+      - name: Update package registry
+        run: sudo apt-get update
+
+      - name: Install GDAL
+        run: sudo apt-get --assume-yes install libgdal-dev
+
+      - name: Upgrade pip
+        run: pip install --upgrade pip
+
+      - name: Install Poetry
+        run: pip install poetry
+
+      - name: Install Python packages
+        run: poetry install --no-dev --no-root
+        working-directory: flooding/Sentinel2_Water_Extraction
+
+      - name: Run test
+        run: poetry run jupyter nbconvert --debug --execute --inplace --to=notebook Sentinel2_Water_Extraction.ipynb
+        working-directory: flooding/Sentinel2_Water_Extraction
+
+  finalise:
+    if: always()
+    needs:
+      - test-nix
+      - test-poetry
+    runs-on: ubuntu-latest
+    steps:
+      - name: Decide whether the needed jobs succeeded or failed
+        uses: re-actors/alls-green@release/v1
+        with:
+          jobs: ${{ toJSON(needs) }}
