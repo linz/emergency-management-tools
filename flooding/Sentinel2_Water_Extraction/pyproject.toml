@@ -7,7 +7,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-gdal = "3.4.2"
+gdal = "3.5.1"
 geopandas = "*"
 hatch-vcs = "*"
 jupyter = "*"
