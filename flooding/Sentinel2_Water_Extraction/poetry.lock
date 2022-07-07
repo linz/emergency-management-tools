@@ -1325,7 +1325,7 @@ test = ["pytest", "pytest-cov", "coveralls"]
 
 [[package]]
 name = "rio-tiler"
-version = "3.1.4"
+version = "3.1.5"
 description = "User friendly Rasterio plugin to read raster datasets."
 category = "main"
 optional = false
@@ -2483,8 +2483,8 @@ rio-mucho = [
     {file = "rio_mucho-1.0.0-py3-none-any.whl", hash = "sha256:4677aca0613b35b1eb6dcdf314eafc23b707c42e54e9af89a87c86df5ae1ba6c"},
 ]
 rio-tiler = [
-    {file = "rio-tiler-3.1.4.tar.gz", hash = "sha256:4382d60a5e944f02bd775b23637d5036c88c33763cac3a60eb5cf6b319de7d79"},
-    {file = "rio_tiler-3.1.4-py3-none-any.whl", hash = "sha256:76a75c1948af96ec559c6093bdd0b49364f37ff7f854ff057f4b353ed498a999"},
+    {file = "rio-tiler-3.1.5.tar.gz", hash = "sha256:ec510dddf06e8e04c49efaa3b8d399e926a993ab276c1444bff354c0134b6d54"},
+    {file = "rio_tiler-3.1.5-py3-none-any.whl", hash = "sha256:81785fd08c46dd3c34c78466a767124abdb10d5cf5a39468cb5912e53d29e50b"},
 ]
 s3transfer = [
     {file = "s3transfer-0.5.2-py3-none-any.whl", hash = "sha256:7a6f4c4d1fdb9a2b640244008e142cbc2cd3ae34b386584ef044dd0f27101971"},
