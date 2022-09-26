@@ -214,7 +214,7 @@ python-versions = "*"
 click = ">=4.0"
 
 [package.extras]
-dev = ["pytest (>=3.6)", "pytest-cov", "wheel", "coveralls"]
+dev = ["coveralls", "wheel", "pytest-cov", "pytest (>=3.6)"]
 
 [[package]]
 name = "cligj"
@@ -813,8 +813,8 @@ nest-asyncio = "*"
 traitlets = ">=5.0.0"
 
 [package.extras]
-sphinx = ["autodoc-traits", "mock", "moto", "myst-parser", "Sphinx (>=1.7)", "sphinx-book-theme"]
-test = ["black", "check-manifest", "flake8", "ipykernel", "ipython (<8.0.0)", "ipywidgets (<8.0.0)", "mypy", "pip (>=18.1)", "pre-commit", "pytest (>=4.1)", "pytest-asyncio", "pytest-cov (>=2.6.1)", "setuptools (>=60.0)", "testpath", "twine (>=1.11.0)", "xmltodict"]
+test = ["xmltodict", "twine (>=1.11.0)", "testpath", "setuptools (>=60.0)", "pytest-cov (>=2.6.1)", "pytest-asyncio", "pytest (>=4.1)", "pre-commit", "pip (>=18.1)", "mypy", "ipywidgets (<8.0.0)", "ipython (<8.0.0)", "ipykernel", "flake8", "check-manifest", "black"]
+sphinx = ["sphinx-book-theme", "Sphinx (>=1.7)", "myst-parser", "moto", "mock", "autodoc-traits"]
 
 [[package]]
 name = "nbconvert"
@@ -1022,8 +1022,8 @@ python-versions = ">=3.6"
 importlib-metadata = {version = ">=0.12", markers = "python_version < \"3.8\""}
 
 [package.extras]
-dev = ["pre-commit", "tox"]
-testing = ["pytest", "pytest-benchmark"]
+testing = ["pytest-benchmark", "pytest"]
+dev = ["tox", "pre-commit"]
 
 [[package]]
 name = "prometheus-client"
@@ -1148,8 +1148,8 @@ python-dateutil = ">=2.7.0"
 typing-extensions = {version = ">=3.7", markers = "python_version < \"3.8\""}
 
 [package.extras]
-orjson = ["orjson (>=3.5)"]
 validation = ["jsonschema (>=3.0)"]
+orjson = ["orjson (>=3.5)"]
 
 [[package]]
 name = "python-dateutil"
@@ -1232,7 +1232,7 @@ python-versions = ">=3.7"
 packaging = "*"
 
 [package.extras]
-test = ["pytest (>=6,!=7.0.0,!=7.0.1)", "pytest-cov (>=3.0.0)", "pytest-qt"]
+test = ["pytest-qt", "pytest-cov (>=3.0.0)", "pytest (>=6,!=7.0.0,!=7.0.1)"]
 
 [[package]]
 name = "rasterio"
@@ -1306,7 +1306,7 @@ rasterio = ">=1.0,<2.0"
 rio-mucho = "*"
 
 [package.extras]
-test = ["pytest", "colormath (==2.0.2)", "pytest-cov", "codecov"]
+test = ["codecov", "pytest-cov", "colormath (==2.0.2)", "pytest"]
 
 [[package]]
 name = "rio-mucho"
@@ -1325,7 +1325,7 @@ test = ["pytest", "pytest-cov", "coveralls"]
 
 [[package]]
 name = "rio-tiler"
-version = "3.1.4"
+version = "3.1.6"
 description = "User friendly Rasterio plugin to read raster datasets."
 category = "main"
 optional = false
@@ -1396,9 +1396,9 @@ optional = false
 python-versions = "*"
 
 [package.extras]
-nativelib = ["pyobjc-framework-cocoa", "pywin32"]
-objc = ["pyobjc-framework-cocoa"]
 win32 = ["pywin32"]
+objc = ["pyobjc-framework-cocoa"]
+nativelib = ["pywin32", "pyobjc-framework-cocoa"]
 
 [[package]]
 name = "setuptools-scm"
@@ -1496,8 +1496,8 @@ python-versions = ">=3.6"
 webencodings = ">=0.4"
 
 [package.extras]
-doc = ["sphinx", "sphinx-rtd-theme"]
-test = ["pytest", "pytest-cov", "pytest-flake8", "pytest-isort", "coverage"]
+test = ["coverage", "pytest-isort", "pytest-flake8", "pytest-cov", "pytest"]
+doc = ["sphinx-rtd-theme", "sphinx"]
 
 [[package]]
 name = "tomli"
@@ -2483,8 +2483,8 @@ rio-mucho = [
     {file = "rio_mucho-1.0.0-py3-none-any.whl", hash = "sha256:4677aca0613b35b1eb6dcdf314eafc23b707c42e54e9af89a87c86df5ae1ba6c"},
 ]
 rio-tiler = [
-    {file = "rio-tiler-3.1.4.tar.gz", hash = "sha256:4382d60a5e944f02bd775b23637d5036c88c33763cac3a60eb5cf6b319de7d79"},
-    {file = "rio_tiler-3.1.4-py3-none-any.whl", hash = "sha256:76a75c1948af96ec559c6093bdd0b49364f37ff7f854ff057f4b353ed498a999"},
+    {file = "rio-tiler-3.1.6.tar.gz", hash = "sha256:8ac63011d6d2ad27fa913b2700b732430d880621eeefa0a8f43eb650efd776bb"},
+    {file = "rio_tiler-3.1.6-py3-none-any.whl", hash = "sha256:9d619e2511135358173513845893563970fc57f458f201f63af442c7ff73f1cb"},
 ]
 s3transfer = [
     {file = "s3transfer-0.5.2-py3-none-any.whl", hash = "sha256:7a6f4c4d1fdb9a2b640244008e142cbc2cd3ae34b386584ef044dd0f27101971"},
