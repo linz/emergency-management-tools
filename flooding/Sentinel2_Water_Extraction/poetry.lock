@@ -1589,7 +1589,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "384789863ec490e6a2a4901363d1380fc5ff28cb05afc25412f2c64311635fd6"
+content-hash = "76bc38fa05c88073a98a3a4a083374ad1f6630847e5398ad60315e9a65902f5f"
 
 [metadata.files]
 affine = [
