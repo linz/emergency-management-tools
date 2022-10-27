@@ -1,5 +1,9 @@
 version: 2
 updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
   - package-ecosystem: pip
     directory: /flooding/Sentinel2_Water_Extraction
     schedule:
