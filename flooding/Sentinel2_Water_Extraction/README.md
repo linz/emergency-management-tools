@@ -6,7 +6,7 @@ Below are the instructions to get the Notebook up and running
 ## Prerequisites
 
 - Python 3.7, 3.8, or 3.9
-- GDAL 3.4
+- GDAL 3.5
 
 ## Get the Jupyter Notebook
 Either clone or download the Jupyter Notebook
