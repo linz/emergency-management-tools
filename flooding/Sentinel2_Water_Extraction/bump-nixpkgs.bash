@@ -40,7 +40,7 @@ full_file="${working_dir}/nixpkgs.json"
 jq '. + {sha256: $hash}' --arg hash "$archive_checksum" "$partial_file" >"$full_file"
 
 target_file='./nixpkgs.json'
-if diff "$full_file" "$target_file"; then
+if diff "$target_file" "$full_file"; then
     echo "No change; aborting." >&2
 else
     mv "$full_file" "$target_file"
