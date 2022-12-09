@@ -2,7 +2,11 @@
 name = "sentinel2_water_extraction"
 version = "0.1.0"
 description = ""
-authors = ["Victor Engmark <vengmark@linz.govt.nz>"]
+authors = [
+    "Matthew Wightman <mawightman@linz.govt.nz>",
+    "Simon Planzer <splanzer@linz.govt.nz>",
+    "Victor Engmark <vengmark@linz.govt.nz>",
+]
 license = "MIT"
 
 [tool.poetry.dependencies]
