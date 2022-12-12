@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3.0.2
+        uses: actions/checkout@v3.1.0
 
-      - uses: cachix/install-nix-action@v17
+      - uses: cachix/install-nix-action@v18
 
       - uses: cachix/cachix-action@v10
         with:
@@ -34,10 +34,10 @@ jobs:
           - '3.9'
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3.0.2
+        uses: actions/checkout@v3.1.0
 
       - name: Use Python ${{ matrix.python }}
-        uses: actions/setup-python@v4.2.0
+        uses: actions/setup-python@v4.3.1
         with:
           python-version: ${{ matrix.python }}
 
@@ -79,6 +79,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Decide whether the needed jobs succeeded or failed
-        uses: re-actors/alls-green@v1.1.0
+        uses: re-actors/alls-green@v1.2.2
         with:
           jobs: ${{ toJSON(needs) }}
