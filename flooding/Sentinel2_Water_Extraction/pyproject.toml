@@ -15,11 +15,8 @@ gdal = "3.4.2"
 geopandas = "*"
 jupyter = "*"
 matplotlib = "*"
-numpy = "*"
-rasterio = "*"
 rio-tiler = "*"
 sat-search = "*"
-shapely = "*"
 
 [tool.poetry.dev-dependencies]
 
