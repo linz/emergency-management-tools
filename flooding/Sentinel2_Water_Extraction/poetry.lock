@@ -1529,7 +1529,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "5569a443f6bfc1553c6648183220a5b354d75af65c08f1391562cd195e4752b9"
+content-hash = "6c00c0423308bd97f33c2d7090889657bc35f3351343a9e913336b291fb120b2"
 
 [metadata.files]
 affine = [
