@@ -16,38 +16,14 @@ let
     };
     overrides = pkgs.poetry2nix.overrides.withDefaults (self: super: {
       color-operations = super.color-operations.overridePythonAttrs (
-        # In https://github.com/nix-community/poetry2nix/pull/880
+        # In poetry2nix > 1.39.1
         old: {
           nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
             self.setuptools
           ];
         }
       );
-      comm = super.comm.overridePythonAttrs (
-        # In poetry2nix 1.39.0
-        old: {
-          nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
-            self.hatchling
-          ];
-        }
-      );
-      gdal = super.gdal.overridePythonAttrs (
-        # In https://github.com/nix-community/poetry2nix/pull/880
-        old: {
-          nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
-            pkgs.gdal
-          ];
-        }
-      );
       morecantile = super.morecantile.overridePythonAttrs (
-        # In https://github.com/nix-community/poetry2nix/pull/880
-        old: {
-          nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
-            self.flit-core
-          ];
-        }
-      );
-      packaging = super.packaging.overridePythonAttrs (
         # In poetry2nix > 1.39.1
         old: {
           nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
@@ -56,7 +32,7 @@ let
         }
       );
       rasterio = super.rasterio.overridePythonAttrs (
-        # In https://github.com/nix-community/poetry2nix/pull/880
+        # In poetry2nix > 1.39.1
         old: {
           nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
             pkgs.gdal
@@ -64,7 +40,7 @@ let
         }
       );
       rio-tiler = super.rio-tiler.overridePythonAttrs (
-        # In https://github.com/nix-community/poetry2nix/pull/880
+        # In poetry2nix > 1.39.1
         old: {
           nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
             self.hatchling
