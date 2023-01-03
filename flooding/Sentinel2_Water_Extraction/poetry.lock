@@ -405,7 +405,7 @@ woff = ["brotli (>=1.0.1)", "brotlicffi (>=0.8.0)", "zopfli (>=0.1.4)"]
 
 [[package]]
 name = "gdal"
-version = "3.4.1"
+version = "3.6.1"
 description = "GDAL: Geospatial Data Abstraction Library"
 category = "main"
 optional = false
@@ -1734,7 +1734,7 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "f430e342f66b36285c9471eb997a5afe72cc5c5708bc2c29ee92562d0ba437b4"
+content-hash = "b2ca8696509fb1d194efec10ad82ce183b3e0286ac710d561ccbfb6b0385224b"
 
 [metadata.files]
 affine = [
@@ -2074,7 +2074,7 @@ fonttools = [
     {file = "fonttools-4.38.0.zip", hash = "sha256:2bb244009f9bf3fa100fc3ead6aeb99febe5985fa20afbfbaa2f8946c2fbdaf1"},
 ]
 gdal = [
-    {file = "GDAL-3.4.1.tar.gz", hash = "sha256:b19e8143bc2c0d3e222789a465d82b6874236eb78801aec608bf5c8c44d20fcf"},
+    {file = "GDAL-3.6.1.tar.gz", hash = "sha256:5fcc867a44893ce3bcbf77783304b56de5d57122fd372c274fce7a9c7038ceb5"},
 ]
 geopandas = [
     {file = "geopandas-0.12.2-py3-none-any.whl", hash = "sha256:0a470e4bf6f5367e6fd83ab6b40405e0b805c8174665bbcb7c4077ed90202912"},
