@@ -15,6 +15,7 @@ in
       pkgs.gitFull
       pkgs.gitlint
       pkgs.pre-commit
+      pkgs.shellcheck
       pkgs.shfmt
     ];
   }
