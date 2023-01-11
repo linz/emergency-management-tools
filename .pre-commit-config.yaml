@@ -16,3 +16,22 @@ repos:
         types_or: [python, pyi, jupyter]
         additional_dependencies: [".[jupyter]"]
         stages: [commit]
+
+  - repo: local
+    hooks:
+      - id: shfmt
+        name: Format shell scripts
+        entry: shfmt
+        args: [--case-indent, --indent=4, --list, --space-redirects, --write]
+        types: [shell]
+        language: system
+        stages: [commit]
+
+      # TODO: Kill if https://github.com/pre-commit/identify/issues/350 is fixed
+      - id: shfmt_other
+        name: Format other shell scripts
+        entry: shfmt
+        args: [--case-indent, --indent=4, --list, --space-redirects, --write]
+        files: ^\.envrc$
+        language: system
+        stages: [commit]

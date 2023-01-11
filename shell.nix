@@ -14,5 +14,6 @@ in
       pkgs.cacert
       pkgs.gitFull
       pkgs.pre-commit
+      pkgs.shfmt
     ];
   }
