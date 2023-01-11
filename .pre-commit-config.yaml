@@ -11,6 +11,21 @@ repos:
         language: system
         stages: [commit-msg]
 
+      - id: shellcheck
+        name: shellcheck
+        entry: shellcheck
+        types: [shell]
+        language: system
+        stages: [commit]
+
+      # TODO: Kill if https://github.com/pre-commit/identify/issues/350 is fixed
+      - id: shellcheck_other
+        name: shellcheck other
+        entry: shellcheck
+        files: ^\.envrc$
+        language: system
+        stages: [commit]
+
       - id: shfmt
         name: Format shell scripts
         entry: shfmt
