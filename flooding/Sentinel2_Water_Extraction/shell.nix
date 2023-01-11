@@ -3,7 +3,7 @@ let
     (
       fetchTarball (
         builtins.fromJSON (
-          builtins.readFile ./nixpkgs.json
+          builtins.readFile ../../nixpkgs.json
         )
       )
     )
