@@ -16,6 +16,7 @@ in
       pkgs.cacert
       pkgs.gitFull
       pkgs.gitlint
+      pkgs.nodePackages.prettier
       pkgs.pre-commit
       pkgs.shellcheck
       pkgs.shfmt

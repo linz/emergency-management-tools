@@ -18,13 +18,15 @@ jobs:
       - uses: cachix/cachix-action@v12
         with:
           name: linz
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - name: Run pre-commit hooks
         run: nix-shell --pure --run 'pre-commit run --all-files'
 
       - name: Check all commit messages in Pull Request
-        run: nix-shell --pure --run 'gitlint --commits origin/${{ github.base_ref }}..${{ github.event.pull_request.head.sha }}'
+        run:
+          nix-shell --pure --run 'gitlint --commits origin/${{ github.base_ref
+          }}..${{ github.event.pull_request.head.sha }}'
 
   test-nix:
     name: Test using Nix
@@ -38,10 +40,12 @@ jobs:
       - uses: cachix/cachix-action@v12
         with:
           name: linz
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - name: Run test
-        run: nix-shell --pure --run 'jupyter nbconvert --debug --execute --inplace --to=notebook Sentinel2_Water_Extraction.ipynb'
+        run:
+          nix-shell --pure --run 'jupyter nbconvert --debug --execute --inplace
+          --to=notebook Sentinel2_Water_Extraction.ipynb'
         working-directory: flooding/Sentinel2_Water_Extraction
 
   test-poetry:
@@ -51,10 +55,10 @@ jobs:
       fail-fast: false
       matrix:
         python:
-          - '3.8'
-          - '3.9'
-          - '3.10'
-          - '3.11'
+          - "3.8"
+          - "3.9"
+          - "3.10"
+          - "3.11"
     steps:
       - name: Check out repository
         uses: actions/checkout@v3.3.0
@@ -69,7 +73,8 @@ jobs:
         with:
           path: ~/.cache/pip
           key:
-            ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python }}-${{
+            ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python
+            }}-${{
             hashFiles('./flooding/Sentinel2_Water_Extraction/poetry.lock') }}
           restore-keys: |
             ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python }}-
@@ -91,7 +96,9 @@ jobs:
         working-directory: flooding/Sentinel2_Water_Extraction
 
       - name: Run test
-        run: poetry run jupyter nbconvert --debug --execute --inplace --to=notebook Sentinel2_Water_Extraction.ipynb
+        run:
+          poetry run jupyter nbconvert --debug --execute --inplace --to=notebook
+          Sentinel2_Water_Extraction.ipynb
         working-directory: flooding/Sentinel2_Water_Extraction
 
   finalise:
