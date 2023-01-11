@@ -13,6 +13,7 @@ in
     packages = [
       pkgs.cacert
       pkgs.gitFull
+      pkgs.gitlint
       pkgs.pre-commit
       pkgs.shfmt
     ];
