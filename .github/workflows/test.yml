@@ -65,7 +65,7 @@ jobs:
         run: pip install poetry
 
       - name: Install Python packages
-        run: poetry install --no-dev --no-root
+        run: poetry install --only=main --no-root
         working-directory: flooding/Sentinel2_Water_Extraction
 
       - name: Run test
