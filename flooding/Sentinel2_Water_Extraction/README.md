@@ -28,7 +28,7 @@ The following commands will install the dependencies for just this project:
 ```shell
 pip install --upgrade pip
 pip install --upgrade poetry
-poetry install --no-dev --no-root
+poetry install --only=main --no-root
 ```
 
 ## Start the Jupyter Notebook
