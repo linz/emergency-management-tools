@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v3.3.0
+        with:
+          fetch-depth: 0 # Enable gitlint to check all PR commit messages
 
       - uses: cachix/install-nix-action@v18
 
@@ -20,6 +22,9 @@ jobs:
 
       - name: Run pre-commit hooks
         run: nix-shell --pure --run 'pre-commit run --all-files'
+
+      - name: Check all commit messages in Pull Request
+        run: nix-shell --pure --run 'gitlint --commits origin/${{ github.base_ref }}..${{ github.event.pull_request.head.sha }}'
 
   test-nix:
     name: Test using Nix
