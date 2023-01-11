@@ -27,7 +27,7 @@ The following commands will install the dependencies for just this project:
 
 ```shell
 pip install --upgrade pip
-pip install poetry
+pip install --upgrade poetry
 poetry install --no-dev --no-root
 ```
 
