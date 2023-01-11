@@ -4,30 +4,13 @@
 repos:
   - repo: local
     hooks:
-    - id: gitlint
-      name: gitlint
-      entry: gitlint
-      args: [--staged, --msg-filename]
-      language: system
-      stages: [commit-msg]
+      - id: gitlint
+        name: gitlint
+        entry: gitlint
+        args: [--staged, --msg-filename]
+        language: system
+        stages: [commit-msg]
 
-  - repo: https://github.com/psf/black
-    rev: 2ddea293a88919650266472186620a98a4a8bb37  # frozen: 22.12.0
-    hooks:
-      - id: black-jupyter
-        name: black-jupyter
-        description: "Black: The uncompromising Python code formatter (with Jupyter Notebook support)"
-        entry: black
-        language: python
-        language_version: python3.10
-        minimum_pre_commit_version: 2.9.2
-        require_serial: true
-        types_or: [python, pyi, jupyter]
-        additional_dependencies: [".[jupyter]"]
-        stages: [commit]
-
-  - repo: local
-    hooks:
       - id: shfmt
         name: Format shell scripts
         entry: shfmt
@@ -43,4 +26,19 @@ repos:
         args: [--case-indent, --indent=4, --list, --space-redirects, --write]
         files: ^\.envrc$
         language: system
+        stages: [commit]
+
+  - repo: https://github.com/psf/black
+    rev: 2ddea293a88919650266472186620a98a4a8bb37  # frozen: 22.12.0
+    hooks:
+      - id: black-jupyter
+        name: black-jupyter
+        description: "Black: The uncompromising Python code formatter (with Jupyter Notebook support)"
+        entry: black
+        language: python
+        language_version: python3.10
+        minimum_pre_commit_version: 2.9.2
+        require_serial: true
+        types_or: [python, pyi, jupyter]
+        additional_dependencies: [".[jupyter]"]
         stages: [commit]
