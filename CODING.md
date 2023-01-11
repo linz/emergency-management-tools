@@ -17,5 +17,5 @@ pre-commit install --hook-type=commit-msg --hook-type=pre-commit --overwrite
 ### Update configuration to latest versions
 
 ```shell
-nix-shell --packages cacert git pre-commit --pure --run 'pre-commit autoupdate --freeze'
+pre-commit autoupdate --freeze
 ```
