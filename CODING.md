@@ -2,7 +2,8 @@
 
 ## Prerequisites
 
-[Nix](https://nixos.org/download.html), optionally [lorri](https://github.com/nix-community/lorri).
+[Nix](https://nixos.org/download.html), optionally
+[lorri](https://github.com/nix-community/lorri).
 
 To enter the development environment, simply run `nix-shell`.
 
