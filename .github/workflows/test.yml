@@ -6,7 +6,7 @@ on:
 jobs:
   test-nix:
     name: Test using Nix
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Check out repository
         uses: actions/checkout@v3.3.0
@@ -77,7 +77,7 @@ jobs:
     needs:
       - test-nix
       - test-poetry
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Decide whether the needed jobs succeeded or failed
         uses: re-actors/alls-green@v1.2.2
