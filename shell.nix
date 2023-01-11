@@ -1,5 +1,6 @@
 let
-  pkgs = import
+  pkgs =
+    import
     (
       fetchTarball (
         builtins.fromJSON (
@@ -7,10 +8,11 @@ let
         )
       )
     )
-    { };
+    {};
 in
   pkgs.mkShell {
     packages = [
+      pkgs.alejandra
       pkgs.cacert
       pkgs.gitFull
       pkgs.gitlint

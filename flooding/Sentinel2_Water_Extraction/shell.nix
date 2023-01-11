@@ -1,5 +1,6 @@
 let
-  pkgs = import
+  pkgs =
+    import
     (
       fetchTarball (
         builtins.fromJSON (
@@ -7,7 +8,7 @@ let
         )
       )
     )
-    { };
+    {};
   poetryEnvironment = pkgs.poetry2nix.mkPoetryEnv {
     python = pkgs.python39;
     projectDir = builtins.path {
@@ -18,58 +19,70 @@ let
       color-operations = super.color-operations.overridePythonAttrs (
         # In poetry2nix > 1.39.1
         old: {
-          nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
-            self.setuptools
-          ];
+          nativeBuildInputs =
+            (old.nativeBuildInputs or [])
+            ++ [
+              self.setuptools
+            ];
         }
       );
       morecantile = super.morecantile.overridePythonAttrs (
         # In poetry2nix > 1.39.1
         old: {
-          nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
-            self.flit-core
-          ];
+          nativeBuildInputs =
+            (old.nativeBuildInputs or [])
+            ++ [
+              self.flit-core
+            ];
         }
       );
       rasterio = super.rasterio.overridePythonAttrs (
         # In poetry2nix > 1.39.1
         old: {
-          nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
-            pkgs.gdal
-          ];
+          nativeBuildInputs =
+            (old.nativeBuildInputs or [])
+            ++ [
+              pkgs.gdal
+            ];
         }
       );
       rio-tiler = super.rio-tiler.overridePythonAttrs (
         # In poetry2nix > 1.39.1
         old: {
-          nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
-            self.hatchling
-          ];
+          nativeBuildInputs =
+            (old.nativeBuildInputs or [])
+            ++ [
+              self.hatchling
+            ];
         }
       );
       sat-search = super.sat-search.overridePythonAttrs (
         # In poetry2nix > 1.39.1
         old: {
-          nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
-            self.setuptools
-          ];
+          nativeBuildInputs =
+            (old.nativeBuildInputs or [])
+            ++ [
+              self.setuptools
+            ];
         }
       );
       sat-stac = super.sat-stac.overridePythonAttrs (
         # In poetry2nix > 1.39.1
         old: {
-          nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
-            self.setuptools
-          ];
+          nativeBuildInputs =
+            (old.nativeBuildInputs or [])
+            ++ [
+              self.setuptools
+            ];
         }
       );
     });
   };
 in
-poetryEnvironment.env.overrideAttrs (
-  oldAttrs: {
-    buildInputs = [
-      pkgs.cacert
-    ];
-  }
-)
+  poetryEnvironment.env.overrideAttrs (
+    oldAttrs: {
+      buildInputs = [
+        pkgs.cacert
+      ];
+    }
+  )

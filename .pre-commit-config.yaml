@@ -4,6 +4,13 @@
 repos:
   - repo: local
     hooks:
+      - id: alejandra
+        name: alejandra
+        entry: alejandra
+        files: \.nix$
+        language: system
+        stages: [commit]
+
       - id: gitlint
         name: gitlint
         entry: gitlint
