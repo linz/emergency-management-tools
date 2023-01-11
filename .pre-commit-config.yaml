@@ -2,6 +2,15 @@
 # Please run `pre-commit run --all-files` when adding or changing entries.
 
 repos:
+  - repo: local
+    hooks:
+    - id: gitlint
+      name: gitlint
+      entry: gitlint
+      args: [--staged, --msg-filename]
+      language: system
+      stages: [commit-msg]
+
   - repo: https://github.com/psf/black
     rev: 2ddea293a88919650266472186620a98a4a8bb37  # frozen: 22.12.0
     hooks:
@@ -15,4 +24,23 @@ repos:
         require_serial: true
         types_or: [python, pyi, jupyter]
         additional_dependencies: [".[jupyter]"]
+        stages: [commit]
+
+  - repo: local
+    hooks:
+      - id: shfmt
+        name: Format shell scripts
+        entry: shfmt
+        args: [--case-indent, --indent=4, --list, --space-redirects, --write]
+        types: [shell]
+        language: system
+        stages: [commit]
+
+      # TODO: Kill if https://github.com/pre-commit/identify/issues/350 is fixed
+      - id: shfmt_other
+        name: Format other shell scripts
+        entry: shfmt
+        args: [--case-indent, --indent=4, --list, --space-redirects, --write]
+        files: ^\.envrc$
+        language: system
         stages: [commit]
