@@ -4,6 +4,23 @@ on:
     types: [opened, reopened, synchronize]
 
 jobs:
+  lint:
+    name: Lint content
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3.3.0
+
+      - uses: cachix/install-nix-action@v18
+
+      - uses: cachix/cachix-action@v12
+        with:
+          name: linz
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+
+      - name: Run pre-commit hooks
+        run: nix-shell --pure --run 'pre-commit run --all-files'
+
   test-nix:
     name: Test using Nix
     runs-on: ubuntu-22.04
@@ -75,6 +92,7 @@ jobs:
   finalise:
     if: always()
     needs:
+      - lint
       - test-nix
       - test-poetry
     runs-on: ubuntu-22.04
