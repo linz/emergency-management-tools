@@ -9,8 +9,12 @@ let
       )
     )
     {};
+  sentinel2WaterExtractionEnv = import ./flooding/Sentinel2_Water_Extraction/poetryEnv.nix {inherit pkgs;};
 in
   pkgs.mkShell {
+    buildInputs = [
+      sentinel2WaterExtractionEnv
+    ];
     packages = [
       pkgs.alejandra
       pkgs.cacert
