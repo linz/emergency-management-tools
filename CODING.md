@@ -7,6 +7,13 @@
 
 To enter the development environment, simply run `nix-shell`.
 
+## Nix
+
+### Update nixpkgs version
+
+Run `./bump-nixpkgs.bash` and follow the instructions. Generally we should be
+using the latest stable ["nixos-YY.MM" channel](https://status.nixos.org/).
+
 ## pre-commit
 
 ### Install hooks
