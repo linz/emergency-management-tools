@@ -20,5 +20,6 @@ in
       pkgs.pre-commit
       pkgs.shellcheck
       pkgs.shfmt
+      pkgs.statix
     ];
   }
