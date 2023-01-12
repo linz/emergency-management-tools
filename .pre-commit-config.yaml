@@ -83,6 +83,11 @@ repos:
       - id: nbqa-isort
       - id: nbqa-pydocstyle
 
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 00337e660434e648317dbaf2bbaca4966953da22 # frozen: 0.20.0
+    hooks:
+      - id: check-github-workflows
+
   - repo: meta
     hooks:
       - id: check-useless-excludes
