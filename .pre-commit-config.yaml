@@ -79,21 +79,5 @@ repos:
   - repo: https://github.com/nbQA-dev/nbQA
     rev: 73e47d5a94b8724ce0b36e7bf29103a6f45dc505 # frozen: 1.6.1
     hooks:
+      - id: nbqa-black
       - id: nbqa-pydocstyle
-
-  - repo: https://github.com/psf/black
-    rev: 2ddea293a88919650266472186620a98a4a8bb37 # frozen: 22.12.0
-    hooks:
-      - id: black-jupyter
-        name: black-jupyter
-        description:
-          "Black: The uncompromising Python code formatter (with Jupyter
-          Notebook support)"
-        entry: black
-        language: python
-        language_version: python3.10
-        minimum_pre_commit_version: 2.9.2
-        require_serial: true
-        types_or: [python, pyi, jupyter]
-        additional_dependencies: [".[jupyter]"]
-        stages: [commit]
