@@ -1,2 +1,17 @@
 [tool.isort]
 profile = "black"
+
+[tool.mypy]
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = [
+    "geopandas", # https://github.com/geopandas/geopandas/issues/1974
+    "matplotlib", # https://github.com/matplotlib/matplotlib/issues/20504
+    "matplotlib.pyplot", # https://github.com/matplotlib/matplotlib/issues/20504
+    "rasterio", # https://github.com/rasterio/rasterio/issues/2322
+    "rasterio.plot", # https://github.com/rasterio/rasterio/issues/2322
+    "satsearch", # Seems to be dead
+    "shapely.geometry", # https://github.com/shapely/shapely/issues/721
+]
+ignore_missing_imports = true
