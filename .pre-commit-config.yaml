@@ -80,4 +80,5 @@ repos:
     rev: 73e47d5a94b8724ce0b36e7bf29103a6f45dc505 # frozen: 1.6.1
     hooks:
       - id: nbqa-black
+      - id: nbqa-isort
       - id: nbqa-pydocstyle
