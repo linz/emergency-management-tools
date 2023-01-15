@@ -18,6 +18,15 @@ repos:
         language: system
         stages: [commit-msg]
 
+      - id: jupyter-clean
+        name: jupyter-clean
+        entry: jupyter
+        args:
+          [nbconvert, --clear-output, --ClearMetadataPreprocessor.enabled=True]
+        types: [jupyter]
+        language: system
+        stages: [commit]
+
       - id: pathchk
         name: pathchk
         entry: pathchk
