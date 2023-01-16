@@ -9,7 +9,7 @@ let
       )
     )
     {};
-  sentinel2WaterExtractionPoetryPackages = import ./flooding/Sentinel2_Water_Extraction/poetryPackages.nix {
+  sentinel2WaterExtractionPoetryPackages = import ./flooding/sentinel2_water_extraction/poetryPackages.nix {
     inherit pkgs;
   };
   python = sentinel2WaterExtractionPoetryPackages.python.withPackages (

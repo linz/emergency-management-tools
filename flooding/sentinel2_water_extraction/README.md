@@ -43,7 +43,7 @@ Once you have the code locally, it can be executed to extract water
 
 Open the terminal and navigate to the notebook directory
 
-`cd <path where downloaded to>/emergency-management/flooding/Sentinel2_Water_Extraction`
+`cd <path where downloaded to>/emergency-management/flooding/sentinel2_water_extraction`
 
 Start the notebook
 
