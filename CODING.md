@@ -23,7 +23,11 @@ using the latest stable ["nixos-YY.MM" channel](https://status.nixos.org/).
 
 ## pre-commit
 
-### Install hooks
+### Run hooks manually
+
+See [test workflow](.github/workflows/test.yml)
+
+### Install hooks to run automatically
 
 ```shell
 pre-commit install --hook-type=commit-msg --hook-type=pre-commit --overwrite
