@@ -34,3 +34,16 @@ pre-commit install --hook-type=commit-msg --hook-type=pre-commit --overwrite
 ```shell
 pre-commit autoupdate --freeze
 ```
+
+## CI
+
+### Cache seed
+
+You'll see references to `secrets.CACHE_SEED` in the
+[CI configuration](.github/workflows). This is a hack to allow you to
+effectively ignore the existing cache entries in case of a cache corruption
+(such as caching an invalid package). Simply
+[set the `CACHE_SEED` secret](https://github.com/linz/emergency-management-tools/settings)
+for all relevant contexts ("Actions" being the main one) to an arbitrary new
+value, and the cache key changes correspondingly to something new, resulting in
+a fresh cache.
