@@ -34,6 +34,7 @@ let
           }
         )
         ps.mypy
+        ps.pylint
         ps.types-python-dateutil
       ]
       ++ sentinel2WaterExtractionPoetryPackages.poetryPackages
