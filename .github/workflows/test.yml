@@ -84,7 +84,7 @@ jobs:
             ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python
             }}-${{
             hashFiles('./flooding/Sentinel2_Water_Extraction/poetry.lock') }}
-          restore-keys: |
+          restore-keys:
             ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python }}-
 
       - name: Update package registry
