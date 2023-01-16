@@ -95,6 +95,16 @@ repos:
         language: system
         stages: [commit]
 
+      - id: nbqa-pylint
+        name: nbqa-pylint
+        description: Run 'pylint' on Jupyter notebooks
+        entry: nbqa
+        args: [pylint, --include-naming-hint=y]
+        require_serial: true
+        types_or: [jupyter, markdown]
+        language: system
+        stages: [commit]
+
   - repo: https://github.com/nbQA-dev/nbQA
     rev: 73e47d5a94b8724ce0b36e7bf29103a6f45dc505 # frozen: 1.6.1
     hooks:
