@@ -87,7 +87,7 @@ repos:
 
       - id: nbqa-mypy
         name: nbqa-mypy
-        description: Run 'mypy' on a Jupyter Notebook
+        description: Run 'mypy' on Jupyter notebooks
         entry: nbqa
         args: [mypy]
         require_serial: true
