@@ -94,10 +94,12 @@ jobs:
         run: sudo apt-get --assume-yes install libgdal-dev
 
       - name: Upgrade pip
-        run: pip install --disable-pip-version-check --upgrade pip
+        run:
+          pip install --disable-pip-version-check --progress-bar=off --upgrade
+          pip
 
       - name: Install Poetry
-        run: pip install --disable-pip-version-check poetry
+        run: pip install --disable-pip-version-check --progress-bar=off poetry
 
       - name: Install Python packages
         run: poetry install --only=main --no-root
