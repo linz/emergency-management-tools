@@ -91,10 +91,12 @@ jobs:
         run: sudo apt-get update
 
       - name: Upgrade pip
-        run: pip install --disable-pip-version-check --upgrade pip
+        run:
+          pip install --disable-pip-version-check --progress-bar=off --upgrade
+          pip
 
       - name: Install Poetry
-        run: pip install --disable-pip-version-check poetry
+        run: pip install --disable-pip-version-check --progress-bar=off poetry
 
       - name: Install GDAL
         run:
