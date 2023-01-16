@@ -1,6 +1,6 @@
 # Sentinel-2 Water Extraction
 
-The Sentinel2_Water_Extraction Jupyter Notebook was developed to extract water
+The sentinel2_water_extraction Jupyter Notebook was developed to extract water
 from Sentinel-2 imagery.
 
 Below are the instructions to get the Notebook up and running
@@ -47,9 +47,9 @@ Open the terminal and navigate to the notebook directory
 
 Start the notebook
 
-`$ poetry run jupyter notebook Sentinel2_Water_Extraction.ipynb`
+`$ poetry run jupyter notebook sentinel2_water_extraction.ipynb`
 
-Open the Jupyter Notebook by clicking on Sentinel2_Water_Extraction.ipynb (see
+Open the Jupyter Notebook by clicking on sentinel2_water_extraction.ipynb (see
 image below) ![jupyter dir](images/jupyter.png "jupyter dir")
 
 ## Extract Water From Sentinel-2 imagery
