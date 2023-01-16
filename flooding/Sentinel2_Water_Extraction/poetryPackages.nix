@@ -3,7 +3,7 @@ pkgs.poetry2nix.mkPoetryPackages {
   python = pkgs.python39;
   projectDir = builtins.path {
     path = ./.;
-    name = "Sentinel2_Water_Extraction_packages";
+    name = "sentinel2_water_extraction_packages";
   };
   overrides = pkgs.poetry2nix.overrides.withDefaults (self: super: {
     color-operations = super.color-operations.overridePythonAttrs (
