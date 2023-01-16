@@ -88,7 +88,8 @@ repos:
       - id: nbqa-mypy
         name: nbqa-mypy
         description: Run 'mypy' on a Jupyter Notebook
-        entry: nbqa mypy
+        entry: nbqa
+        args: [mypy]
         require_serial: true
         types_or: [jupyter, markdown]
         language: system
