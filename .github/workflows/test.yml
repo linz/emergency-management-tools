@@ -54,7 +54,7 @@ jobs:
         run:
           nix-shell --pure --run 'jupyter nbconvert --debug --execute --inplace
           --to=notebook sentinel2_water_extraction.ipynb'
-        working-directory: flooding/Sentinel2_Water_Extraction
+        working-directory: flooding/sentinel2_water_extraction
 
   test-poetry:
     name: Test using Poetry on Python ${{ matrix.python }}
@@ -83,7 +83,7 @@ jobs:
           key:
             ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python
             }}-${{
-            hashFiles('./flooding/Sentinel2_Water_Extraction/poetry.lock') }}
+            hashFiles('./flooding/sentinel2_water_extraction/poetry.lock') }}
           restore-keys:
             ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python }}-
 
@@ -102,17 +102,17 @@ jobs:
         run:
           sudo apt-get --assume-yes install libgdal-dev="$(poetry show gdal | tr
           --delete ' ' | grep '^version:' | cut --delimiter=':' --fields=2)*"
-        working-directory: flooding/Sentinel2_Water_Extraction
+        working-directory: flooding/sentinel2_water_extraction
 
       - name: Install Python packages
         run: poetry install --only=main --no-root
-        working-directory: flooding/Sentinel2_Water_Extraction
+        working-directory: flooding/sentinel2_water_extraction
 
       - name: Run test
         run:
           poetry run jupyter nbconvert --debug --execute --inplace --to=notebook
           sentinel2_water_extraction.ipynb
-        working-directory: flooding/Sentinel2_Water_Extraction
+        working-directory: flooding/sentinel2_water_extraction
 
   finalise:
     if: always()

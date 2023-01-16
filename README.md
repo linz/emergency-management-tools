@@ -12,6 +12,6 @@ Source code to support emergency events
 
 Current automated processes
 
-### [Flood Water Extraction](flooding/Sentinel2_Water_Extraction/README.md)
+### [Flood Water Extraction](flooding/sentinel2_water_extraction/README.md)
 
 Jupyter Notebook for extracting water from Sentinel 2 imagery.
