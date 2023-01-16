@@ -1,4 +1,4 @@
-*.pyc
-.ipynb_checkpoints/
-.venv/
 /.idea/
+.ipynb_checkpoints/
+*.pyc
+.venv/
