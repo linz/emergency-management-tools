@@ -90,14 +90,17 @@ jobs:
       - name: Update package registry
         run: sudo apt-get update
 
-      - name: Install GDAL
-        run: sudo apt-get --assume-yes install libgdal-dev
-
       - name: Upgrade pip
         run: pip install --upgrade pip
 
       - name: Install Poetry
         run: pip install poetry
+
+      - name: Install GDAL
+        run:
+          sudo apt-get --assume-yes install libgdal-dev="$(poetry show gdal | tr
+          --delete ' ' | grep '^version:' | cut --delimiter=':' --fields=2)*"
+        working-directory: flooding/Sentinel2_Water_Extraction
 
       - name: Install Python packages
         run: poetry install --only=main --no-root
