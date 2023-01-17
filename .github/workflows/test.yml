@@ -57,21 +57,31 @@ jobs:
         working-directory: flooding/sentinel2_water_extraction
 
   test-poetry:
-    name: Test using Poetry on Python ${{ matrix.python }}
-    runs-on: ubuntu-22.04
+    name:
+      Test on ${{ matrix.runner }}, using Poetry with Python ${{ matrix.python
+      }}
+    runs-on: ${{ matrix.runner }}
     strategy:
       fail-fast: false
       matrix:
+        runner:
+          - macos-12
+          - ubuntu-22.04
         python:
           - "3.8"
           - "3.9"
           - "3.10"
-          - "3.11"
+        include:
+          - runner: macos-12
+            pip-cache-dir: ~/Library/Caches/pip
+          - runner: ubuntu-22.04
+            pip-cache-dir: ~/.cache/pip
     steps:
       - name: Check out repository
         uses: actions/checkout@v3.3.0
 
       - name: Use Python ${{ matrix.python }}
+        id: setup-python
         uses: actions/setup-python@v4.5.0
         with:
           python-version: ${{ matrix.python }}
@@ -79,7 +89,7 @@ jobs:
       - name: Cache pip
         uses: actions/cache@v3.2.3
         with:
-          path: ~/.cache/pip
+          path: ${{ matrix.pip-cache-dir }}
           key:
             ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python
             }}-${{
@@ -87,23 +97,25 @@ jobs:
           restore-keys:
             ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python }}-
 
-      - name: Update package registry
-        run: sudo apt-get update
-
       - name: Install Poetry
         run: pip install --disable-pip-version-check --progress-bar=off poetry
 
       - name: Get GDAL Python package version
         run:
-          echo "GDAL_VERSION=$(poetry show gdal | tr --delete ' ' | grep
-          '^version:' | cut --delimiter=':' --fields=2)" >> $GITHUB_ENV
+          echo "GDAL_VERSION=$(poetry show gdal | tr -d ' ' | grep '^version:' |
+          cut -d ':' -f 2)" >> $GITHUB_ENV
         working-directory: flooding/sentinel2_water_extraction
 
-      - name: Install GDAL
+      - name: Setup Conda
+        uses: s-weigand/setup-conda@v1.1.1
+        with:
+          conda-channels: conda-forge
+          python-version: ${{ steps.setup-python.outputs.python-version }}
+
+      - name: Install Conda environment packages
         run:
-          sudo apt-get --assume-yes install "libgdal-dev=${{ env.GDAL_VERSION
-          }}*"
-        working-directory: flooding/sentinel2_water_extraction
+          conda install --channel=conda-forge --quiet --yes gdal=${{
+          env.GDAL_VERSION }} poetry
 
       - name: Install Python packages
         run: poetry install --only=main --no-root
