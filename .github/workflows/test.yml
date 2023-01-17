@@ -93,10 +93,16 @@ jobs:
       - name: Install Poetry
         run: pip install --disable-pip-version-check --progress-bar=off poetry
 
+      - name: Get GDAL Python package version
+        run:
+          echo "GDAL_VERSION=$(poetry show gdal | tr --delete ' ' | grep
+          '^version:' | cut --delimiter=':' --fields=2)" >> $GITHUB_ENV
+        working-directory: flooding/sentinel2_water_extraction
+
       - name: Install GDAL
         run:
-          sudo apt-get --assume-yes install libgdal-dev="$(poetry show gdal | tr
-          --delete ' ' | grep '^version:' | cut --delimiter=':' --fields=2)*"
+          sudo apt-get --assume-yes install "libgdal-dev=${{ env.GDAL_VERSION
+          }}*"
         working-directory: flooding/sentinel2_water_extraction
 
       - name: Install Python packages
