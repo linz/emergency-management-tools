@@ -67,6 +67,7 @@ jobs:
         runner:
           - macos-12
           - ubuntu-22.04
+          - windows-2022
         python:
           - "3.8"
           - "3.9"
@@ -76,6 +77,8 @@ jobs:
             pip-cache-dir: ~/Library/Caches/pip
           - runner: ubuntu-22.04
             pip-cache-dir: ~/.cache/pip
+          - runner: windows-2022
+            pip-cache-dir: ~\AppData\Local\pip\Cache
         exclude:
           - runner: ubuntu-22.04
             python: "3.10" # https://github.com/ContinuumIO/anaconda-issues/issues/13122
@@ -107,6 +110,7 @@ jobs:
         run:
           echo "GDAL_VERSION=$(poetry show gdal | tr -d ' ' | grep '^version:' |
           cut -d ':' -f 2)" >> $GITHUB_ENV
+        shell: bash
         working-directory: flooding/sentinel2_water_extraction
 
       - name: Setup Conda
@@ -129,9 +133,34 @@ jobs:
           conda install --channel=conda-forge --quiet --yes gdal=${{
           env.GDAL_VERSION }} poetry
 
-      - name: Install Python packages
+      - name: Install Python packages on non-Windows runner
         run: poetry install --only=main --no-root
         working-directory: flooding/sentinel2_water_extraction
+        if: ${{ !startsWith(runner.os, 'Windows') }}
+
+      - name:
+          Reinstall Python 3.10 on Windows runner (Workaround from
+          https://github.com/nltk/nltk/issues/3027#issuecomment-1197689886)
+        uses: nick-fields/retry@v2.8.3
+        with:
+          timeout_minutes: 9999 # Workaround for https://github.com/nick-fields/retry/issues/107
+          max_attempts: 6
+          command:
+            conda install --channel=conda-forge --quiet --yes python=${{
+            matrix.python }}
+        if: ${{ startsWith(runner.os, 'Windows') && matrix.python == '3.10' }}
+
+      - name:
+          Install Python packages on Windows runner (Workaround for
+          https://github.com/python-poetry/poetry/issues/1031)
+        uses: nick-fields/retry@v2.8.3
+        with:
+          timeout_minutes: 9999 # Workaround for https://github.com/nick-fields/retry/issues/107
+          max_attempts: 6
+          command: cd flooding/sentinel2_water_extraction && poetry install
+            --only=main --no-root # Workaround for https://github.com/python-poetry/poetry/issues/7363 / https://github.com/nick-fields/retry/issues/89
+          shell: bash
+        if: ${{ startsWith(runner.os, 'Windows') }}
 
       - name: Run test
         run:
