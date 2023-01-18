@@ -12,7 +12,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-gdal = "3.4.1"
+gdal = "3.6.2"
 geopandas = "*"
 jupyter = "*"
 matplotlib = "*"
