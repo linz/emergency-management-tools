@@ -26,6 +26,16 @@ pkgs.poetry2nix.mkPoetryPackages {
           ];
       }
     );
+    gdal = super.gdal.overridePythonAttrs (
+      # In poetry2nix > 1.39.1
+      old: {
+        nativeBuildInputs =
+          (old.nativeBuildInputs or [])
+          ++ [
+            pkgs.gdal
+          ];
+      }
+    );
     rasterio = super.rasterio.overridePythonAttrs (
       # In poetry2nix > 1.39.1
       old: {
