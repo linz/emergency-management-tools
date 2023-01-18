@@ -76,5 +76,15 @@ pkgs.poetry2nix.mkPoetryPackages {
           ];
       }
     );
+    shapely = super.shapely.overridePythonAttrs (
+      # https://github.com/nix-community/poetry2nix/pull/879
+      old: {
+        nativeBuildInputs =
+          (old.nativeBuildInputs or [])
+          ++ [
+            pkgs.geos
+          ];
+      }
+    );
   });
 }
