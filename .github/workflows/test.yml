@@ -162,6 +162,10 @@ jobs:
           shell: bash
         if: ${{ startsWith(runner.os, 'Windows') }}
 
+      - name: Get Geopandas versions for debugging purposes
+        run: poetry run python -c 'import geopandas; geopandas.show_versions()'
+        working-directory: flooding/sentinel2_water_extraction
+
       - name: Run test
         run:
           poetry run jupyter nbconvert --debug --execute --inplace --to=notebook
