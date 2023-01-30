@@ -6,6 +6,17 @@ pkgs.poetry2nix.mkPoetryPackages {
     name = "sentinel2_water_extraction_packages";
   };
   overrides = pkgs.poetry2nix.overrides.withDefaults (self: super: {
+    affine = super.affine.overridePythonAttrs (
+      # https://github.com/nix-community/poetry2nix/pull/971
+      old: {
+        nativeBuildInputs = pkgs.lib.remove self.setuptools (
+          (old.nativeBuildInputs or [])
+          ++ [
+            self.flit-core
+          ]
+        );
+      }
+    );
     color-operations = super.color-operations.overridePythonAttrs (
       # In poetry2nix > 1.39.1
       old: {
