@@ -10,7 +10,6 @@ Below are the instructions to get the Notebook up and running
 -  Linux (tested on Ubuntu 22.04), macOS (tested on version 12, Monterey), or
    Windows (tested on Windows Server 2022)
 -  Python 3.8, 3.9, or 3.10
-   ([except for Ubuntu](https://github.com/ContinuumIO/anaconda-issues/issues/13122))
 -  GDAL 3.4
 
 ## Get the Jupyter Notebook

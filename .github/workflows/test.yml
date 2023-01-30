@@ -79,9 +79,6 @@ jobs:
             pip-cache-dir: ~/.cache/pip
           - runner: windows-2022
             pip-cache-dir: ~\AppData\Local\pip\Cache
-        exclude:
-          - runner: ubuntu-22.04
-            python: "3.10" # https://github.com/ContinuumIO/anaconda-issues/issues/13122
     steps:
       - name: Check out repository
         uses: actions/checkout@v3.3.0
