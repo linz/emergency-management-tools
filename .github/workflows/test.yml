@@ -97,11 +97,12 @@ jobs:
         with:
           path: ${{ matrix.pip-cache-dir }}
           key:
-            ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python
-            }}-${{
+            ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{
+            steps.setup-python.outputs.python-version }}-${{
             hashFiles('./flooding/sentinel2_water_extraction/poetry.lock') }}
           restore-keys:
-            ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python }}-
+            ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{
+            steps.setup-python.outputs.python-version }}-
 
       - name: Install Poetry
         run: pip install --disable-pip-version-check --progress-bar=off poetry
@@ -147,7 +148,7 @@ jobs:
           max_attempts: 6
           command:
             conda install --channel=conda-forge --quiet --yes python=${{
-            matrix.python }}
+            steps.setup-python.outputs.python-version }}
         if: ${{ startsWith(runner.os, 'Windows') && matrix.python == '3.10' }}
 
       - name:
