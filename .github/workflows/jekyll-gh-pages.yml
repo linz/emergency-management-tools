@@ -1,0 +1,49 @@
+name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+  push:
+    branches: ["master"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.3.0
+      - name: Setup Pages
+        uses: actions/configure-pages@v3.0.1
+      - uses: cachix/install-nix-action@v18
+      - uses: cachix/cachix-action@v12
+        with:
+          name: linz
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - name: Build with Jekyll
+        run: nix-shell --pure --run 'github-pages build --verbose'
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1.0.7
+
+  deploy:
+    if:
+      github.repository == 'linz/emergency-management-tools' && github.ref ==
+      'refs/heads/master'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-22.04
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1.2.3

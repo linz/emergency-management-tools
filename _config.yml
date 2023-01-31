@@ -1,0 +1,26 @@
+title: Emergency Management Tools
+url: https://linz.github.io
+baseurl: /emergency-management-tools
+
+remote_theme: linz/github-pages-theme
+
+github:
+  - metadata
+
+plugins:
+  - jekyll-remote-theme
+
+exclude:
+  - .git/
+  - .github/
+  - .gitignore
+  - .idea/
+  - .venv
+  - CODING.md
+  - LICENSE
+  - README.md
+  - bump-nixpkgs.bash
+  - flooding/
+  - nixpkgs.json
+  - pyproject.toml
+  - shell.nix

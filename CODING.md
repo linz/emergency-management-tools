@@ -51,3 +51,12 @@ effectively ignore the existing cache entries in case of a cache corruption
 for all relevant contexts ("Actions" being the main one) to an arbitrary new
 value, and the cache key changes correspondingly to something new, resulting in
 a fresh cache.
+
+## Website
+
+Use `jekyll serve` to serve up a local copy of the website. This should rebuild
+pages when any of the input files change.
+
+Make sure to [`exclude`](_config.yml) any new files which are not explicitly
+part of the website. The simplest way to verify this is to run
+`github-pages build` and look at the contents of [the `_site` directory](_site).

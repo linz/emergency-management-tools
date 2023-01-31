@@ -49,6 +49,7 @@ in
       pkgs.gitlint
       pkgs.nodePackages.prettier
       pkgs.pre-commit
+      pkgs.rubyPackages.github-pages
       pkgs.shellcheck
       pkgs.shfmt
       pkgs.statix
