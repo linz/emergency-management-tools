@@ -21,14 +21,6 @@ your shell to wait for the build to finish, run `lorri watch --once`.
 Run `./bump-nixpkgs.bash` and follow the instructions. Generally we should be
 using the latest stable ["nixos-YY.MM" channel](https://status.nixos.org/).
 
-## Jupyter notebooks
-
-### Export a notebook to a script
-
-```shell
-jupyter nbconvert --to=script FILE
-```
-
 ## pre-commit
 
 ### Run hooks manually
