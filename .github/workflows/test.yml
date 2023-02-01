@@ -36,7 +36,7 @@ jobs:
           nix-shell --pure --run 'gitlint --commits origin/${{ github.base_ref
           }}..${{ github.event.pull_request.head.sha }}'
 
-  test-nix:
+  test-sentinel2-water-extraction-nix:
     name: Test using Nix
     runs-on: ubuntu-22.04
     steps:
@@ -56,7 +56,7 @@ jobs:
           --to=notebook sentinel2_water_extraction.ipynb'
         working-directory: flooding/sentinel2_water_extraction
 
-  test-poetry:
+  test-sentinel2-water-extraction-poetry:
     name:
       Test on ${{ matrix.runner }}, using Poetry with Python ${{ matrix.python
       }}
@@ -153,8 +153,8 @@ jobs:
     if: always()
     needs:
       - lint
-      - test-nix
-      - test-poetry
+      - test-sentinel2-water-extraction-nix
+      - test-sentinel2-water-extraction-poetry
     runs-on: ubuntu-22.04
     steps:
       - name: Decide whether the needed jobs succeeded or failed
