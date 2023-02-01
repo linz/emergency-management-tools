@@ -86,30 +86,10 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3.3.0
 
-      - name: Use Python ${{ matrix.python }}
-        id: setup-python
-        uses: actions/setup-python@v4.5.0
-        with:
-          python-version: ${{ matrix.python }}
-
-      - name: Cache pip
-        uses: actions/cache@v3.2.4
-        with:
-          path: ${{ matrix.pip-cache-dir }}
-          key:
-            ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python
-            }}-${{
-            hashFiles('./flooding/sentinel2_water_extraction/poetry.lock') }}
-          restore-keys:
-            ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python }}-
-
-      - name: Install Poetry
-        run: pip install --disable-pip-version-check --progress-bar=off poetry
-
       - name: Get GDAL Python package version
         run:
-          echo "GDAL_VERSION=$(poetry show gdal | tr -d ' ' | grep '^version:' |
-          cut -d ':' -f 2)" >> $GITHUB_ENV
+          echo "GDAL_VERSION=$(grep --only-matching 'file = "GDAL-.*\.tar\.gz"'
+          poetry.lock | head -n 1 | tail -c +14 | head -c -9)" >> $GITHUB_ENV
         shell: bash
         working-directory: flooding/sentinel2_water_extraction
 
@@ -117,7 +97,7 @@ jobs:
         uses: s-weigand/setup-conda@v1.1.1
         with:
           conda-channels: conda-forge
-          python-version: ${{ steps.setup-python.outputs.python-version }}
+          python-version: ${{ matrix.python }}
 
       - name: Get Conda info for debugging purposes
         run: conda info
