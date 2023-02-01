@@ -36,6 +36,24 @@ jobs:
           nix-shell --pure --run 'gitlint --commits origin/${{ github.base_ref
           }}..${{ github.event.pull_request.head.sha }}'
 
+  test-machine-readable-to-human-readable-date-time:
+    name: Test using Nix
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3.3.0
+
+      - uses: cachix/install-nix-action@v18
+
+      - uses: cachix/cachix-action@v12
+        with:
+          name: linz
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+
+      - name: Run test
+        run: nix-shell --pure --run 'LC_MESSAGES=C TZ=UTC mocha'
+        working-directory: machine-readable-to-human-readable-date-time
+
   test-sentinel2-water-extraction-nix:
     name: Test using Nix
     runs-on: ubuntu-22.04
@@ -153,6 +171,7 @@ jobs:
     if: always()
     needs:
       - lint
+      - test-machine-readable-to-human-readable-date-time
       - test-sentinel2-water-extraction-nix
       - test-sentinel2-water-extraction-poetry
     runs-on: ubuntu-22.04
