@@ -7,10 +7,19 @@ Below are the instructions to get the Notebook up and running
 
 ## Prerequisites
 
--  Linux (tested on Ubuntu 22.04), macOS (tested on version 12, Monterey), or
-   Windows (tested on Windows Server 2022)
--  Python 3.8, 3.9, or 3.10
--  GDAL 3.4
+-  Linux, macOS, or Windows
+-  Python
+
+[Tested](.github/workflows/test.yml) with:
+
+-  OS:
+   -  Ubuntu 22.04 (Jammy Jellyfish)
+   -  macOS 12 (Monterey)
+   -  Windows Server 2022
+-  Python:
+   -  3.8
+   -  3.9
+   -  3.10
 
 ## Get the Jupyter Notebook
 
