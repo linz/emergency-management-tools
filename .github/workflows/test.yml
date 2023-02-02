@@ -97,6 +97,7 @@ jobs:
           - "3.8"
           - "3.9"
           - "3.10"
+          - "3.11"
         include:
           - runner: macos-12
             pip-cache-dir: ~/Library/Caches/pip
