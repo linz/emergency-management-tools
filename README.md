@@ -6,7 +6,8 @@
 
 # emergency-management
 
-Source code to support emergency events
+[Website](https://linz.github.io/emergency-management-tools/) and source code to
+support emergency events
 
 ## Contents
 
