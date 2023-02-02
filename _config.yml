@@ -21,6 +21,8 @@ exclude:
   - README.md
   - bump-nixpkgs.bash
   - flooding/
+  - machine-readable-to-human-readable-date-time/shell.nix
+  - machine-readable-to-human-readable-date-time/test
   - nixpkgs.json
   - pyproject.toml
   - shell.nix
