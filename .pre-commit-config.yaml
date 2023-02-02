@@ -37,6 +37,56 @@ repos:
         language: system
         stages: [commit]
 
+      - id: nbqa-black
+        name: nbqa-black
+        description: Run 'black' on Jupyter notebooks
+        entry: nbqa
+        args: [black]
+        require_serial: true
+        types_or: [jupyter, markdown]
+        language: system
+        stages: [commit]
+
+      - id: nbqa-isort
+        name: nbqa-isort
+        description: Run 'isort' on Jupyter notebooks
+        entry: nbqa
+        args: [isort]
+        require_serial: true
+        types_or: [jupyter, markdown]
+        language: system
+        stages: [commit]
+
+      - id: nbqa-mypy
+        name: nbqa-mypy
+        description: Run 'mypy' on Jupyter notebooks
+        entry: nbqa
+        args: [mypy]
+        require_serial: true
+        types_or: [jupyter, markdown]
+        language: system
+        stages: [commit]
+
+      - id: nbqa-pydocstyle
+        name: nbqa-pydocstyle
+        description: Run 'pydocstyle' on Jupyter notebooks
+        entry: nbqa
+        args: [pydocstyle]
+        require_serial: true
+        types_or: [jupyter, markdown]
+        language: system
+        stages: [commit]
+
+      - id: nbqa-pylint
+        name: nbqa-pylint
+        description: Run 'pylint' on Jupyter notebooks
+        entry: nbqa
+        args: [pylint, --include-naming-hint=y]
+        require_serial: true
+        types_or: [jupyter, markdown]
+        language: system
+        stages: [commit]
+
       - id: pathchk
         name: pathchk
         entry: pathchk
@@ -92,56 +142,6 @@ repos:
         args: [check]
         files: \.nix$
         pass_filenames: false
-        language: system
-        stages: [commit]
-
-      - id: nbqa-black
-        name: nbqa-black
-        description: Run 'black' on Jupyter notebooks
-        entry: nbqa
-        args: [black]
-        require_serial: true
-        types_or: [jupyter, markdown]
-        language: system
-        stages: [commit]
-
-      - id: nbqa-isort
-        name: nbqa-isort
-        description: Run 'isort' on Jupyter notebooks
-        entry: nbqa
-        args: [isort]
-        require_serial: true
-        types_or: [jupyter, markdown]
-        language: system
-        stages: [commit]
-
-      - id: nbqa-mypy
-        name: nbqa-mypy
-        description: Run 'mypy' on Jupyter notebooks
-        entry: nbqa
-        args: [mypy]
-        require_serial: true
-        types_or: [jupyter, markdown]
-        language: system
-        stages: [commit]
-
-      - id: nbqa-pydocstyle
-        name: nbqa-pydocstyle
-        description: Run 'pydocstyle' on Jupyter notebooks
-        entry: nbqa
-        args: [pydocstyle]
-        require_serial: true
-        types_or: [jupyter, markdown]
-        language: system
-        stages: [commit]
-
-      - id: nbqa-pylint
-        name: nbqa-pylint
-        description: Run 'pylint' on Jupyter notebooks
-        entry: nbqa
-        args: [pylint, --include-naming-hint=y]
-        require_serial: true
-        types_or: [jupyter, markdown]
         language: system
         stages: [commit]
 
