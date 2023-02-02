@@ -44,11 +44,13 @@ in
     packages = [
       python
       pkgs.alejandra
+      pkgs.black
       pkgs.cacert
       pkgs.gitFull
       pkgs.gitlint
       pkgs.nodePackages.prettier
       pkgs.pre-commit
+      pkgs.python3Packages.pydocstyle
       pkgs.rubyPackages.github-pages
       pkgs.shellcheck
       pkgs.shfmt

@@ -85,11 +85,41 @@ repos:
         language: system
         stages: [commit]
 
+      - id: nbqa-black
+        name: nbqa-black
+        description: Run 'black' on Jupyter notebooks
+        entry: nbqa
+        args: [black]
+        require_serial: true
+        types_or: [jupyter, markdown]
+        language: system
+        stages: [commit]
+
+      - id: nbqa-isort
+        name: nbqa-isort
+        description: Run 'isort' on Jupyter notebooks
+        entry: nbqa
+        args: [isort]
+        require_serial: true
+        types_or: [jupyter, markdown]
+        language: system
+        stages: [commit]
+
       - id: nbqa-mypy
         name: nbqa-mypy
         description: Run 'mypy' on Jupyter notebooks
         entry: nbqa
         args: [mypy]
+        require_serial: true
+        types_or: [jupyter, markdown]
+        language: system
+        stages: [commit]
+
+      - id: nbqa-pydocstyle
+        name: nbqa-pydocstyle
+        description: Run 'pydocstyle' on Jupyter notebooks
+        entry: nbqa
+        args: [pydocstyle]
         require_serial: true
         types_or: [jupyter, markdown]
         language: system
@@ -104,13 +134,6 @@ repos:
         types_or: [jupyter, markdown]
         language: system
         stages: [commit]
-
-  - repo: https://github.com/nbQA-dev/nbQA
-    rev: 73e47d5a94b8724ce0b36e7bf29103a6f45dc505 # frozen: 1.6.1
-    hooks:
-      - id: nbqa-black
-      - id: nbqa-isort
-      - id: nbqa-pydocstyle
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 00337e660434e648317dbaf2bbaca4966953da22 # frozen: 0.20.0
