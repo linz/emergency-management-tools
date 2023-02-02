@@ -46,6 +46,7 @@ in
       pkgs.alejandra
       pkgs.black
       pkgs.cacert
+      pkgs.check-jsonschema
       pkgs.gitFull
       pkgs.gitlint
       pkgs.nodePackages.prettier

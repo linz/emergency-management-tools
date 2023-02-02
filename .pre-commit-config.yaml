@@ -11,6 +11,16 @@ repos:
         language: system
         stages: [commit]
 
+      - id: check-github-workflows
+        name: check-github-workflows
+        description: Validate GitHub Workflows
+        entry: check-jsonschema
+        args: [--builtin-schema=vendor.github-workflows]
+        files: ^\.github/workflows/[^/]+$
+        types: [yaml]
+        language: system
+        stages: [commit]
+
       - id: gitlint
         name: gitlint
         entry: gitlint
@@ -134,11 +144,6 @@ repos:
         types_or: [jupyter, markdown]
         language: system
         stages: [commit]
-
-  - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 00337e660434e648317dbaf2bbaca4966953da22 # frozen: 0.20.0
-    hooks:
-      - id: check-github-workflows
 
   - repo: meta
     hooks:

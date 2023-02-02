@@ -33,12 +33,6 @@ See [test workflow](.github/workflows/test.yml)
 pre-commit install --hook-type=commit-msg --hook-type=pre-commit --overwrite
 ```
 
-### Update configuration to latest versions
-
-```shell
-pre-commit autoupdate --freeze
-```
-
 ## CI
 
 ### Cache seed
