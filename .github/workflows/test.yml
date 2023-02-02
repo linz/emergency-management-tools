@@ -141,18 +141,6 @@ jobs:
         if: ${{ !startsWith(runner.os, 'Windows') }}
 
       - name:
-          Reinstall Python 3.10 on Windows runner (Workaround from
-          https://github.com/nltk/nltk/issues/3027#issuecomment-1197689886)
-        uses: nick-fields/retry@v2.8.3
-        with:
-          timeout_minutes: 9999 # Workaround for https://github.com/nick-fields/retry/issues/107
-          max_attempts: 6
-          command:
-            conda install --channel=conda-forge --quiet --yes python=${{
-            matrix.python }}
-        if: ${{ startsWith(runner.os, 'Windows') && matrix.python == '3.10' }}
-
-      - name:
           Install Python packages on Windows runner (Workaround for
           https://github.com/python-poetry/poetry/issues/1031)
         uses: nick-fields/retry@v2.8.3
