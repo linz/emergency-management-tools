@@ -120,15 +120,6 @@ jobs:
           conda-channels: conda-forge
           python-version: ${{ matrix.python }}
 
-      - name: Get Conda info for debugging purposes
-        run: conda info
-
-      - name: Get Conda configuration for debugging purposes
-        run: conda config --show-sources
-
-      - name: Get Conda channel URLs for debugging purposes
-        run: conda list --show-channel-urls
-
       - name: Install Conda environment packages
         run:
           conda install --channel=conda-forge --quiet --yes gdal=${{
