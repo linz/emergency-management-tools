@@ -54,8 +54,11 @@ a fresh cache.
 
 ## Website
 
-Use `jekyll serve` to serve up a local copy of the website. This should rebuild
-pages when any of the input files change.
+Use
+`nix-shell --pure --run 'github-pages build && jekyll serve --no-watch --skip-initial-build'`
+to serve up a local copy of the website. This ensures that you see exactly what
+the `github-pages build` produces, as opposed to letting `jekyll serve` rebuild
+the site.
 
 Make sure to [`exclude`](_config.yml) any new files which are not explicitly
 part of the website. The simplest way to verify this is to run
