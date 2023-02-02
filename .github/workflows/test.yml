@@ -164,9 +164,6 @@ jobs:
           shell: bash
         if: ${{ startsWith(runner.os, 'Windows') }}
 
-      - name: Get Geopandas versions for debugging purposes
-        run: poetry run python -c 'import geopandas; geopandas.show_versions()'
-
       - name: Run test
         run:
           poetry run jupyter nbconvert --debug --execute --inplace --to=notebook
