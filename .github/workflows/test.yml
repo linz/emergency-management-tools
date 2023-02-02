@@ -39,6 +39,9 @@ jobs:
   test-machine-readable-to-human-readable-date-time:
     name: Test using Nix
     runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: machine-readable-to-human-readable-date-time
     steps:
       - name: Check out repository
         uses: actions/checkout@v3.3.0
@@ -52,11 +55,13 @@ jobs:
 
       - name: Run test
         run: nix-shell --pure --run 'LC_MESSAGES=C TZ=UTC mocha'
-        working-directory: machine-readable-to-human-readable-date-time
 
   test-sentinel2-water-extraction-nix:
     name: Test using Nix
     runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: flooding/sentinel2_water_extraction
     steps:
       - name: Check out repository
         uses: actions/checkout@v3.3.0
@@ -72,13 +77,15 @@ jobs:
         run:
           nix-shell --pure --run 'jupyter nbconvert --debug --execute --inplace
           --to=notebook sentinel2_water_extraction.ipynb'
-        working-directory: flooding/sentinel2_water_extraction
 
   test-sentinel2-water-extraction-poetry:
     name:
       Test on ${{ matrix.runner }}, using Poetry with Python ${{ matrix.python
       }}
     runs-on: ${{ matrix.runner }}
+    defaults:
+      run:
+        working-directory: flooding/sentinel2_water_extraction
     strategy:
       fail-fast: false
       matrix:
@@ -106,7 +113,6 @@ jobs:
           echo "GDAL_VERSION=$(grep --only-matching 'file = "GDAL-.*\.tar\.gz"'
           poetry.lock | head -n 1 | tail -c +14 | head -c -9)" >> $GITHUB_ENV
         shell: bash
-        working-directory: flooding/sentinel2_water_extraction
 
       - name: Setup Conda
         uses: s-weigand/setup-conda@v1.1.1
@@ -130,7 +136,6 @@ jobs:
 
       - name: Install Python packages on non-Windows runner
         run: poetry install --only=main --no-root
-        working-directory: flooding/sentinel2_water_extraction
         if: ${{ !startsWith(runner.os, 'Windows') }}
 
       - name:
@@ -159,13 +164,11 @@ jobs:
 
       - name: Get Geopandas versions for debugging purposes
         run: poetry run python -c 'import geopandas; geopandas.show_versions()'
-        working-directory: flooding/sentinel2_water_extraction
 
       - name: Run test
         run:
           poetry run jupyter nbconvert --debug --execute --inplace --to=notebook
           sentinel2_water_extraction.ipynb
-        working-directory: flooding/sentinel2_water_extraction
 
   finalise:
     if: always()
