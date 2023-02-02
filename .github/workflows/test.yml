@@ -108,6 +108,17 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3.3.0
 
+      - name: Cache pip
+        uses: actions/cache@v3.2.4
+        with:
+          path: ${{ matrix.pip-cache-dir }}
+          key:
+            ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python
+            }}-${{
+            hashFiles('./flooding/sentinel2_water_extraction/poetry.lock') }}
+          restore-keys:
+            ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python }}
+
       - name: Get GDAL Python package version
         run:
           echo "GDAL_VERSION=$(grep --only-matching 'file = "GDAL-.*\.tar\.gz"'
