@@ -121,9 +121,12 @@ jobs:
             ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python }}
 
       - name: Get GDAL Python package version
-        run:
-          echo "GDAL_VERSION=$(grep --only-matching 'file = "GDAL-.*\.tar\.gz"'
-          poetry.lock | head -n 1 | tail -c +14 | head -c -9)" >> $GITHUB_ENV
+        run: |
+          GDAL_VERSION="$(grep --max-count=1 --only-matching 'file = "GDAL-.*\.tar\.gz"' poetry.lock)"
+          # Use character removal compatible with macOS 12
+          GDAL_VERSION="${GDAL_VERSION#?????????????}"
+          GDAL_VERSION="${GDAL_VERSION%????????}"
+          echo "GDAL_VERSION=$GDAL_VERSION" >> $GITHUB_ENV
         shell: bash
 
       - name: Setup Conda
