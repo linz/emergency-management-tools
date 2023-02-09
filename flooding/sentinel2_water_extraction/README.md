@@ -64,7 +64,8 @@ image below) ![jupyter dir](images/jupyter.png "jupyter dir")
 
 ## Extract Water From Sentinel-2 imagery
 
-Follow the steps in the Notebook to extract water polygons.
+[Execute the steps](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/execute.html#executing-a-notebook)
+in the Notebook to extract water polygons.
 
 ## Troubleshooting
 
