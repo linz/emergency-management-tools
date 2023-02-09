@@ -41,6 +41,10 @@ can be downloaded via the code menu in the root of this repository (see below)
 
 ## Install Python dependencies
 
+Open the terminal and navigate to the notebook directory
+
+`cd <path where downloaded to>/emergency-management/flooding/sentinel2_water_extraction`
+
 The following commands will install the dependencies for just this project:
 
 ```shell
@@ -50,12 +54,6 @@ poetry install --only=main --no-root
 ```
 
 ## Start the Jupyter Notebook
-
-Once you have the code locally, it can be executed to extract water
-
-Open the terminal and navigate to the notebook directory
-
-`cd <path where downloaded to>/emergency-management/flooding/sentinel2_water_extraction`
 
 Start the notebook
 
