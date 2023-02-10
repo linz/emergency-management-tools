@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "sentinel2_water_extraction"
+name = "sentinel2-water-extraction"
 version = "0.1.0"
 description = ""
 authors = [
