@@ -47,6 +47,7 @@ in
       pkgs.black
       pkgs.cacert
       pkgs.check-jsonschema
+      pkgs.deadnix
       pkgs.gitFull
       pkgs.gitlint
       pkgs.nodePackages.prettier
