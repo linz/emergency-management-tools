@@ -16,6 +16,16 @@ pkgs.poetry2nix.mkPoetryPackages {
           ];
       }
     );
+    matplotlib = super.matplotlib.overridePythonAttrs (
+      # https://github.com/nix-community/poetry2nix/pull/988
+      old: {
+        buildInputs =
+          (old.buildInputs or [])
+          ++ [
+            self.pybind11
+          ];
+      }
+    );
     morecantile = super.morecantile.overridePythonAttrs (
       # In poetry2nix > 1.39.1
       old: {
