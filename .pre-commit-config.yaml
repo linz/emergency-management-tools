@@ -21,6 +21,14 @@ repos:
         language: system
         stages: [commit]
 
+      - id: deadnix
+        name: deadnix
+        entry: deadnix
+        args: [--edit, --fail]
+        files: \.nix$
+        language: system
+        stages: [commit]
+
       - id: gitlint
         name: gitlint
         entry: gitlint
