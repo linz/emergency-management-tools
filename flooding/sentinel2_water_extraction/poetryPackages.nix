@@ -6,6 +6,16 @@ pkgs.poetry2nix.mkPoetryPackages {
     name = "sentinel2_water_extraction_packages";
   };
   overrides = pkgs.poetry2nix.overrides.withDefaults (self: super: {
+    affine = super.affine.overridePythonAttrs (
+      # https://github.com/nix-community/poetry2nix/pull/991
+      old: {
+        nativeBuildInputs =
+          (old.nativeBuildInputs or [])
+          ++ [
+            self.flit-core
+          ];
+      }
+    );
     color-operations = super.color-operations.overridePythonAttrs (
       # In poetry2nix > 1.39.1
       old: {
@@ -13,6 +23,26 @@ pkgs.poetry2nix.mkPoetryPackages {
           (old.nativeBuildInputs or [])
           ++ [
             self.setuptools
+          ];
+      }
+    );
+    fiona = super.fiona.overridePythonAttrs (
+      # https://github.com/nix-community/poetry2nix/pull/992
+      old: {
+        nativeBuildInputs =
+          (old.nativeBuildInputs or [])
+          ++ [
+            self.cython
+          ];
+      }
+    );
+    jupyter-console = super.jupyter-console.overridePythonAttrs (
+      # https://github.com/nix-community/poetry2nix/pull/992
+      old: {
+        nativeBuildInputs =
+          (old.nativeBuildInputs or [])
+          ++ [
+            self.hatchling
           ];
       }
     );
