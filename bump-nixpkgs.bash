@@ -9,12 +9,15 @@ bump-nixpkgs.bash: Update nixpkgs.json with latest info from given release
 
 Usage:
 
-./bump-nixpkgs.bash RELEASE
+./bump-nixpkgs.bash BRANCH
 
 Example:
 
-./bump-nixpkgs.bash 22.05
+./bump-nixpkgs.bash release-22.05
     Bumps nixpkgs within the 22.05 release.
+
+./bump-nixpkgs.bash nixos-unstable
+    Bumps nixpkgs within the unstable branch.
 EOF
     exit 2
 fi
@@ -28,7 +31,7 @@ trap cleanup EXIT
 working_dir="$(mktemp --directory)"
 
 release_file="${working_dir}/release.json"
-curl "https://api.github.com/repos/NixOS/nixpkgs/git/refs/heads/release-${release}" > "$release_file"
+curl "https://api.github.com/repos/NixOS/nixpkgs/git/refs/heads/${release}" > "$release_file"
 commit_id="$(jq --raw-output .object.sha "$release_file")"
 commit_date="$(curl "https://api.github.com/repos/NixOS/nixpkgs/commits/$commit_id" | jq --raw-output '.commit.committer.date' | tr ':' '-')"
 
