@@ -37,7 +37,7 @@ jobs:
           }}..${{ github.event.pull_request.head.sha }}'
 
   test-machine-readable-to-human-readable-date-time:
-    name: Test using Nix
+    name: Test machine readable to human-readable date/time using Nix
     runs-on: ubuntu-22.04
     defaults:
       run:
@@ -57,7 +57,7 @@ jobs:
         run: nix-shell --pure --run 'LC_MESSAGES=C TZ=UTC mocha'
 
   test-sentinel2-water-extraction-nix:
-    name: Test using Nix
+    name: Test Sentinel-2 water extraction using Nix
     runs-on: ubuntu-22.04
     defaults:
       run:
