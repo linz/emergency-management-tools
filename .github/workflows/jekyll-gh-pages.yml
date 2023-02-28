@@ -21,6 +21,8 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3.0.4
       - uses: cachix/install-nix-action@v19
+        with:
+          install_url: https://releases.nixos.org/nix/nix-2.13.3/install # https://github.com/cachix/install-nix-action/issues/161
       - uses: cachix/cachix-action@v12
         with:
           name: linz

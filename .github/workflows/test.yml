@@ -14,6 +14,8 @@ jobs:
           fetch-depth: 0 # Enable gitlint to check all PR commit messages
 
       - uses: cachix/install-nix-action@v19
+        with:
+          install_url: https://releases.nixos.org/nix/nix-2.13.3/install # https://github.com/cachix/install-nix-action/issues/161
 
       - uses: cachix/cachix-action@v12
         with:
@@ -47,6 +49,8 @@ jobs:
         uses: actions/checkout@v3.3.0
 
       - uses: cachix/install-nix-action@v19
+        with:
+          install_url: https://releases.nixos.org/nix/nix-2.13.3/install # https://github.com/cachix/install-nix-action/issues/161
 
       - uses: cachix/cachix-action@v12
         with:
@@ -67,6 +71,8 @@ jobs:
         uses: actions/checkout@v3.3.0
 
       - uses: cachix/install-nix-action@v19
+        with:
+          install_url: https://releases.nixos.org/nix/nix-2.13.3/install # https://github.com/cachix/install-nix-action/issues/161
 
       - uses: cachix/cachix-action@v12
         with:
