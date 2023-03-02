@@ -152,7 +152,7 @@ jobs:
           timeout_minutes: 9999 # Workaround for https://github.com/nick-fields/retry/issues/107
           max_attempts: 6
           command: cd flooding/sentinel2_water_extraction && poetry install
-            --only=main --no-root # Workaround for https://github.com/python-poetry/poetry/issues/7363 / https://github.com/nick-fields/retry/issues/89
+            --only=main --no-root -vvv # Workaround for https://github.com/python-poetry/poetry/issues/7363 / https://github.com/nick-fields/retry/issues/89
           shell: bash
         if: ${{ startsWith(runner.os, 'Windows') }}
 
