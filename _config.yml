@@ -19,10 +19,9 @@ exclude:
   - CODING.md
   - LICENSE
   - README.md
-  - bump-nixpkgs.bash
   - flooding/
   - machine-readable-to-human-readable-date-time/shell.nix
   - machine-readable-to-human-readable-date-time/test
-  - nixpkgs.json
+  - nix
   - pyproject.toml
   - shell.nix
