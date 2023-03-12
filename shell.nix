@@ -1,14 +1,6 @@
 let
-  pkgs =
-    import
-    (
-      fetchTarball (
-        builtins.fromJSON (
-          builtins.readFile ./nixpkgs.json
-        )
-      )
-    )
-    {};
+  sources = import ./nix/sources.nix;
+  pkgs = import sources.nixpkgs {};
   sentinel2WaterExtractionPoetryPackages = import ./flooding/sentinel2_water_extraction/poetryPackages.nix {
     inherit pkgs;
   };
@@ -50,6 +42,7 @@ in
       pkgs.deadnix
       pkgs.gitFull
       pkgs.gitlint
+      pkgs.niv
       pkgs.nodePackages.prettier
       pkgs.pre-commit
       pkgs.python3Packages.pydocstyle
