@@ -85,6 +85,7 @@ jobs:
     runs-on: ${{ matrix.runner }}
     defaults:
       run:
+        shell: bash --login -o errexit {0} # https://github.com/conda-incubator/setup-miniconda/tree/7e642bb2e4ca56ff706818a0febf72bb226d348d#use-a-default-shell
         working-directory: flooding/sentinel2_water_extraction
     strategy:
       fail-fast: false
@@ -127,12 +128,11 @@ jobs:
           GDAL_VERSION="${GDAL_VERSION#?????????????}"
           GDAL_VERSION="${GDAL_VERSION%????????}"
           echo "GDAL_VERSION=$GDAL_VERSION" >> $GITHUB_ENV
-        shell: bash
 
       - name: Setup Conda
-        uses: s-weigand/setup-conda@v1.1.1
+        uses: conda-incubator/setup-miniconda@v2.2.0
         with:
-          conda-channels: conda-forge
+          channels: conda-forge
           python-version: ${{ matrix.python }}
 
       - name: Install Conda environment packages
@@ -150,8 +150,9 @@ jobs:
         with:
           timeout_minutes: 9999 # Workaround for https://github.com/nick-fields/retry/issues/107
           max_attempts: 6
-          command: cd flooding/sentinel2_water_extraction && poetry install
-            --only=main --no-root # Workaround for https://github.com/python-poetry/poetry/issues/7363 / https://github.com/nick-fields/retry/issues/89
+          command: bash --login -o errexit -c 'cd
+            flooding/sentinel2_water_extraction && poetry install --only=main
+            --no-root' # Workaround for https://github.com/python-poetry/poetry/issues/7363 / https://github.com/nick-fields/retry/issues/89
           shell: bash
         if: ${{ startsWith(runner.os, 'Windows') }}
 
