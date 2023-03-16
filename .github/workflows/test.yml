@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v3.4.0
         with:
           fetch-depth: 0 # Enable gitlint to check all PR commit messages
 
@@ -44,7 +44,7 @@ jobs:
         working-directory: machine-readable-to-human-readable-date-time
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v3.4.0
 
       - uses: cachix/install-nix-action@v20
 
@@ -64,7 +64,7 @@ jobs:
         working-directory: flooding/sentinel2_water_extraction
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v3.4.0
 
       - uses: cachix/install-nix-action@v20
 
@@ -108,7 +108,7 @@ jobs:
             pip-cache-dir: ~\AppData\Local\pip\Cache
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v3.4.0
 
       - name: Cache pip
         uses: actions/cache@v3.3.1
