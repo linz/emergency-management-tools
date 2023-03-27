@@ -10,10 +10,10 @@ let
         (
           ps.buildPythonPackage rec {
             pname = "nbqa";
-            version = "1.6.1";
+            version = "1.6.4";
             src = ps.fetchPypi {
               inherit pname version;
-              hash = "sha256-NtvXFV7XMZ7S+rPxmnAhWrO1VUpRY5D9v/jIhMPAlYw=";
+              hash = "sha256-H7y+N+9TBJW9fwjlO7g4qGmwdKD771eF7ScNNwphPrA=";
             };
             buildInputs = [
               ps.ipython
