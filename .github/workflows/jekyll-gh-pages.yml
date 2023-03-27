@@ -17,9 +17,9 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v3.5.0
       - name: Setup Pages
-        uses: actions/configure-pages@v3.0.4
+        uses: actions/configure-pages@v3.0.5
       - uses: cachix/install-nix-action@v20
       - uses: cachix/cachix-action@v12
         with:
@@ -28,7 +28,7 @@ jobs:
       - name: Build with Jekyll
         run: nix-shell --pure --run 'github-pages build --verbose'
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1.0.7
+        uses: actions/upload-pages-artifact@v1.0.8
 
   deploy:
     if:
@@ -45,4 +45,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1.2.5
+        uses: actions/deploy-pages@v2.0.0
