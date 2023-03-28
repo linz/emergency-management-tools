@@ -56,12 +56,19 @@ jobs:
       - name: Run test
         run: nix-shell --pure --run 'LC_MESSAGES=C TZ=UTC mocha'
 
-  test-sentinel2-water-extraction-nix:
-    name: Test Sentinel-2 water extraction using Nix
+  test-sentinel-water-extraction-nix:
+    name: Test Sentinel-${{ matrix.sentinel }} using Nix
     runs-on: ubuntu-22.04
     defaults:
       run:
-        working-directory: flooding/sentinel2_water_extraction
+        working-directory:
+          flooding/sentinel${{ matrix.sentinel }}_water_extraction
+    strategy:
+      fail-fast: false
+      matrix:
+        sentinel:
+          - "1"
+          - "2"
     steps:
       - name: Check out repository
         uses: actions/checkout@v3.5.0
@@ -76,17 +83,18 @@ jobs:
       - name: Run test
         run:
           nix-shell --pure --run 'jupyter nbconvert --debug --execute --inplace
-          --to=notebook sentinel2_water_extraction.ipynb'
+          --to=notebook sentinel${{ matrix.sentinel }}_water_extraction.ipynb'
 
-  test-sentinel2-water-extraction-poetry:
+  test-sentinel-water-extraction-poetry:
     name:
-      Test on ${{ matrix.runner }}, using Poetry with Python ${{ matrix.python
-      }}
+      Test Sentinel-${{ matrix.sentinel }} on ${{ matrix.runner }}, using Poetry
+      with Python ${{ matrix.python }}
     runs-on: ${{ matrix.runner }}
     defaults:
       run:
         shell: bash --login -o errexit {0} # https://github.com/conda-incubator/setup-miniconda/tree/7e642bb2e4ca56ff706818a0febf72bb226d348d#use-a-default-shell
-        working-directory: flooding/sentinel2_water_extraction
+        working-directory:
+          flooding/sentinel${{ matrix.sentinel }}_water_extraction
     strategy:
       fail-fast: false
       matrix:
@@ -99,6 +107,9 @@ jobs:
           - "3.9"
           - "3.10"
           - "3.11"
+        sentinel:
+          - "1"
+          - "2"
         include:
           - runner: macos-12
             pip-cache-dir: ~/Library/Caches/pip
@@ -116,8 +127,8 @@ jobs:
           path: ${{ matrix.pip-cache-dir }}
           key:
             ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python
-            }}-${{
-            hashFiles('./flooding/sentinel2_water_extraction/poetry.lock') }}
+            }}-${{ hashFiles('./flooding/sentinel${{ matrix.sentinel
+            }}_water_extraction/poetry.lock') }}
           restore-keys:
             ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python }}
 
@@ -150,8 +161,8 @@ jobs:
         with:
           timeout_minutes: 9999 # Workaround for https://github.com/nick-fields/retry/issues/107
           max_attempts: 6
-          command: bash --login -o errexit -c 'cd
-            flooding/sentinel2_water_extraction && poetry install --only=main
+          command: bash --login -o errexit -c 'cd flooding/sentinel${{
+            matrix.sentinel }}_water_extraction && poetry install --only=main
             --no-root' # Workaround for https://github.com/python-poetry/poetry/issues/7363 / https://github.com/nick-fields/retry/issues/89
           shell: bash
         if: ${{ startsWith(runner.os, 'Windows') }}
@@ -159,15 +170,15 @@ jobs:
       - name: Run test
         run:
           poetry run jupyter nbconvert --debug --execute --inplace --to=notebook
-          sentinel2_water_extraction.ipynb
+          sentinel${{ matrix.sentinel }}_water_extraction.ipynb
 
   finalise:
     if: always()
     needs:
       - lint
       - test-machine-readable-to-human-readable-date-time
-      - test-sentinel2-water-extraction-nix
-      - test-sentinel2-water-extraction-poetry
+      - test-sentinel-water-extraction-nix
+      - test-sentinel-water-extraction-poetry
     runs-on: ubuntu-22.04
     steps:
       - name: Decide whether the needed jobs succeeded or failed
