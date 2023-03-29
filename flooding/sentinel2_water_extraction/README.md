@@ -25,24 +25,26 @@ Below are the instructions to get the notebook up and running.
 
 ## Get the Jupyter Notebook
 
-Either
+If you just want the _latest contents:_
 
--  [download a zip file](https://github.com/linz/emergency-management-tools/archive/refs/heads/master.zip)
-   or
--  clone this repository with
-   `git clone git@github.com:linz/emergency-management-tools.git`.
+1. [Download the repository](https://github.com/linz/emergency-management-tools/archive/refs/heads/master.zip)
+1. Unpack the zip file using a file explorer or `unzip master.zip` on the
+   command line
+1. Go to the relevant directory with
+   `cd [download path]/emergency-management-tools-master/flooding/sentinel2_water_extraction`
 
-## Install Python dependencies
+If you would like the _full repository history,_ for example to do some
+development yourself:
 
-Open the terminal and navigate to the notebook directory
+1. Clone this repository with
+   `git clone git@github.com:linz/emergency-management-tools.git`
+1. Go to the relevant directory with
+   `cd emergency-management-tools/flooding/sentinel2_water_extraction`
 
-`cd <path where downloaded to>/emergency-management/flooding/sentinel2_water_extraction`
+## Install dependencies
 
-The following commands will install the dependencies for just this project:
-
-```shell
-poetry install --only=main --no-root
-```
+Install the dependencies for this project with
+`poetry install --only=main --no-root`.
 
 ## Start the Jupyter Notebook
 
