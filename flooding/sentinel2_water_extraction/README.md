@@ -24,20 +24,12 @@ Below are the instructions to get the notebook up and running.
 
 ## Get the Jupyter Notebook
 
-Either clone or download the Jupyter Notebook
+Either
 
-### Clone the Notebook
-
-Clone this repository to your computer
-
-`git clone git@github.com:linz/emergency-management-tools.git`
-
-### Download the Notebook
-
-Alternatively, for those not familiar with git, download the repository. This
-can be downloaded via the code menu in the root of this repository (see below)
-
-![download notebook](images/download.png "download notebook")
+-  [download a zip file](https://github.com/linz/emergency-management-tools/archive/refs/heads/master.zip)
+   or
+-  clone this repository with
+   `git clone git@github.com:linz/emergency-management-tools.git`.
 
 ## Install Python dependencies
 
