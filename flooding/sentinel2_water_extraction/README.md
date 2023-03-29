@@ -30,7 +30,7 @@ Either clone or download the Jupyter Notebook
 
 Clone this repository to your computer
 
-`git clone git@github.com:linz/emergency-management.git`
+`git clone git@github.com:linz/emergency-management-tools.git`
 
 ### Download the Notebook
 
