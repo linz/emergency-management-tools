@@ -46,12 +46,9 @@ poetry install --only=main --no-root
 
 ## Start the Jupyter Notebook
 
-Start the notebook
-
-`$ poetry run jupyter notebook sentinel2_water_extraction.ipynb`
-
-Open the Jupyter Notebook by clicking on sentinel2_water_extraction.ipynb (see
-image below) ![jupyter dir](images/jupyter.png "jupyter dir")
+Start the notebook with
+`poetry run jupyter notebook sentinel2_water_extraction.ipynb`. This will open
+the notebook in a browser.
 
 ## Extract water from Sentinel-2 imagery
 
