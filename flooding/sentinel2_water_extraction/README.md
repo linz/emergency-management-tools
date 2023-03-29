@@ -1,9 +1,9 @@
 # Sentinel-2 Water Extraction
 
 The sentinel2_water_extraction Jupyter Notebook was developed to extract water
-from Sentinel-2 imagery.
+from Sentinel-2 optical imagery.
 
-Below are the instructions to get the Notebook up and running
+Below are the instructions to get the notebook up and running.
 
 ## Prerequisites
 
