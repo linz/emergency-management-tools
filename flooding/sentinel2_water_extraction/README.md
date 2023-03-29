@@ -54,8 +54,9 @@ the notebook in a browser.
 
 ## Extract water from Sentinel-2 imagery
 
-[Execute the steps](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/execute.html#executing-a-notebook)
-in the Notebook to extract water polygons.
+Follow the instructions in the notebook to
+[execute](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/execute.html#executing-a-notebook)
+it and extract water polygons.
 
 ## Troubleshooting
 
