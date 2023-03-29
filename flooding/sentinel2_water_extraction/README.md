@@ -53,7 +53,7 @@ Start the notebook
 Open the Jupyter Notebook by clicking on sentinel2_water_extraction.ipynb (see
 image below) ![jupyter dir](images/jupyter.png "jupyter dir")
 
-## Extract Water From Sentinel-2 imagery
+## Extract water from Sentinel-2 imagery
 
 [Execute the steps](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/execute.html#executing-a-notebook)
 in the Notebook to extract water polygons.
