@@ -9,6 +9,7 @@ Below are the instructions to get the notebook up and running.
 
 -  Linux, macOS, or Windows
 -  Python
+-  [Poetry](https://python-poetry.org/docs/#installation)
 
 [Tested](.github/workflows/test.yml) with:
 
@@ -40,8 +41,6 @@ Open the terminal and navigate to the notebook directory
 The following commands will install the dependencies for just this project:
 
 ```shell
-pip install --upgrade pip
-pip install --upgrade poetry
 poetry install --only=main --no-root
 ```
 
