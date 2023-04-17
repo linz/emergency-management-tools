@@ -19,7 +19,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3.5.2
       - name: Setup Pages
-        uses: actions/configure-pages@v3.0.5
+        uses: actions/configure-pages@v3.0.6
       - uses: cachix/install-nix-action@v20
       - uses: cachix/cachix-action@v12
         with:
