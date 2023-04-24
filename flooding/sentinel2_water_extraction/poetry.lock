@@ -797,13 +797,13 @@ woff = ["brotli (>=1.0.1)", "brotlicffi (>=0.8.0)", "zopfli (>=0.1.4)"]
 
 [[package]]
 name = "gdal"
-version = "3.6.3"
+version = "3.6.4"
 description = "GDAL: Geospatial Data Abstraction Library"
 category = "main"
 optional = false
 python-versions = ">=3.6.0"
 files = [
-    {file = "GDAL-3.6.3.tar.gz", hash = "sha256:04c823af114966ebc59aba66fcc64eaa828a05ba2aeedbd6f7cde30037e0ef67"},
+    {file = "GDAL-3.6.4.tar.gz", hash = "sha256:c07d548cbd6544e8a51651fc1e487ca4b39e8fe6b5b3c886082d87f0e49e8313"},
 ]
 
 [package.extras]
