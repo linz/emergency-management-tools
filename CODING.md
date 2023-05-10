@@ -4,17 +4,16 @@
 
 ## Setup
 
-You'll need to install [Nix](https://nixos.org/download.html) and optionally
-[Lorri](https://github.com/nix-community/lorri).
+You'll need to install [Nix](https://nixos.org/download.html).
 
-For plain Nix there's no other setup. For Lorri, just `cd` into this directory
-and run `direnv allow` to enable automatic compilation.
+For plain Nix there's no other setup. If you have [direnv](https://direnv.net/)
+enabled, just `cd` into this directory and run `direnv allow` to enable
+automatic compilation.
 
 ## Nix
 
-To enter the environment without Lorri, run `nix-shell`. With Lorri, you just
-need to `cd` into this directory, and it will build in the background. To force
-your shell to wait for the build to finish, run `lorri watch --once`.
+To enter the environment without direnv, run `nix-shell`. With direnv, you just
+need to `cd` into this directory, and it will build in the background.
 
 ### Update nixpkgs version
 
