@@ -545,13 +545,13 @@ files = [
 
 [[package]]
 name = "gdal"
-version = "3.6.4"
+version = "3.7.0"
 description = "GDAL: Geospatial Data Abstraction Library"
 category = "main"
 optional = false
 python-versions = ">=3.6.0"
 files = [
-    {file = "GDAL-3.6.4.tar.gz", hash = "sha256:c07d548cbd6544e8a51651fc1e487ca4b39e8fe6b5b3c886082d87f0e49e8313"},
+    {file = "GDAL-3.7.0.tar.gz", hash = "sha256:116a924dd340f517ab4ccaea9fb6b333ce132e10f2b3120b0d539593719fd79a"},
 ]
 
 [package.extras]
