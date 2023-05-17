@@ -5,24 +5,6 @@ from Sentinel-2 optical imagery.
 
 Below are the instructions to get the notebook up and running.
 
-## Prerequisites
-
--  Linux, macOS, or Windows
--  Python
--  [Poetry](https://python-poetry.org/docs/#installation)
-
-[Tested](.github/workflows/test.yml) with:
-
--  OS:
-   -  Ubuntu 22.04 (Jammy Jellyfish)
-   -  macOS 12 (Monterey)
-   -  Windows Server 2022
--  Python:
-   -  3.8
-   -  3.9
-   -  3.10
-   -  3.11
-
 ## Get the Jupyter Notebook
 
 If you just want the _latest contents:_
@@ -30,27 +12,49 @@ If you just want the _latest contents:_
 1. [Download the repository](https://github.com/linz/emergency-management-tools/archive/refs/heads/master.zip)
 1. Unpack the zip file using a file explorer or `unzip master.zip` on the
    command line
-1. Go to the relevant directory with
-   `cd [download path]/emergency-management-tools-master/flooding/sentinel2_water_extraction`
 
 If you would like the _full repository history,_ for example to do some
-development yourself:
+development yourself, clone this repository with
+`git clone git@github.com:linz/emergency-management-tools.git`
 
-1. Clone this repository with
-   `git clone git@github.com:linz/emergency-management-tools.git`
-1. Go to the relevant directory with
-   `cd emergency-management-tools/flooding/sentinel2_water_extraction`
+## Setup
 
-## Install dependencies
+### Nix
 
-Install the dependencies for this project with
-`poetry install --only=main --no-root`.
+If you are running Linux, macOS, or a Windows machine with WSL, this is the
+easiest setup. The only dependency is the
+[Nix package manager](https://nixos.org/download.html). Please select your
+platform and follow the instructions.
+
+Once Nix is installed,
+`cd [emergency-management-tools path]/flooding/sentinel2_water_extraction` and
+run `nix-shell` to install all the dependencies. This could take a long time the
+first time it runs.
+
+### Non-nix
+
+If you can't use Nix, you will need the following. For each prerequisite, the
+[automatically tested](.github/workflows/test.yml) version is included.
+
+-  One of these operating systems:
+   -  Linux (tested on Ubuntu 22.04, Jammy Jellyfish)
+   -  macOS (tested on version 12, Monterey)
+   -  Windows (tested on Windows Server 2022)
+-  [Python](https://www.python.org/downloads/) (tested with 3.8, 3.9, 3.10, and
+   3.11)
+-  [Poetry](https://python-poetry.org/docs/#installation) (tested with 1.3.2)
+-  [GDAL](https://gdal.org/download.html) (tested with 3.6.4)
+
+Once you have all of the above,
+`cd [emergency-management-tools path]/flooding/sentinel2_water_extraction` and
+install Python packages for this project with
+`poetry install --only=main --no-root`. Finally run `poetry shell` to make the
+Python packages available.
 
 ## Start the Jupyter Notebook
 
-Start the notebook with
-`poetry run jupyter notebook sentinel2_water_extraction.ipynb`. This will open
-the notebook in a browser.
+Start the notebook with `jupyter notebook sentinel2_water_extraction.ipynb`.
+This will open the notebook in a browser.
 
 ## Extract water from Sentinel-2 imagery
 
