@@ -10,8 +10,8 @@ Below are the instructions to get the notebook up and running.
 If you just want the _latest contents:_
 
 1. [Download the repository](https://github.com/linz/emergency-management-tools/archive/refs/heads/master.zip)
-1. Unpack the zip file using a file explorer or `unzip master.zip` on the
-   command line
+1. Unpack the zip file using a file explorer or
+   `unzip emergency-management-tools-master.zip` on the command line
 
 If you would like the _full repository history,_ for example to do some
 development yourself, clone this repository with
