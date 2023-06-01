@@ -13,5 +13,13 @@ pkgs.poetry2nix.mkPoetryPackages {
       # TODO: Remove when using poetry2nix > 1.40.1
       nativeBuildInputs = (old.nativeBuildInputs or []) ++ [self.hatch-nodejs-version];
     });
+    jupyterlab = super.jupyterlab.overridePythonAttrs (old: {
+      # TODO: Remove when https://github.com/nix-community/poetry2nix/pull/1173 is in use
+      nativeBuildInputs = (old.nativeBuildInputs or []) ++ [self.hatchling self.hatch-jupyter-builder];
+    });
+    overrides = super.overrides.overridePythonAttrs (old: {
+      # TODO: Remove when https://github.com/nix-community/poetry2nix/pull/1173 is in use
+      nativeBuildInputs = (old.nativeBuildInputs or []) ++ [self.setuptools];
+    });
   });
 }
