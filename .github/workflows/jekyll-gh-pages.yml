@@ -28,7 +28,7 @@ jobs:
       - name: Build with Jekyll
         run: nix-shell --pure --run 'github-pages build --verbose'
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1.0.9
+        uses: actions/upload-pages-artifact@v2.0.0
 
   deploy:
     if:
