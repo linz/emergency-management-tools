@@ -15,24 +15,6 @@ let
       python.withPackages (
         ps:
           [
-            (
-              ps.buildPythonPackage rec {
-                pname = "nbqa";
-                version = "1.6.4";
-                src = ps.fetchPypi {
-                  inherit pname version;
-                  hash = "sha256-H7y+N+9TBJW9fwjlO7g4qGmwdKD771eF7ScNNwphPrA=";
-                };
-                buildInputs = [
-                  ps.tomli
-                  ps.tokenize-rt
-                ];
-                propagatedBuildInputs = [
-                  ps.ipython
-                  ps.tokenize-rt
-                ];
-              }
-            )
             ps.mypy
             ps.pylint
             ps.types-python-dateutil
@@ -57,6 +39,7 @@ in
       pkgs.deadnix
       pkgs.gitFull
       pkgs.gitlint
+      pkgs.nbqa
       pkgs.niv
       pkgs.nodePackages.prettier
       pkgs.pre-commit
