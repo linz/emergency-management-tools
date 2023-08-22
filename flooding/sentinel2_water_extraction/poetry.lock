@@ -2552,13 +2552,13 @@ idna2008 = ["idna"]
 
 [[package]]
 name = "rio-tiler"
-version = "6.0.1"
+version = "6.0.2"
 description = "User friendly Rasterio plugin to read raster datasets."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "rio_tiler-6.0.1-py3-none-any.whl", hash = "sha256:c9b3712c6d7949571cf93bbccce7d6211e08f79aee423f4787ba459acfaaa1a4"},
-    {file = "rio_tiler-6.0.1.tar.gz", hash = "sha256:bc7b1574f2406ac3f5c475792915cbcac59047550a40223200cb87b1986c2fde"},
+    {file = "rio_tiler-6.0.2-py3-none-any.whl", hash = "sha256:059353130f2f0c4f13e57bdd374db74e952352723f267df8a4a9c725399b982f"},
+    {file = "rio_tiler-6.0.2.tar.gz", hash = "sha256:f010d40eafc9e14aae2957d35bea1e981e069d458db96fe735bc3c751bc47169"},
 ]
 
 [package.dependencies]
