@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0 # Enable gitlint to check all PR commit messages
 
-      - uses: cachix/install-nix-action@v22
+      - uses: cachix/install-nix-action@v23
 
       - uses: cachix/cachix-action@v12
         with:
@@ -46,7 +46,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4.0.0
 
-      - uses: cachix/install-nix-action@v22
+      - uses: cachix/install-nix-action@v23
 
       - uses: cachix/cachix-action@v12
         with:
@@ -73,7 +73,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4.0.0
 
-      - uses: cachix/install-nix-action@v22
+      - uses: cachix/install-nix-action@v23
 
       - uses: cachix/cachix-action@v12
         with:
