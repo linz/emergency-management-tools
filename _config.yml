@@ -15,7 +15,6 @@ exclude:
   - .github/
   - .gitignore
   - .idea/
-  - .venv
   - CODING.md
   - LICENSE
   - README.md
@@ -24,4 +23,5 @@ exclude:
   - machine-readable-to-human-readable-date-time/test
   - nix
   - pyproject.toml
+  - python
   - shell.nix

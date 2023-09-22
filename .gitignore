@@ -3,4 +3,4 @@
 /.mypy_cache/
 *.pyc
 /_site
-.venv
+/python
