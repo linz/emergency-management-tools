@@ -136,7 +136,9 @@ jobs:
         uses: actions/cache@v3.3.2
         with:
           path: ~/conda_pkgs_dir
-          key: ${{ runner.os }}-conda-${{ secrets.CACHE_SEED }}
+          key:
+            ${{ runner.os }}-conda-${{ secrets.CACHE_SEED }}-${{ matrix.python
+            }}
 
       - name: Get GDAL Python package version
         run: |
