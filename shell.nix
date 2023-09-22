@@ -51,6 +51,6 @@ in
     ];
 
     shellHook = ''
-      ln --force --no-target-directory --symbolic "${python}" .venv
+      ln --force --no-target-directory --symbolic "${python}/bin/python" python
     '';
   }
