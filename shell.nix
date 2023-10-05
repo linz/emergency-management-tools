@@ -16,6 +16,7 @@ let
         ps:
           [
             ps.mypy
+            ps.pip
             ps.pylint
             ps.types-python-dateutil
           ]
