@@ -104,8 +104,6 @@ jobs:
           - windows-2022
         python:
           - "3.8"
-          - "3.9"
-          - "3.10"
           - "3.11"
         sentinel:
           - "1"
