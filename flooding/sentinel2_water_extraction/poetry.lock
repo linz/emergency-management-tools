@@ -2559,13 +2559,13 @@ idna2008 = ["idna"]
 
 [[package]]
 name = "rio-tiler"
-version = "6.2.3"
+version = "6.2.4"
 description = "User friendly Rasterio plugin to read raster datasets."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "rio_tiler-6.2.3-py3-none-any.whl", hash = "sha256:af2f053b4274d1a9511b4405e07ac7346db06253b224a834147a8551737b30bf"},
-    {file = "rio_tiler-6.2.3.tar.gz", hash = "sha256:4c657662307b1e7684eef088417a81ddf4cb6f8d22537c573bf72593f0f6290d"},
+    {file = "rio_tiler-6.2.4-py3-none-any.whl", hash = "sha256:70c2cdbbbeef8cb395ca2d261f194380c98e336cb4ff0c837d82e2c5a5bd4a6d"},
+    {file = "rio_tiler-6.2.4.tar.gz", hash = "sha256:93d7d44af66bbdf0b788745292e90e43184a1dace775d824c99c1f98d7ec9e9c"},
 ]
 
 [package.dependencies]
@@ -2582,10 +2582,12 @@ pystac = ">=0.5.4"
 rasterio = ">=1.3.0"
 
 [package.extras]
+benchmark = ["pytest", "pytest-benchmark"]
 dev = ["pre-commit"]
 docs = ["mkdocs", "mkdocs-jupyter", "mkdocs-material", "nbconvert", "pygments"]
 s3 = ["boto3"]
-test = ["boto3", "pytest", "pytest-asyncio", "pytest-benchmark", "pytest-cov", "rioxarray", "xarray"]
+test = ["boto3", "pytest", "pytest-cov", "rioxarray", "xarray"]
+tilebench = ["pytest", "tilebench"]
 xarray = ["rioxarray", "xarray"]
 
 [[package]]
