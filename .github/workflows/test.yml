@@ -147,7 +147,7 @@ jobs:
           echo "GDAL_VERSION=$GDAL_VERSION" >> $GITHUB_ENV
 
       - name: Setup Conda
-        uses: conda-incubator/setup-miniconda@v2.2.0
+        uses: conda-incubator/setup-miniconda@v2.3.0
         with:
           channels: conda-forge
           python-version: ${{ matrix.python }}
