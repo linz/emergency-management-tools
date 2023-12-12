@@ -15,8 +15,8 @@ describe("humanReadableLocalDateTime", function () {
             humanReadableLocalDateTime(
                 "2000-01-01T00:00:00Z",
                 "en-NZ",
-                "Pacific/Auckland"
-            )
+                "Pacific/Auckland",
+            ),
         );
     });
     it("should support non-New Zealand time zones and locales", function () {
@@ -25,8 +25,8 @@ describe("humanReadableLocalDateTime", function () {
             humanReadableLocalDateTime(
                 "2000-01-01T00:00:00Z",
                 "nb-NO",
-                "Europe/Oslo"
-            )
+                "Europe/Oslo",
+            ),
         );
     });
     it("should use defaults for locale and time zone (must run in a Node.js process with `TZ=UTC` and `LC_MESSAGES=C`)", function () {
@@ -39,13 +39,13 @@ describe("humanReadableLocalDateTime", function () {
         }
         assertEqual(
             "Saturday, January 1, 2000 at 00:00:00",
-            humanReadableLocalDateTime("2000-01-01T00:00:00Z")
+            humanReadableLocalDateTime("2000-01-01T00:00:00Z"),
         );
     });
     it("should return 'Invalid Date' for invalid date", function () {
         assertEqual(
             "Invalid Date",
-            humanReadableLocalDateTime("not a date/time")
+            humanReadableLocalDateTime("not a date/time"),
         );
     });
 });
