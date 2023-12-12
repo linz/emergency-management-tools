@@ -3,10 +3,12 @@
     typeof exports === "object" && typeof module !== "undefined"
         ? (module.exports = factory())
         : typeof define === "function" && define.amd
-        ? define(factory)
-        : ((global =
-              typeof globalThis !== "undefined" ? globalThis : global || self),
-          (global.mocha = factory()));
+          ? define(factory)
+          : ((global =
+                typeof globalThis !== "undefined"
+                    ? globalThis
+                    : global || self),
+            (global.mocha = factory()));
 })(this, function () {
     "use strict";
 
@@ -14,19 +16,19 @@
         typeof global !== "undefined"
             ? global
             : typeof self !== "undefined"
-            ? self
-            : typeof window !== "undefined"
-            ? window
-            : {};
+              ? self
+              : typeof window !== "undefined"
+                ? window
+                : {};
 
     var global$1 =
         typeof global$2 !== "undefined"
             ? global$2
             : typeof self !== "undefined"
-            ? self
-            : typeof window !== "undefined"
-            ? window
-            : {};
+              ? self
+              : typeof window !== "undefined"
+                ? window
+                : {};
 
     // shim for using process in browser
     // based off https://github.com/defunctzombie/node-process/blob/master/browser.js
@@ -264,12 +266,12 @@
         typeof globalThis !== "undefined"
             ? globalThis
             : typeof window !== "undefined"
-            ? window
-            : typeof global !== "undefined"
-            ? global
-            : typeof self !== "undefined"
-            ? self
-            : {};
+              ? window
+              : typeof global !== "undefined"
+                ? global
+                : typeof self !== "undefined"
+                  ? self
+                  : {};
 
     function getAugmentedNamespace(n) {
         if (n.__esModule) return n;
@@ -286,7 +288,7 @@
                           get: function () {
                               return n[k];
                           },
-                      }
+                      },
             );
         });
         return a;
@@ -296,7 +298,7 @@
         throw new Error(
             'Could not dynamically require "' +
                 path +
-                '". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.'
+                '". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.',
         );
     }
 
@@ -435,7 +437,7 @@
             } else {
                 // At least give some kind of context to the user
                 var err = new Error(
-                    'Uncaught, unspecified "error" event. (' + er + ")"
+                    'Uncaught, unspecified "error" event. (' + er + ")",
                 );
                 err.context = er;
                 throw err;
@@ -467,7 +469,7 @@
                     this,
                     arguments[1],
                     arguments[2],
-                    arguments[3]
+                    arguments[3],
                 );
                 break;
             // slower
@@ -499,7 +501,7 @@
                 target.emit(
                     "newListener",
                     type,
-                    listener.listener ? listener.listener : listener
+                    listener.listener ? listener.listener : listener,
                 );
 
                 // Re-assign `events` because a newListener handler could have caused the
@@ -539,7 +541,7 @@
                             " " +
                             type +
                             " listeners added. " +
-                            "Use emitter.setMaxListeners() to increase limit"
+                            "Use emitter.setMaxListeners() to increase limit",
                     );
                     w.name = "MaxListenersExceededWarning";
                     w.emitter = target;
@@ -557,7 +559,7 @@
     }
     EventEmitter$2.prototype.addListener = function addListener(
         type,
-        listener
+        listener,
     ) {
         return _addListener(this, type, listener, false);
     };
@@ -566,7 +568,7 @@
 
     EventEmitter$2.prototype.prependListener = function prependListener(
         type,
-        listener
+        listener,
     ) {
         return _addListener(this, type, listener, true);
     };
@@ -593,7 +595,7 @@
 
     EventEmitter$2.prototype.prependOnceListener = function prependOnceListener(
         type,
-        listener
+        listener,
     ) {
         if (typeof listener !== "function")
             throw new TypeError('"listener" argument must be a function');
@@ -604,7 +606,7 @@
     // emits a 'removeListener' event iff the listener was removed
     EventEmitter$2.prototype.removeListener = function removeListener(
         type,
-        listener
+        listener,
     ) {
         var list, events, position, i, originalListener;
 
@@ -628,7 +630,7 @@
                     this.emit(
                         "removeListener",
                         type,
-                        list.listener || listener
+                        list.listener || listener,
                     );
             }
         } else if (typeof list !== "function") {
@@ -673,7 +675,7 @@
     };
 
     EventEmitter$2.prototype.removeAllListeners = function removeAllListeners(
-        type
+        type,
     ) {
         var listeners, events;
 
@@ -905,8 +907,8 @@
                 encodeChunk$1(
                     uint8,
                     i,
-                    i + maxChunkLength > len2 ? len2 : i + maxChunkLength
-                )
+                    i + maxChunkLength > len2 ? len2 : i + maxChunkLength,
+                ),
             );
         }
 
@@ -1118,7 +1120,7 @@
         if (typeof arg === "number") {
             if (typeof encodingOrOffset === "string") {
                 throw new Error(
-                    "If encoding is specified then the first argument must be a string"
+                    "If encoding is specified then the first argument must be a string",
                 );
             }
             return allocUnsafe$1(this, arg);
@@ -1320,7 +1322,7 @@
         }
 
         throw new TypeError(
-            "First argument must be a string, Buffer, ArrayBuffer, Array, or array-like object."
+            "First argument must be a string, Buffer, ArrayBuffer, Array, or array-like object.",
         );
     }
 
@@ -1332,7 +1334,7 @@
                 "Attempt to allocate Buffer larger than maximum " +
                     "size: 0x" +
                     kMaxLength$1().toString(16) +
-                    " bytes"
+                    " bytes",
             );
         }
         return length | 0;
@@ -1407,7 +1409,7 @@
             var buf = list[i];
             if (!internalIsBuffer$1(buf)) {
                 throw new TypeError(
-                    '"list" argument must be an Array of Buffers'
+                    '"list" argument must be an Array of Buffers',
                 );
             }
             buf.copy(buffer, pos);
@@ -1611,7 +1613,7 @@
         start,
         end,
         thisStart,
-        thisEnd
+        thisEnd,
     ) {
         if (!internalIsBuffer$1(target)) {
             throw new TypeError("Argument must be a Buffer");
@@ -1736,13 +1738,13 @@
                     return Uint8Array.prototype.indexOf.call(
                         buffer,
                         val,
-                        byteOffset
+                        byteOffset,
                     );
                 } else {
                     return Uint8Array.prototype.lastIndexOf.call(
                         buffer,
                         val,
-                        byteOffset
+                        byteOffset,
                     );
                 }
             }
@@ -1828,7 +1830,7 @@
     Buffer$1.prototype.lastIndexOf = function lastIndexOf(
         val,
         byteOffset,
-        encoding
+        encoding,
     ) {
         return bidirectionalIndexOf$1(this, val, byteOffset, encoding, false);
     };
@@ -1865,7 +1867,7 @@
             utf8ToBytes$1(string, buf.length - offset),
             buf,
             offset,
-            length
+            length,
         );
     }
 
@@ -1886,7 +1888,7 @@
             utf16leToBytes$1(string, buf.length - offset),
             buf,
             offset,
-            length
+            length,
         );
     }
 
@@ -1894,7 +1896,7 @@
         string,
         offset,
         length,
-        encoding
+        encoding,
     ) {
         // Buffer#write(string)
         if (offset === undefined) {
@@ -1919,7 +1921,7 @@
             // legacy write(string, encoding, offset, length) - remove in v0.13
         } else {
             throw new Error(
-                "Buffer.write(string, encoding, offset[, length]) is no longer supported"
+                "Buffer.write(string, encoding, offset[, length]) is no longer supported",
             );
         }
 
@@ -1998,10 +2000,10 @@
                 firstByte > 0xef
                     ? 4
                     : firstByte > 0xdf
-                    ? 3
-                    : firstByte > 0xbf
-                    ? 2
-                    : 1;
+                      ? 3
+                      : firstByte > 0xbf
+                        ? 2
+                        : 1;
 
             if (i + bytesPerSequence <= end) {
                 var secondByte, thirdByte, fourthByte, tempCodePoint;
@@ -2103,7 +2105,7 @@
         while (i < len) {
             res += String.fromCharCode.apply(
                 String,
-                codePoints.slice(i, (i += MAX_ARGUMENTS_LENGTH$1))
+                codePoints.slice(i, (i += MAX_ARGUMENTS_LENGTH$1)),
             );
         }
         return res;
@@ -2200,7 +2202,7 @@
     Buffer$1.prototype.readUIntLE = function readUIntLE(
         offset,
         byteLength,
-        noAssert
+        noAssert,
     ) {
         offset = offset | 0;
         byteLength = byteLength | 0;
@@ -2219,7 +2221,7 @@
     Buffer$1.prototype.readUIntBE = function readUIntBE(
         offset,
         byteLength,
-        noAssert
+        noAssert,
     ) {
         offset = offset | 0;
         byteLength = byteLength | 0;
@@ -2276,7 +2278,7 @@
     Buffer$1.prototype.readIntLE = function readIntLE(
         offset,
         byteLength,
-        noAssert
+        noAssert,
     ) {
         offset = offset | 0;
         byteLength = byteLength | 0;
@@ -2298,7 +2300,7 @@
     Buffer$1.prototype.readIntBE = function readIntBE(
         offset,
         byteLength,
-        noAssert
+        noAssert,
     ) {
         offset = offset | 0;
         byteLength = byteLength | 0;
@@ -2390,7 +2392,7 @@
         value,
         offset,
         byteLength,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -2414,7 +2416,7 @@
         value,
         offset,
         byteLength,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -2437,7 +2439,7 @@
     Buffer$1.prototype.writeUInt8 = function writeUInt8(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -2459,7 +2461,7 @@
     Buffer$1.prototype.writeUInt16LE = function writeUInt16LE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -2476,7 +2478,7 @@
     Buffer$1.prototype.writeUInt16BE = function writeUInt16BE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -2501,7 +2503,7 @@
     Buffer$1.prototype.writeUInt32LE = function writeUInt32LE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -2520,7 +2522,7 @@
     Buffer$1.prototype.writeUInt32BE = function writeUInt32BE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -2540,7 +2542,7 @@
         value,
         offset,
         byteLength,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -2568,7 +2570,7 @@
         value,
         offset,
         byteLength,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -2605,7 +2607,7 @@
     Buffer$1.prototype.writeInt16LE = function writeInt16LE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -2622,7 +2624,7 @@
     Buffer$1.prototype.writeInt16BE = function writeInt16BE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -2639,7 +2641,7 @@
     Buffer$1.prototype.writeInt32LE = function writeInt32LE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -2659,7 +2661,7 @@
     Buffer$1.prototype.writeInt32BE = function writeInt32BE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -2694,7 +2696,7 @@
     Buffer$1.prototype.writeFloatLE = function writeFloatLE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         return writeFloat$1(this, value, offset, true, noAssert);
     };
@@ -2702,7 +2704,7 @@
     Buffer$1.prototype.writeFloatBE = function writeFloatBE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         return writeFloat$1(this, value, offset, false, noAssert);
     };
@@ -2718,7 +2720,7 @@
     Buffer$1.prototype.writeDoubleLE = function writeDoubleLE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         return writeDouble$1(this, value, offset, true, noAssert);
     };
@@ -2726,7 +2728,7 @@
     Buffer$1.prototype.writeDoubleBE = function writeDoubleBE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         return writeDouble$1(this, value, offset, false, noAssert);
     };
@@ -2774,7 +2776,7 @@
             Uint8Array.prototype.set.call(
                 target,
                 this.subarray(start, start + len),
-                targetStart
+                targetStart,
             );
         }
 
@@ -2931,14 +2933,14 @@
                 if ((units -= 2) < 0) break;
                 bytes.push(
                     (codePoint >> 0x6) | 0xc0,
-                    (codePoint & 0x3f) | 0x80
+                    (codePoint & 0x3f) | 0x80,
                 );
             } else if (codePoint < 0x10000) {
                 if ((units -= 3) < 0) break;
                 bytes.push(
                     (codePoint >> 0xc) | 0xe0,
                     ((codePoint >> 0x6) & 0x3f) | 0x80,
-                    (codePoint & 0x3f) | 0x80
+                    (codePoint & 0x3f) | 0x80,
                 );
             } else if (codePoint < 0x110000) {
                 if ((units -= 4) < 0) break;
@@ -2946,7 +2948,7 @@
                     (codePoint >> 0x12) | 0xf0,
                     ((codePoint >> 0xc) & 0x3f) | 0x80,
                     ((codePoint >> 0x6) & 0x3f) | 0x80,
-                    (codePoint & 0x3f) | 0x80
+                    (codePoint & 0x3f) | 0x80,
                 );
             } else {
                 throw new Error("Invalid code point");
@@ -3520,7 +3522,7 @@
             if (isRegExp(value)) {
                 return ctx.stylize(
                     RegExp.prototype.toString.call(value),
-                    "regexp"
+                    "regexp",
                 );
             }
             if (isDate(value)) {
@@ -3570,7 +3572,7 @@
             if (isRegExp(value)) {
                 return ctx.stylize(
                     RegExp.prototype.toString.call(value),
-                    "regexp"
+                    "regexp",
                 );
             } else {
                 return ctx.stylize("[Object]", "special");
@@ -3590,7 +3592,7 @@
                     recurseTimes,
                     visibleKeys,
                     key,
-                    array
+                    array,
                 );
             });
         }
@@ -3633,8 +3635,8 @@
                         recurseTimes,
                         visibleKeys,
                         String(i),
-                        true
-                    )
+                        true,
+                    ),
                 );
             } else {
                 output.push("");
@@ -3649,8 +3651,8 @@
                         recurseTimes,
                         visibleKeys,
                         key,
-                        true
-                    )
+                        true,
+                    ),
                 );
             }
         });
@@ -4115,7 +4117,7 @@
                 this.charBuffer,
                 0,
                 buffer.length - this.charReceived,
-                end
+                end,
             );
             end -= this.charReceived;
         }
@@ -4738,7 +4740,7 @@
                 ) {
                     debug$2(
                         "false write response, pause",
-                        src._readableState.awaitDrain
+                        src._readableState.awaitDrain,
                     );
                     src._readableState.awaitDrain++;
                     increasedAwaitDrain = true;
@@ -5158,8 +5160,7 @@
         Object.defineProperty(this, "buffer", {
             get: deprecate$1(function () {
                 return this.getBuffer();
-            }, "_writableState.buffer is deprecated. Use _writableState.getBuffer " +
-                "instead."),
+            }, "_writableState.buffer is deprecated. Use _writableState.getBuffer " + "instead."),
         });
         options = options || {};
 
@@ -5373,7 +5374,7 @@
     };
 
     Writable.prototype.setDefaultEncoding = function setDefaultEncoding(
-        encoding
+        encoding,
     ) {
         // node::ParseEncoding() requires lower case.
         if (typeof encoding === "string") encoding = encoding.toLowerCase();
@@ -5541,7 +5542,7 @@
                 state.length,
                 buffer,
                 "",
-                holder.finish
+                holder.finish,
             );
 
             // doWrite is almost always async, defer these to save a bit of time
@@ -5742,7 +5743,7 @@
         if (!cb)
             return stream.emit(
                 "error",
-                new Error("no writecb in Transform class")
+                new Error("no writecb in Transform class"),
             );
 
         ts.writechunk = null;
@@ -6053,11 +6054,11 @@
             .replace(/(\d+)/gm, '<span class="number">$1</span>')
             .replace(
                 /\bnew[ \t]+(\w+)/gm,
-                '<span class="keyword">new</span> <span class="init">$1</span>'
+                '<span class="keyword">new</span> <span class="init">$1</span>',
             )
             .replace(
                 /\b(function|new|throw|return|var|if|else)\b/gm,
-                '<span class="keyword">$1</span>'
+                '<span class="keyword">$1</span>',
             );
     }
 
@@ -6159,7 +6160,7 @@
             // Skip empty and invalid entries
             if (typeof path !== "string") {
                 throw new TypeError(
-                    "Arguments to path.resolve must be strings"
+                    "Arguments to path.resolve must be strings",
                 );
             } else if (!path) {
                 continue;
@@ -6177,7 +6178,7 @@
             filter(resolvedPath.split("/"), function (p) {
                 return !!p;
             }),
-            !resolvedAbsolute
+            !resolvedAbsolute,
         ).join("/");
 
         return (resolvedAbsolute ? "/" : "") + resolvedPath || ".";
@@ -6193,7 +6194,7 @@
             filter(path.split("/"), function (p) {
                 return !!p;
             }),
-            !isPathAbsolute
+            !isPathAbsolute,
         ).join("/");
 
         if (!path && !isPathAbsolute) {
@@ -6217,11 +6218,11 @@
             filter(paths, function (p, index) {
                 if (typeof p !== "string") {
                     throw new TypeError(
-                        "Arguments to path.join must be strings"
+                        "Arguments to path.join must be strings",
                     );
                 }
                 return p;
-            }).join("/")
+            }).join("/"),
         );
     }
 
@@ -6419,7 +6420,7 @@
                     bestPath[0],
                     newString,
                     oldString,
-                    0
+                    0,
                 );
 
                 if (bestPath[0].newPos + 1 >= newLen && oldPos + 1 >= oldLen) {
@@ -6473,7 +6474,7 @@
                             self.pushComponent(
                                 basePath.components,
                                 undefined,
-                                true
+                                true,
                             );
                         } else {
                             basePath = addPath; // No need to clone, we've pulled it from the list
@@ -6482,7 +6483,7 @@
                             self.pushComponent(
                                 basePath.components,
                                 true,
-                                undefined
+                                undefined,
                             );
                         }
 
@@ -6490,7 +6491,7 @@
                             basePath,
                             newString,
                             oldString,
-                            diagonalPath
+                            diagonalPath,
                         ); // If we have hit the end of both strings, then we are done
 
                         if (
@@ -6503,8 +6504,8 @@
                                     basePath.components,
                                     newString,
                                     oldString,
-                                    self.useLongestToken
-                                )
+                                    self.useLongestToken,
+                                ),
                             );
                         } else {
                             // Otherwise track this path as a potential candidate and continue.
@@ -6573,7 +6574,7 @@
                 basePath,
                 newString,
                 oldString,
-                diagonalPath
+                diagonalPath,
             ) {
                 var newLen = newString.length,
                     oldLen = oldString.length,
@@ -6658,7 +6659,7 @@
             components,
             newString,
             oldString,
-            useLongestToken
+            useLongestToken,
         ) {
             var componentPos = 0,
                 componentLen = components.length,
@@ -6672,7 +6673,7 @@
                     if (!component.added && useLongestToken) {
                         var value = newString.slice(
                             newPos,
-                            newPos + component.count
+                            newPos + component.count,
                         );
                         value = value.map(function (value, i) {
                             var oldValue = oldString[oldPos + i];
@@ -6683,7 +6684,7 @@
                         component.value = diff.join(value);
                     } else {
                         component.value = diff.join(
-                            newString.slice(newPos, newPos + component.count)
+                            newString.slice(newPos, newPos + component.count),
                         );
                     }
 
@@ -6694,7 +6695,7 @@
                     }
                 } else {
                     component.value = diff.join(
-                        oldString.slice(oldPos, oldPos + component.count)
+                        oldString.slice(oldPos, oldPos + component.count),
                     );
                     oldPos += component.count; // Reverse add and remove so removes are output first to match common convention
                     // The diffing algorithm is tied to add then remove output and this is the simplest
@@ -6895,7 +6896,7 @@
                 options,
                 {
                     ignoreWhitespace: true,
-                }
+                },
             );
         return wordDiff.diff(oldStr, newStr, options);
     }
@@ -6980,7 +6981,7 @@
                 callback,
                 {
                     ignoreWhitespace: true,
-                }
+                },
             );
         return lineDiff.diff(oldStr, newStr, options);
     }
@@ -7149,7 +7150,7 @@
             : JSON.stringify(
                   canonicalize(value, null, null, stringifyReplacer),
                   stringifyReplacer,
-                  "  "
+                  "  ",
               );
     };
 
@@ -7164,7 +7165,7 @@
             ].prototype.equals.call(
                 jsonDiff,
                 left.replace(/,([\r\n])/g, "$1"),
-                right.replace(/,([\r\n])/g, "$1")
+                right.replace(/,([\r\n])/g, "$1"),
             )
         );
     };
@@ -7203,7 +7204,7 @@
                     stack,
                     replacementStack,
                     replacer,
-                    key
+                    key,
                 );
             }
 
@@ -7220,7 +7221,7 @@
             /*istanbul ignore start*/
             _typeof(
                 /*istanbul ignore end*/
-                obj
+                obj,
             ) === "object" &&
             obj !== null
         ) {
@@ -7247,7 +7248,7 @@
                     stack,
                     replacementStack,
                     replacer,
-                    _key
+                    _key,
                 );
             }
 
@@ -7338,7 +7339,7 @@
                 } // Diff index
 
                 var header = /^(?:Index:|diff(?: -r \w+)+)\s+(.+?)\s*$/.exec(
-                    line
+                    line,
                 );
 
                 if (header) {
@@ -7364,7 +7365,7 @@
                 } else if (_line && options.strict) {
                     // Ignore unexpected content unless in strict mode
                     throw new Error(
-                        "Unknown line " + (i + 1) + " " + JSON.stringify(_line)
+                        "Unknown line " + (i + 1) + " " + JSON.stringify(_line),
                     );
                 } else {
                     i++;
@@ -7396,7 +7397,7 @@
             var chunkHeaderIndex = i,
                 chunkHeaderLine = diffstr[i++],
                 chunkHeader = chunkHeaderLine.split(
-                    /@@ -(\d+)(?:,(\d+))? \+(\d+)(?:,(\d+))? @@/
+                    /@@ -(\d+)(?:,(\d+))? \+(\d+)(?:,(\d+))? @@/,
                 );
             var hunk = {
                 oldStart: +chunkHeader[1],
@@ -7473,14 +7474,14 @@
                 if (addCount !== hunk.newLines) {
                     throw new Error(
                         "Added line count did not match for hunk at line " +
-                            (chunkHeaderIndex + 1)
+                            (chunkHeaderIndex + 1),
                     );
                 }
 
                 if (removeCount !== hunk.oldLines) {
                     throw new Error(
                         "Removed line count did not match for hunk at line " +
-                            (chunkHeaderIndex + 1)
+                            (chunkHeaderIndex + 1),
                     );
                 }
             }
@@ -7513,7 +7514,7 @@
             /*istanbul ignore end*/
             start,
             minLine,
-            maxLine
+            maxLine,
         ) {
             var wantForward = true,
                 backwardExhausted = false,
@@ -7591,7 +7592,7 @@
                 /*istanbul ignore start*/
                 _parse$1.parsePatch)(
                     /*istanbul ignore end*/
-                    uniDiff
+                    uniDiff,
                 );
         }
 
@@ -7612,7 +7613,7 @@
                     lineNumber,
                     line,
                     operation,
-                    patchContent /*istanbul ignore start*/
+                    patchContent /*istanbul ignore start*/,
                 ) {
                     return (
                         /*istanbul ignore end*/
@@ -7642,7 +7643,7 @@
                             toPos + 1,
                             lines[toPos],
                             operation,
-                            content
+                            content,
                         )
                     ) {
                         errorCount++;
@@ -7759,7 +7760,7 @@
                 /*istanbul ignore start*/
                 _parse$1.parsePatch)(
                     /*istanbul ignore end*/
-                    uniDiff
+                    uniDiff,
                 );
         }
 
@@ -7819,7 +7820,7 @@
 
     function _nonIterableSpread$1() {
         throw new TypeError(
-            "Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+            "Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.",
         );
     }
 
@@ -7861,7 +7862,7 @@
         newStr,
         oldHeader,
         newHeader,
-        options
+        options,
     ) {
         if (!options) {
             options = {};
@@ -7883,7 +7884,7 @@
                 /*istanbul ignore end*/
                 oldStr,
                 newStr,
-                options
+                options,
             );
         diff.push({
             value: "",
@@ -7906,7 +7907,7 @@
         /*istanbul ignore start*/
         var _loop = function _loop(
             /*istanbul ignore end*/
-            i
+            i,
         ) {
             var current = diff[i],
                 lines =
@@ -7929,7 +7930,7 @@
                         curRange =
                             options.context > 0
                                 ? contextLines(
-                                      prev.lines.slice(-options.context)
+                                      prev.lines.slice(-options.context),
                                   )
                                 : [];
                         oldRangeStart -= curRange.length;
@@ -7953,8 +7954,8 @@
                         /*istanbul ignore end*/
                         lines.map(function (entry) {
                             return (current.added ? "+" : "-") + entry;
-                        })
-                    )
+                        }),
+                    ),
                 ); // Track the updated file position
 
                 if (current.added) {
@@ -7990,8 +7991,8 @@
                             /*istanbul ignore start*/
                             _toConsumableArray$1(
                                 /*istanbul ignore end*/
-                                contextLines(lines)
-                            )
+                                contextLines(lines),
+                            ),
                         );
                     } else {
                         /*istanbul ignore start*/
@@ -8001,7 +8002,7 @@
                         // end the range and output
                         var contextSize = Math.min(
                             lines.length,
-                            options.context
+                            options.context,
                         );
 
                         /*istanbul ignore start*/
@@ -8018,8 +8019,8 @@
                             /*istanbul ignore start*/
                             _toConsumableArray$1(
                                 /*istanbul ignore end*/
-                                contextLines(lines.slice(0, contextSize))
-                            )
+                                contextLines(lines.slice(0, contextSize)),
+                            ),
                         );
 
                         var hunk = {
@@ -8051,7 +8052,7 @@
                                 curRange.splice(
                                     hunk.oldLines,
                                     0,
-                                    "\\ No newline at end of file"
+                                    "\\ No newline at end of file",
                                 );
                             }
 
@@ -8079,7 +8080,7 @@
             /*istanbul ignore start*/
             _loop(
                 /*istanbul ignore end*/
-                i
+                i,
             );
         }
 
@@ -8100,21 +8101,21 @@
         }
 
         ret.push(
-            "==================================================================="
+            "===================================================================",
         );
         ret.push(
             "--- " +
                 diff.oldFileName +
                 (typeof diff.oldHeader === "undefined"
                     ? ""
-                    : "\t" + diff.oldHeader)
+                    : "\t" + diff.oldHeader),
         );
         ret.push(
             "+++ " +
                 diff.newFileName +
                 (typeof diff.newHeader === "undefined"
                     ? ""
-                    : "\t" + diff.newHeader)
+                    : "\t" + diff.newHeader),
         );
 
         for (var i = 0; i < diff.hunks.length; i++) {
@@ -8139,7 +8140,7 @@
                     hunk.newStart +
                     "," +
                     hunk.newLines +
-                    " @@"
+                    " @@",
             );
             ret.push.apply(ret, hunk.lines);
         }
@@ -8154,7 +8155,7 @@
         newStr,
         oldHeader,
         newHeader,
-        options
+        options,
     ) {
         return formatPatch(
             structuredPatch(
@@ -8164,8 +8165,8 @@
                 newStr,
                 oldHeader,
                 newHeader,
-                options
-            )
+                options,
+            ),
         );
     }
 
@@ -8175,7 +8176,7 @@
         newStr,
         oldHeader,
         newHeader,
-        options
+        options,
     ) {
         return createTwoFilesPatch(
             fileName,
@@ -8184,7 +8185,7 @@
             newStr,
             oldHeader,
             newHeader,
-            options
+            options,
         );
     }
 
@@ -8247,7 +8248,7 @@
 
     function _nonIterableSpread() {
         throw new TypeError(
-            "Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+            "Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.",
         );
     }
 
@@ -8332,22 +8333,22 @@
                 ret.oldFileName = selectField(
                     ret,
                     mine.oldFileName,
-                    theirs.oldFileName
+                    theirs.oldFileName,
                 );
                 ret.newFileName = selectField(
                     ret,
                     mine.newFileName,
-                    theirs.newFileName
+                    theirs.newFileName,
                 );
                 ret.oldHeader = selectField(
                     ret,
                     mine.oldHeader,
-                    theirs.oldHeader
+                    theirs.oldHeader,
                 );
                 ret.newHeader = selectField(
                     ret,
                     mine.newHeader,
-                    theirs.newHeader
+                    theirs.newHeader,
                 );
             }
         }
@@ -8384,12 +8385,12 @@
                 var mergedHunk = {
                     oldStart: Math.min(
                         mineCurrent.oldStart,
-                        theirsCurrent.oldStart
+                        theirsCurrent.oldStart,
                     ),
                     oldLines: 0,
                     newStart: Math.min(
                         mineCurrent.newStart + mineOffset,
-                        theirsCurrent.oldStart + theirsOffset
+                        theirsCurrent.oldStart + theirsOffset,
                     ),
                     newLines: 0,
                     lines: [],
@@ -8399,7 +8400,7 @@
                     mineCurrent.oldStart,
                     mineCurrent.lines,
                     theirsCurrent.oldStart,
-                    theirsCurrent.lines
+                    theirsCurrent.lines,
                 );
                 theirsIndex++;
                 mineIndex++;
@@ -8423,14 +8424,14 @@
                     /*istanbul ignore start*/
                     _parse.parsePatch)(
                         /*istanbul ignore end*/
-                        param
+                        param,
                     )[0]
                 );
             }
 
             if (!base) {
                 throw new Error(
-                    "Must provide a base reference or pass in a patch"
+                    "Must provide a base reference or pass in a patch",
                 );
             }
 
@@ -8447,7 +8448,7 @@
                     undefined,
                     undefined,
                     base,
-                    param
+                    param,
                 )
             );
         }
@@ -8539,8 +8540,8 @@
                     /*istanbul ignore start*/
                     _toConsumableArray(
                         /*istanbul ignore end*/
-                        collectChange(mine)
-                    )
+                        collectChange(mine),
+                    ),
                 );
             } else if (theirCurrent[0] === "+" && mineCurrent[0] === " ") {
                 /*istanbul ignore start*/
@@ -8563,8 +8564,8 @@
                     /*istanbul ignore start*/
                     _toConsumableArray(
                         /*istanbul ignore end*/
-                        collectChange(their)
-                    )
+                        collectChange(their),
+                    ),
                 );
             } else if (mineCurrent[0] === "-" && theirCurrent[0] === " ") {
                 // Mine removed or edited
@@ -8605,12 +8606,12 @@
                 _array.arrayStartsWith)(
                     /*istanbul ignore end*/
                     myChanges,
-                    theirChanges
+                    theirChanges,
                 ) &&
                 skipRemoveSuperset(
                     their,
                     myChanges,
-                    myChanges.length - theirChanges.length
+                    myChanges.length - theirChanges.length,
                 )
             ) {
                 /*istanbul ignore start*/
@@ -8632,8 +8633,8 @@
                     /*istanbul ignore start*/
                     _toConsumableArray(
                         /*istanbul ignore end*/
-                        myChanges
-                    )
+                        myChanges,
+                    ),
                 );
 
                 return;
@@ -8648,12 +8649,12 @@
                 _array.arrayStartsWith)(
                     /*istanbul ignore end*/
                     theirChanges,
-                    myChanges
+                    myChanges,
                 ) &&
                 skipRemoveSuperset(
                     mine,
                     theirChanges,
-                    theirChanges.length - myChanges.length
+                    theirChanges.length - myChanges.length,
                 )
             ) {
                 /*istanbul ignore start*/
@@ -8675,8 +8676,8 @@
                     /*istanbul ignore start*/
                     _toConsumableArray(
                         /*istanbul ignore end*/
-                        theirChanges
-                    )
+                        theirChanges,
+                    ),
                 );
 
                 return;
@@ -8692,7 +8693,7 @@
             _array.arrayEqual)(
                 /*istanbul ignore end*/
                 myChanges,
-                theirChanges
+                theirChanges,
             )
         ) {
             /*istanbul ignore start*/
@@ -8714,8 +8715,8 @@
                 /*istanbul ignore start*/
                 _toConsumableArray(
                     /*istanbul ignore end*/
-                    myChanges
-                )
+                    myChanges,
+                ),
             );
 
             return;
@@ -8748,14 +8749,14 @@
                 /*istanbul ignore start*/
                 _toConsumableArray(
                     /*istanbul ignore end*/
-                    theirChanges.merged
-                )
+                    theirChanges.merged,
+                ),
             );
         } else {
             conflict(
                 hunk,
                 swap ? theirChanges : myChanges,
-                swap ? myChanges : theirChanges
+                swap ? myChanges : theirChanges,
             );
         }
     }
@@ -9206,7 +9207,7 @@
         }
         throw new Error(
             "val is not a non-empty string or a valid number. val=" +
-                JSON.stringify(val)
+                JSON.stringify(val),
         );
     };
 
@@ -9225,7 +9226,7 @@
         }
         var match =
             /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
-                str
+                str,
             );
         if (!match) {
             return;
@@ -9446,8 +9447,8 @@
                 encodeChunk(
                     uint8,
                     i,
-                    i + maxChunkLength > len2 ? len2 : i + maxChunkLength
-                )
+                    i + maxChunkLength > len2 ? len2 : i + maxChunkLength,
+                ),
             );
         }
 
@@ -9652,7 +9653,7 @@
         if (typeof arg === "number") {
             if (typeof encodingOrOffset === "string") {
                 throw new Error(
-                    "If encoding is specified then the first argument must be a string"
+                    "If encoding is specified then the first argument must be a string",
                 );
             }
             return allocUnsafe(this, arg);
@@ -9854,7 +9855,7 @@
         }
 
         throw new TypeError(
-            "First argument must be a string, Buffer, ArrayBuffer, Array, or array-like object."
+            "First argument must be a string, Buffer, ArrayBuffer, Array, or array-like object.",
         );
     }
 
@@ -9866,7 +9867,7 @@
                 "Attempt to allocate Buffer larger than maximum " +
                     "size: 0x" +
                     kMaxLength().toString(16) +
-                    " bytes"
+                    " bytes",
             );
         }
         return length | 0;
@@ -9941,7 +9942,7 @@
             var buf = list[i];
             if (!internalIsBuffer(buf)) {
                 throw new TypeError(
-                    '"list" argument must be an Array of Buffers'
+                    '"list" argument must be an Array of Buffers',
                 );
             }
             buf.copy(buffer, pos);
@@ -10145,7 +10146,7 @@
         start,
         end,
         thisStart,
-        thisEnd
+        thisEnd,
     ) {
         if (!internalIsBuffer(target)) {
             throw new TypeError("Argument must be a Buffer");
@@ -10270,13 +10271,13 @@
                     return Uint8Array.prototype.indexOf.call(
                         buffer,
                         val,
-                        byteOffset
+                        byteOffset,
                     );
                 } else {
                     return Uint8Array.prototype.lastIndexOf.call(
                         buffer,
                         val,
-                        byteOffset
+                        byteOffset,
                     );
                 }
             }
@@ -10362,7 +10363,7 @@
     Buffer.prototype.lastIndexOf = function lastIndexOf(
         val,
         byteOffset,
-        encoding
+        encoding,
     ) {
         return bidirectionalIndexOf(this, val, byteOffset, encoding, false);
     };
@@ -10399,7 +10400,7 @@
             utf8ToBytes(string, buf.length - offset),
             buf,
             offset,
-            length
+            length,
         );
     }
 
@@ -10420,7 +10421,7 @@
             utf16leToBytes(string, buf.length - offset),
             buf,
             offset,
-            length
+            length,
         );
     }
 
@@ -10448,7 +10449,7 @@
             // legacy write(string, encoding, offset, length) - remove in v0.13
         } else {
             throw new Error(
-                "Buffer.write(string, encoding, offset[, length]) is no longer supported"
+                "Buffer.write(string, encoding, offset[, length]) is no longer supported",
             );
         }
 
@@ -10527,10 +10528,10 @@
                 firstByte > 0xef
                     ? 4
                     : firstByte > 0xdf
-                    ? 3
-                    : firstByte > 0xbf
-                    ? 2
-                    : 1;
+                      ? 3
+                      : firstByte > 0xbf
+                        ? 2
+                        : 1;
 
             if (i + bytesPerSequence <= end) {
                 var secondByte, thirdByte, fourthByte, tempCodePoint;
@@ -10632,7 +10633,7 @@
         while (i < len) {
             res += String.fromCharCode.apply(
                 String,
-                codePoints.slice(i, (i += MAX_ARGUMENTS_LENGTH))
+                codePoints.slice(i, (i += MAX_ARGUMENTS_LENGTH)),
             );
         }
         return res;
@@ -10729,7 +10730,7 @@
     Buffer.prototype.readUIntLE = function readUIntLE(
         offset,
         byteLength,
-        noAssert
+        noAssert,
     ) {
         offset = offset | 0;
         byteLength = byteLength | 0;
@@ -10748,7 +10749,7 @@
     Buffer.prototype.readUIntBE = function readUIntBE(
         offset,
         byteLength,
-        noAssert
+        noAssert,
     ) {
         offset = offset | 0;
         byteLength = byteLength | 0;
@@ -10805,7 +10806,7 @@
     Buffer.prototype.readIntLE = function readIntLE(
         offset,
         byteLength,
-        noAssert
+        noAssert,
     ) {
         offset = offset | 0;
         byteLength = byteLength | 0;
@@ -10827,7 +10828,7 @@
     Buffer.prototype.readIntBE = function readIntBE(
         offset,
         byteLength,
-        noAssert
+        noAssert,
     ) {
         offset = offset | 0;
         byteLength = byteLength | 0;
@@ -10919,7 +10920,7 @@
         value,
         offset,
         byteLength,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -10943,7 +10944,7 @@
         value,
         offset,
         byteLength,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -10984,7 +10985,7 @@
     Buffer.prototype.writeUInt16LE = function writeUInt16LE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -11001,7 +11002,7 @@
     Buffer.prototype.writeUInt16BE = function writeUInt16BE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -11026,7 +11027,7 @@
     Buffer.prototype.writeUInt32LE = function writeUInt32LE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -11045,7 +11046,7 @@
     Buffer.prototype.writeUInt32BE = function writeUInt32BE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -11065,7 +11066,7 @@
         value,
         offset,
         byteLength,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -11093,7 +11094,7 @@
         value,
         offset,
         byteLength,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -11130,7 +11131,7 @@
     Buffer.prototype.writeInt16LE = function writeInt16LE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -11147,7 +11148,7 @@
     Buffer.prototype.writeInt16BE = function writeInt16BE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -11164,7 +11165,7 @@
     Buffer.prototype.writeInt32LE = function writeInt32LE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -11184,7 +11185,7 @@
     Buffer.prototype.writeInt32BE = function writeInt32BE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         value = +value;
         offset = offset | 0;
@@ -11219,7 +11220,7 @@
     Buffer.prototype.writeFloatLE = function writeFloatLE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         return writeFloat(this, value, offset, true, noAssert);
     };
@@ -11227,7 +11228,7 @@
     Buffer.prototype.writeFloatBE = function writeFloatBE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         return writeFloat(this, value, offset, false, noAssert);
     };
@@ -11243,7 +11244,7 @@
     Buffer.prototype.writeDoubleLE = function writeDoubleLE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         return writeDouble(this, value, offset, true, noAssert);
     };
@@ -11251,7 +11252,7 @@
     Buffer.prototype.writeDoubleBE = function writeDoubleBE(
         value,
         offset,
-        noAssert
+        noAssert,
     ) {
         return writeDouble(this, value, offset, false, noAssert);
     };
@@ -11299,7 +11300,7 @@
             Uint8Array.prototype.set.call(
                 target,
                 this.subarray(start, start + len),
-                targetStart
+                targetStart,
             );
         }
 
@@ -11453,14 +11454,14 @@
                 if ((units -= 2) < 0) break;
                 bytes.push(
                     (codePoint >> 0x6) | 0xc0,
-                    (codePoint & 0x3f) | 0x80
+                    (codePoint & 0x3f) | 0x80,
                 );
             } else if (codePoint < 0x10000) {
                 if ((units -= 3) < 0) break;
                 bytes.push(
                     (codePoint >> 0xc) | 0xe0,
                     ((codePoint >> 0x6) & 0x3f) | 0x80,
-                    (codePoint & 0x3f) | 0x80
+                    (codePoint & 0x3f) | 0x80,
                 );
             } else if (codePoint < 0x110000) {
                 if ((units -= 4) < 0) break;
@@ -11468,7 +11469,7 @@
                     (codePoint >> 0x12) | 0xf0,
                     ((codePoint >> 0xc) & 0x3f) | 0x80,
                     ((codePoint >> 0x6) & 0x3f) | 0x80,
-                    (codePoint & 0x3f) | 0x80
+                    (codePoint & 0x3f) | 0x80,
                 );
             } else {
                 throw new Error("Invalid code point");
@@ -15479,7 +15480,7 @@
                     // REPLACEMENT CHARACTER.”
                     if (strict) {
                         parseError(
-                            "character reference outside the permissible Unicode range"
+                            "character reference outside the permissible Unicode range",
                         );
                     }
                     return "\uFFFD";
@@ -15496,7 +15497,7 @@
                 if (codePoint > 0xffff) {
                     codePoint -= 0x10000;
                     output += stringFromCharCode(
-                        ((codePoint >>> 10) & 0x3ff) | 0xd800
+                        ((codePoint >>> 10) & 0x3ff) | 0xd800,
                     );
                     codePoint = 0xdc00 | (codePoint & 0x3ff);
                 }
@@ -15543,7 +15544,7 @@
                                 return "&" + encodeMap[symbol] + ";";
                             }
                             return escapeBmpSymbol(symbol);
-                        }
+                        },
                     );
                     // Shorten a few escapes that represent two symbols, of which at least one
                     // is within the ASCII range.
@@ -15561,7 +15562,7 @@
                             function (string) {
                                 // Note: there is no need to check `has(encodeMap, string)` here.
                                 return "&" + encodeMap[string] + ";";
-                            }
+                            },
                         );
                     }
                     // Note: any remaining non-ASCII symbols are handled outside of the `if`.
@@ -15584,7 +15585,7 @@
                         function (string) {
                             // Note: there is no need to check `has(encodeMap, string)` here.
                             return "&" + encodeMap[string] + ";";
-                        }
+                        },
                     );
                 } else if (!allowUnsafeSymbols) {
                     // Encode `<>"'&` using hexadecimal escapes, now that they’re not handled
@@ -15650,14 +15651,14 @@
                             if (next && options.isAttributeValue) {
                                 if (strict && next == "=") {
                                     parseError(
-                                        "`&` did not start a character reference"
+                                        "`&` did not start a character reference",
                                     );
                                 }
                                 return $0;
                             } else {
                                 if (strict) {
                                     parseError(
-                                        "named character reference was not terminated by a semicolon"
+                                        "named character reference was not terminated by a semicolon",
                                     );
                                 }
                                 // Note: there is no need to check `has(decodeMapLegacy, reference)`.
@@ -15673,7 +15674,7 @@
                             semicolon = $5;
                             if (strict && !semicolon) {
                                 parseError(
-                                    "character reference was not terminated by a semicolon"
+                                    "character reference was not terminated by a semicolon",
                                 );
                             }
                             codePoint = parseInt(decDigits, 10);
@@ -15686,7 +15687,7 @@
                             semicolon = $7;
                             if (strict && !semicolon) {
                                 parseError(
-                                    "character reference was not terminated by a semicolon"
+                                    "character reference was not terminated by a semicolon",
                                 );
                             }
                             codePoint = parseInt(hexDigits, 16);
@@ -15697,11 +15698,11 @@
                         // ampersand for sure. https://mths.be/notes/ambiguous-ampersands
                         if (strict) {
                             parseError(
-                                "named character reference was not terminated by a semicolon"
+                                "named character reference was not terminated by a semicolon",
                             );
                         }
                         return $0;
-                    }
+                    },
                 );
             };
             // Expose default options (so they can be overridden globally).
@@ -15824,14 +15825,14 @@
                 // (traditional)->  space/name     parameters    body     (lambda)-> parameters       body   multi-statement/single          keep body content
                 .replace(
                     /^function(?:\s*|\s[^(]*)\([^)]*\)\s*\{((?:.|\n)*?)\}$|^\([^)]*\)\s*=>\s*(?:\{((?:.|\n)*?)\}|((?:.|\n)*))$/,
-                    "$1$2$3"
+                    "$1$2$3",
                 );
 
             var spaces = str.match(/^\n?( *)/)[1].length;
             var tabs = str.match(/^\n?(\t*)/)[1].length;
             var re = new RegExp(
                 "^\n?" + (tabs ? "\t" : " ") + "{" + (tabs || spaces) + "}",
-                "gm"
+                "gm",
             );
 
             str = str.replace(re, "");
@@ -15890,7 +15891,7 @@
          * canonicalType(await import(name)) // 'module'
          */
         var canonicalType = (exports.canonicalType = function canonicalType(
-            value
+            value,
         ) {
             if (value === undefined) {
                 return "undefined";
@@ -15970,7 +15971,7 @@
                     // Based on the toJSON result
                     return jsonStringify(
                         json.data && json.type ? json.data : json,
-                        2
+                        2,
                     ).replace(/,(\n|$)/g, "$1");
                 }
 
@@ -15991,7 +15992,7 @@
                 if (Object.prototype.hasOwnProperty.call(value, prop)) {
                     return jsonStringify(
                         exports.canonicalize(value, null, typeHint),
-                        2
+                        2,
                     ).replace(/,(\n|$)/g, "$1");
                 }
             }
@@ -16163,7 +16164,7 @@
                             .forEach(function (key) {
                                 canonicalizedObj[key] = exports.canonicalize(
                                     value[key],
-                                    stack
+                                    stack,
                                 );
                             });
                     });
@@ -16302,8 +16303,8 @@
             return Object.assign.apply(
                 null,
                 [Object.create(null)].concat(
-                    Array.prototype.slice.call(arguments)
-                )
+                    Array.prototype.slice.call(arguments),
+                ),
             );
         };
 
@@ -16322,7 +16323,7 @@
         exports.defineConstants = function (obj) {
             if (canonicalType(obj) !== "object" || !Object.keys(obj).length) {
                 throw new TypeError(
-                    "Invalid argument; expected a non-empty object"
+                    "Invalid argument; expected a non-empty object",
                 );
             }
             return Object.freeze(exports.createMap(obj));
@@ -16477,7 +16478,7 @@
         }
         throw new Error(
             "val is not a non-empty string or a valid number. val=" +
-                JSON.stringify(val)
+                JSON.stringify(val),
         );
     };
 
@@ -16496,7 +16497,7 @@
         }
         var match =
             /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
-                str
+                str,
             );
         if (!match) {
             return;
@@ -16653,8 +16654,9 @@
                 hash |= 0; // Convert to 32bit integer
             }
 
-            return createDebug
-                .colors[Math.abs(hash) % createDebug.colors.length];
+            return createDebug.colors[
+                Math.abs(hash) % createDebug.colors.length
+            ];
         }
         createDebug.selectColor = selectColor;
 
@@ -16758,7 +16760,7 @@
             const newDebug = createDebug(
                 this.namespace +
                     (typeof delimiter === "undefined" ? ":" : delimiter) +
-                    namespace
+                    namespace,
             );
             newDebug.log = this.log;
             return newDebug;
@@ -16794,7 +16796,7 @@
 
                 if (namespaces[0] === "-") {
                     createDebug.skips.push(
-                        new RegExp("^" + namespaces.slice(1) + "$")
+                        new RegExp("^" + namespaces.slice(1) + "$"),
                     );
                 } else {
                     createDebug.names.push(new RegExp("^" + namespaces + "$"));
@@ -16883,7 +16885,7 @@
          */
         function destroy() {
             console.warn(
-                "Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`."
+                "Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.",
             );
         }
 
@@ -16911,7 +16913,7 @@
                 if (!warned) {
                     warned = true;
                     console.warn(
-                        "Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`."
+                        "Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.",
                     );
                 }
             };
@@ -17564,7 +17566,7 @@
     function createMochaInstanceAlreadyDisposedError(
         message,
         cleanReferencesAfterRun,
-        instance
+        instance,
     ) {
         var err = new Error(message);
         err.code = constants$4.INSTANCE_ALREADY_DISPOSED;
@@ -17608,7 +17610,7 @@
         var message = format(
             "done() called multiple times in %s %s",
             runnable.type ? runnable.type : "unknown runnable",
-            title
+            title,
         );
         if (runnable.file) {
             message += format(" of file %s", runnable.file);
@@ -17616,7 +17618,7 @@
         if (originalErr) {
             message += format(
                 "; in addition, done() received error: %s",
-                originalErr
+                originalErr,
             );
         }
 
@@ -17639,7 +17641,7 @@
         var err = new Error(
             mocha.isWorker
                 ? "`.only` is not supported in parallel mode"
-                : "`.only` forbidden by --forbid-only"
+                : "`.only` forbidden by --forbid-only",
         );
         err.code = constants$4.FORBIDDEN_EXCLUSIVITY;
         return err;
@@ -17672,7 +17674,7 @@
      */
     function createInvalidPluginImplementationError(
         msg,
-        { pluginDef, pluginImpl } = {}
+        { pluginDef, pluginImpl } = {},
     ) {
         const err = new Error(msg);
         err.code = constants$4.INVALID_PLUGIN_IMPLEMENTATION;
@@ -18064,8 +18066,8 @@
         if (this.fn && typeof this.fn.call !== "function") {
             done(
                 new TypeError(
-                    "A runnable must be passed a function as its second argument."
-                )
+                    "A runnable must be passed a function as its second argument.",
+                ),
             );
             return;
         }
@@ -18125,17 +18127,17 @@
                         done(
                             reason ||
                                 new Error(
-                                    "Promise rejected with no or falsy reason"
-                                )
+                                    "Promise rejected with no or falsy reason",
+                                ),
                         );
-                    }
+                    },
                 );
             } else {
                 if (self.asyncOnly) {
                     return done(
                         new Error(
-                            "--async-only option in use without declaring `done()` or returning a promise"
-                        )
+                            "--async-only option in use without declaring `done()` or returning a promise",
+                        ),
                     );
                 }
 
@@ -18159,19 +18161,19 @@
                         return done(
                             new Error(
                                 "done() invoked with non-Error: " +
-                                    JSON.stringify(err)
-                            )
+                                    JSON.stringify(err),
+                            ),
                         );
                     }
                     return done(
-                        new Error("done() invoked with non-Error: " + err)
+                        new Error("done() invoked with non-Error: " + err),
                     );
                 }
                 if (result && utils$2.isPromise(result)) {
                     return done(
                         new Error(
-                            "Resolution method is overspecified. Specify a callback *or* return a Promise; not both."
-                        )
+                            "Resolution method is overspecified. Specify a callback *or* return a Promise; not both.",
+                        ),
                     );
                 }
 
@@ -18218,7 +18220,7 @@
              * Value of `state` prop when a `Runnable` has been skipped by user
              */
             STATE_PENDING: "pending",
-        }
+        },
     );
 
     /**
@@ -18232,7 +18234,7 @@
             value ||
             createInvalidExceptionError$1(
                 "Runnable failed with falsy or undefined exception. Please throw an Error instead.",
-                value
+                value,
             )
         );
     };
@@ -18391,7 +18393,7 @@
                         typeof title +
                         '"',
                     "title",
-                    "string"
+                    "string",
                 );
             }
             this.title = title;
@@ -18995,7 +18997,7 @@
                  * Emitted after a `Test` has been added to a `Suite`.
                  */
                 EVENT_SUITE_ADD_TEST: "test",
-            }
+            },
         );
 
         Suite.constants = constants;
@@ -19125,7 +19127,7 @@
              * State set to this value when the Runner has stopped
              */
             STATE_STOPPED: "stopped",
-        }
+        },
     );
 
     class Runner extends EventEmitter {
@@ -19178,17 +19180,17 @@
                 if (isMochaError(reason)) {
                     debug(
                         "trapped unhandled rejection coming out of Mocha; forwarding to uncaught handler:",
-                        reason
+                        reason,
                     );
                     this.uncaught(reason);
                 } else {
                     debug(
-                        "trapped unhandled rejection from (probably) user code; re-emitting on process"
+                        "trapped unhandled rejection from (probably) user code; re-emitting on process",
                     );
                     this._removeEventListener(
                         process,
                         "unhandledRejection",
-                        this.unhandled
+                        this.unhandled,
                     );
                     try {
                         process.emit("unhandledRejection", reason, promise);
@@ -19196,7 +19198,7 @@
                         this._addEventListener(
                             process,
                             "unhandledRejection",
-                            this.unhandled
+                            this.unhandled,
                         );
                     }
                 }
@@ -19222,12 +19224,12 @@
     Runner.prototype._addEventListener = function (
         target,
         eventName,
-        listener
+        listener,
     ) {
         debug(
             "_addEventListener(): adding for event %s; %d current listeners",
             eventName,
-            target.listenerCount(eventName)
+            target.listenerCount(eventName),
         );
         /* istanbul ignore next */
         if (
@@ -19237,7 +19239,7 @@
         ) {
             debug(
                 "warning: tried to attach duplicate event listener for %s",
-                eventName
+                eventName,
             );
             return;
         }
@@ -19263,7 +19265,7 @@
     Runner.prototype._removeEventListener = function (
         target,
         eventName,
-        listener
+        listener,
     ) {
         target.removeListener(eventName, listener);
 
@@ -19447,7 +19449,7 @@
             }
             throw createFatalError(
                 "Test failed after root suite execution completed!",
-                err
+                err,
             );
         }
 
@@ -19544,7 +19546,7 @@
                     } else {
                         hook.pending = false;
                         var errForbid = createUnsupportedError$1(
-                            "`this.skip` forbidden"
+                            "`this.skip` forbidden",
                         );
                         self.fail(hook, errForbid);
                         return fn(errForbid);
@@ -19792,7 +19794,7 @@
                         self.fail(
                             test,
                             new Error("Pending test forbidden"),
-                            true
+                            true,
                         );
                     } else {
                         test.state = STATE_PENDING;
@@ -19807,7 +19809,7 @@
                         function (e, eSuite) {
                             self.suite = origSuite;
                             next(e, eSuite);
-                        }
+                        },
                     );
                 }
                 if (err) {
@@ -19822,7 +19824,7 @@
                             self.fail(
                                 test,
                                 new Error("Pending test forbidden"),
-                                true
+                                true,
                             );
                         } else {
                             test.state = STATE_PENDING;
@@ -19964,7 +19966,7 @@
         if (!(this instanceof Runner)) {
             throw createFatalError(
                 "Runner#uncaught() called with invalid context",
-                this
+                this,
             );
         }
         if (err instanceof Pending) {
@@ -19988,7 +19990,7 @@
             debug("uncaught(): undefined/falsy exception");
             err = createInvalidExceptionError(
                 "Caught falsy/undefined exception which would otherwise be uncaught. No stack trace found; try a debugger",
-                err
+                err,
             );
         }
 
@@ -20011,7 +20013,7 @@
             } else {
                 // Can't recover from this failure
                 debug(
-                    "uncaught(): test run has not yet started; unrecoverable"
+                    "uncaught(): test run has not yet started; unrecoverable",
                 );
                 this.emit(constants$1.EVENT_RUN_BEGIN);
                 this.fail(runnable, err);
@@ -20038,7 +20040,7 @@
         // then fails asynchronously
         if (runnable.isPassed()) {
             debug(
-                "uncaught(): Runnable has already passed; bailing gracefully"
+                "uncaught(): Runnable has already passed; bailing gracefully",
             );
             this.fail(runnable, err);
             this.abort();
@@ -20072,7 +20074,7 @@
 
             debug(
                 "run(): root suite completed; emitting %s",
-                constants$1.EVENT_RUN_END
+                constants$1.EVENT_RUN_END,
             );
             this.emit(constants$1.EVENT_RUN_END);
         };
@@ -20119,7 +20121,7 @@
         this._removeEventListener(
             process,
             "unhandledRejection",
-            this.unhandled
+            this.unhandled,
         );
         this._addEventListener(process, "uncaughtException", this.uncaught);
         this._addEventListener(process, "unhandledRejection", this.unhandled);
@@ -20215,7 +20217,7 @@
      */
     Runner.prototype.workerReporter = function () {
         throw createUnsupportedError$1(
-            "workerReporter() not supported in serial mode"
+            "workerReporter() not supported in serial mode",
         );
     };
 
@@ -20288,8 +20290,8 @@
     function thrown2Error(err) {
         return new Error(
             `the ${utils$1.canonicalType(err)} ${stringify(
-                err
-            )} was thrown, throw an Error :)`
+                err,
+            )} was thrown, throw an Error :)`,
         );
     }
 
@@ -20507,7 +20509,7 @@
                 if (maxLen > 0) {
                     skipped = Math.max(
                         actual.length - maxLen,
-                        expected.length - maxLen
+                        expected.length - maxLen,
                     );
                     actual = actual.slice(0, maxLen);
                     expected = expected.slice(0, maxLen);
@@ -20526,7 +20528,7 @@
                     " " +
                     color(
                         "diff removed",
-                        "- actual:  failed to generate Mocha diff"
+                        "- actual:  failed to generate Mocha diff",
                     ) +
                     "\n";
                 return msg;
@@ -20701,7 +20703,7 @@
             Base.consoleLog(
                 fmt,
                 stats.passes || 0,
-                milliseconds(stats.duration)
+                milliseconds(stats.duration),
             );
 
             // pending
@@ -20935,11 +20937,11 @@
                 }
                 if (test.speed === "slow") {
                     process.stdout.write(
-                        Base.color("bright yellow", Base.symbols.dot)
+                        Base.color("bright yellow", Base.symbols.dot),
                     );
                 } else {
                     process.stdout.write(
-                        Base.color(test.speed, Base.symbols.dot)
+                        Base.color(test.speed, Base.symbols.dot),
                     );
                 }
             });
@@ -21018,7 +21020,7 @@
                 Base.consoleLog(
                     "%s<h1>%s</h1>",
                     indent(),
-                    utils.escape(suite.title)
+                    utils.escape(suite.title),
                 );
                 Base.consoleLog("%s<dl>", indent());
             });
@@ -21037,18 +21039,18 @@
                 Base.consoleLog(
                     "%s  <dt>%s</dt>",
                     indent(),
-                    utils.escape(test.title)
+                    utils.escape(test.title),
                 );
                 Base.consoleLog(
                     "%s  <dt>%s</dt>",
                     indent(),
-                    utils.escape(test.file)
+                    utils.escape(test.file),
                 );
                 var code = utils.escape(utils.clean(test.body));
                 Base.consoleLog(
                     "%s  <dd><pre><code>%s</code></pre></dd>",
                     indent(),
-                    code
+                    code,
                 );
             });
 
@@ -21056,23 +21058,23 @@
                 Base.consoleLog(
                     '%s  <dt class="error">%s</dt>',
                     indent(),
-                    utils.escape(test.title)
+                    utils.escape(test.title),
                 );
                 Base.consoleLog(
                     '%s  <dt class="error">%s</dt>',
                     indent(),
-                    utils.escape(test.file)
+                    utils.escape(test.file),
                 );
                 var code = utils.escape(utils.clean(test.body));
                 Base.consoleLog(
                     '%s  <dd class="error"><pre><code>%s</code></pre></dd>',
                     indent(),
-                    code
+                    code,
                 );
                 Base.consoleLog(
                     '%s  <dd class="error">%s</dd>',
                     indent(),
-                    utils.escape(err)
+                    utils.escape(err),
                 );
             });
         }
@@ -21205,7 +21207,7 @@
             if (!producer) {
                 throw new Error(
                     "invalid or unsupported TAP version: " +
-                        JSON.stringify(tapVersion)
+                        JSON.stringify(tapVersion),
                 );
             }
 
@@ -21438,7 +21440,7 @@
             if (options.reporterOption && options.reporterOption.output) {
                 if (utils.isBrowser()) {
                     throw createUnsupportedError(
-                        "file output not supported in browser"
+                        "file output not supported in browser",
                     );
                 }
                 output = options.reporterOption.output;
@@ -21478,7 +21480,7 @@
                         fs.writeFileSync(output, json);
                     } catch (err) {
                         console.error(
-                            `${Base.symbols.err} [mocha] writing output to "${output}" failed: ${err.message}\n`
+                            `${Base.symbols.err} [mocha] writing output to "${output}" failed: ${err.message}\n`,
                         );
                         process.stdout.write(json);
                     }
@@ -21533,7 +21535,7 @@
                     }
 
                     return value;
-                })
+                }),
             );
         }
 
@@ -21826,7 +21828,7 @@
                 var el = fragment(
                     '<li class="suite"><h1><a href="%s">%s</a></h1></li>',
                     url,
-                    escape(suite.title)
+                    escape(suite.title),
                 );
 
                 // container
@@ -21855,7 +21857,7 @@
                     test.speed,
                     test.title,
                     test.duration,
-                    url
+                    url,
                 );
                 self.addCodeToggle(el, test.body);
                 appendToStack(el);
@@ -21868,7 +21870,7 @@
                         playIcon +
                         "</a></h2></li>",
                     test.title,
-                    self.testURL(test)
+                    self.testURL(test),
                 );
                 var stackString; // Note: Includes leading newline
                 var message = test.err.toString();
@@ -21881,13 +21883,13 @@
 
                 if (test.err.stack) {
                     var indexOfMessage = test.err.stack.indexOf(
-                        test.err.message
+                        test.err.message,
                     );
                     if (indexOfMessage === -1) {
                         stackString = test.err.stack;
                     } else {
                         stackString = test.err.stack.slice(
-                            test.err.message.length + indexOfMessage
+                            test.err.message.length + indexOfMessage,
                         );
                     }
                 } else if (test.err.sourceURL && test.err.line !== undefined) {
@@ -21903,23 +21905,23 @@
                         fragment(
                             '<div class="html-error">%s\n<pre class="error">%e</pre></div>',
                             test.err.htmlMessage,
-                            stackString
-                        )
+                            stackString,
+                        ),
                     );
                 } else if (test.err.htmlMessage) {
                     el.appendChild(
                         fragment(
                             '<div class="html-error">%s</div>',
-                            test.err.htmlMessage
-                        )
+                            test.err.htmlMessage,
+                        ),
                     );
                 } else {
                     el.appendChild(
                         fragment(
                             '<pre class="error">%e%e</pre>',
                             message,
-                            stackString
-                        )
+                            stackString,
+                        ),
                     );
                 }
 
@@ -21931,7 +21933,7 @@
             runner.on(EVENT_TEST_PENDING, function (test) {
                 var el = fragment(
                     '<li class="test pass pending"><h2>%e</h2></li>',
-                    test.title
+                    test.title,
                 );
                 appendToStack(el);
                 updateStats();
@@ -22017,7 +22019,7 @@
 
             var pre = fragment(
                 "<pre><code>%e</code></pre>",
-                utils.clean(contents)
+                utils.clean(contents),
             );
             el.appendChild(pre);
             pre.style.display = "none";
@@ -22030,7 +22032,7 @@
          */
         function error(msg) {
             document.body.appendChild(
-                fragment('<div id="mocha-error">%s</div>', msg)
+                fragment('<div id="mocha-error">%s</div>', msg),
             );
         }
 
@@ -22081,7 +22083,7 @@
             while (els.length > 0) {
                 els[0].className = els[0].className.replace(
                     "suite hidden",
-                    "suite"
+                    "suite",
                 );
             }
         }
@@ -22164,7 +22166,7 @@
 
             runner.on(EVENT_TEST_BEGIN, function (test) {
                 process.stdout.write(
-                    color("pass", "    " + test.fullTitle() + ": ")
+                    color("pass", "    " + test.fullTitle() + ": "),
                 );
             });
 
@@ -22187,7 +22189,7 @@
                 Base.consoleLog(
                     color("fail", "  %d) %s"),
                     ++n,
-                    test.fullTitle()
+                    test.fullTitle(),
                 );
             });
 
@@ -22350,7 +22352,7 @@
                 Base.consoleLog(
                     indent() + color("fail", "  %d) %s"),
                     ++n,
-                    test.title
+                    test.title,
                 );
             });
 
@@ -22709,7 +22711,7 @@
                 if (options.reporterOptions.output) {
                     if (!fs.createWriteStream) {
                         throw createUnsupportedError(
-                            "file output not supported in browser"
+                            "file output not supported in browser",
                         );
                     }
 
@@ -22717,7 +22719,7 @@
                         recursive: true,
                     });
                     self.fileStream = fs.createWriteStream(
-                        options.reporterOptions.output
+                        options.reporterOptions.output,
                     );
                 }
 
@@ -22754,8 +22756,8 @@
                             timestamp: new Date().toUTCString(),
                             time: stats.duration / 1000 || 0,
                         },
-                        false
-                    )
+                        false,
+                    ),
                 );
 
                 tests.forEach(function (t) {
@@ -22834,13 +22836,13 @@
                             escape(err.message) +
                                 escape(diff) +
                                 "\n" +
-                                escape(err.stack)
-                        )
-                    )
+                                escape(err.stack),
+                        ),
+                    ),
                 );
             } else if (test.isPending()) {
                 this.write(
-                    tag("testcase", attrs, false, tag("skipped", {}, true))
+                    tag("testcase", attrs, false, tag("skipped", {}, true)),
                 );
             } else {
                 this.write(tag("testcase", attrs, true));
@@ -23085,7 +23087,7 @@
                 process.stdout.write(color("progress", options.close));
                 if (options.verbose) {
                     process.stdout.write(
-                        color("progress", " " + complete + " of " + total)
+                        color("progress", " " + complete + " of " + total),
                     );
                 }
             });
@@ -23201,7 +23203,7 @@
                 stream.write(color("runway", Array(col).join("⋅")));
                 stream.write(plane);
                 stream.write(
-                    color("runway", Array(width - col).join("⋅") + "\n")
+                    color("runway", Array(width - col).join("⋅") + "\n"),
                 );
                 stream.write(runway());
                 stream.write("\u001b[0m");
@@ -23476,7 +23478,7 @@
                     typeof title +
                     '"',
                 "title",
-                "string"
+                "string",
             );
         }
         this.type = "test";
@@ -23721,7 +23723,7 @@
                                 '" was defined but no callback was supplied. ' +
                                 "Supply a callback or explicitly skip the suite.",
                             "callback",
-                            "function"
+                            "function",
                         );
                     } else if (!opts.fn && suite.pending) {
                         suites.shift();
@@ -24337,43 +24339,43 @@
         exports.afterEach = function (...args) {
             return (currentContext.afterEach || currentContext.teardown).apply(
                 this,
-                args
+                args,
             );
         };
         exports.after = function (...args) {
             return (currentContext.after || currentContext.suiteTeardown).apply(
                 this,
-                args
+                args,
             );
         };
         exports.beforeEach = function (...args) {
             return (currentContext.beforeEach || currentContext.setup).apply(
                 this,
-                args
+                args,
             );
         };
         exports.before = function (...args) {
             return (currentContext.before || currentContext.suiteSetup).apply(
                 this,
-                args
+                args,
             );
         };
         exports.describe = function (...args) {
             return (currentContext.describe || currentContext.suite).apply(
                 this,
-                args
+                args,
             );
         };
         exports.describe.only = function (...args) {
             return (currentContext.describe || currentContext.suite).only.apply(
                 this,
-                args
+                args,
             );
         };
         exports.describe.skip = function (...args) {
             return (currentContext.describe || currentContext.suite).skip.apply(
                 this,
-                args
+                args,
             );
         };
         exports.it = function (...args) {
@@ -24382,13 +24384,13 @@
         exports.it.only = function (...args) {
             return (currentContext.it || currentContext.test).only.apply(
                 this,
-                args
+                args,
             );
         };
         exports.it.skip = function (...args) {
             return (currentContext.it || currentContext.test).skip.apply(
                 this,
-                args
+                args,
             );
         };
         exports.xdescribe = exports.describe.skip;
@@ -24453,7 +24455,7 @@
                 .ui(options.ui)
                 .reporter(
                     options.reporter,
-                    options.reporterOption || options.reporterOptions // for backwards compatibility
+                    options.reporterOption || options.reporterOptions, // for backwards compatibility
                 )
                 .slow(options.slow)
                 .global(options.global);
@@ -24599,18 +24601,18 @@
                         if (foundReporter) {
                             throw createInvalidReporterError(
                                 err.message,
-                                foundReporter
+                                foundReporter,
                             );
                         }
                         // Try to load reporters from a cwd-relative path
                         try {
                             reporter = commonjsRequire(
-                                path.resolve(reporterName)
+                                path.resolve(reporterName),
                             );
                         } catch (e) {
                             throw createInvalidReporterError(
                                 e.message,
-                                reporterName
+                                reporterName,
                             );
                         }
                     }
@@ -24647,7 +24649,7 @@
                     } catch (err) {
                         throw createInvalidInterfaceError(
                             `invalid interface '${ui}'`,
-                            ui
+                            ui,
                         );
                     }
                 }
@@ -24686,7 +24688,7 @@
                     EVENT_FILE_REQUIRE,
                     commonjsRequire(file),
                     file,
-                    self
+                    self,
                 );
                 suite.emit(EVENT_FILE_POST_REQUIRE, commonjsGlobal, file, self);
             });
@@ -24725,7 +24727,7 @@
                         EVENT_FILE_PRE_REQUIRE,
                         commonjsGlobal,
                         file,
-                        self
+                        self,
                     );
                 },
                 function (file, resultModule) {
@@ -24734,9 +24736,9 @@
                         EVENT_FILE_POST_REQUIRE,
                         commonjsGlobal,
                         file,
-                        self
+                        self,
                     );
-                }
+                },
             );
         };
 
@@ -24751,7 +24753,7 @@
         Mocha.unloadFile = function (file) {
             if (utils.isBrowser()) {
                 throw createUnsupportedError(
-                    "unloadFile() is only supported in a Node.js environment"
+                    "unloadFile() is only supported in a Node.js environment",
                 );
             }
             return require$$18.unloadFile(file);
@@ -24777,7 +24779,7 @@
                 throw createMochaInstanceAlreadyDisposedError(
                     "Mocha instance is already disposed, it cannot be used again.",
                     this._cleanReferencesAfterRun,
-                    this
+                    this,
                 );
             }
 
@@ -24895,7 +24897,7 @@
          * @chainable
          */
         Mocha.prototype.cleanReferencesAfterRun = function (
-            cleanReferencesAfterRun
+            cleanReferencesAfterRun,
         ) {
             this._cleanReferencesAfterRun = cleanReferencesAfterRun !== false;
             return this;
@@ -24909,7 +24911,7 @@
         Mocha.prototype.dispose = function () {
             if (this._state === mochaStates.RUNNING) {
                 throw createMochaInstanceAlreadyRunningError(
-                    "Cannot dispose while the mocha instance is still running tests."
+                    "Cannot dispose while the mocha instance is still running tests.",
                 );
             }
             this.unloadFiles();
@@ -25191,7 +25193,7 @@
             if (this._state === mochaStates.RUNNING) {
                 throw createMochaInstanceAlreadyRunningError(
                     "Mocha instance is currently running tests, cannot start a next test run until this one is done",
-                    this
+                    this,
                 );
             }
             if (
@@ -25201,7 +25203,7 @@
                 throw createMochaInstanceAlreadyDisposedError(
                     "Mocha instance is already disposed, cannot start a new test run. Please create a new mocha instance. Be sure to set disable `cleanReferencesAfterRun` when you want to reuse the same mocha instance for multiple test runs.",
                     this._cleanReferencesAfterRun,
-                    this
+                    this,
                 );
             }
         };
@@ -25375,7 +25377,7 @@
         Mocha.prototype.parallelMode = function parallelMode(enable = true) {
             if (utils.isBrowser()) {
                 throw createUnsupportedError(
-                    "parallel mode is only supported in Node.js"
+                    "parallel mode is only supported in Node.js",
                 );
             }
             const parallel = Boolean(enable);
@@ -25388,7 +25390,7 @@
             }
             if (this._state !== mochaStates.INIT) {
                 throw createUnsupportedError(
-                    "cannot change parallel mode after having called run()"
+                    "cannot change parallel mode after having called run()",
                 );
             }
             this.options.parallel = parallel;
@@ -25443,13 +25445,13 @@
          * @returns {Mocha}
          */
         Mocha.prototype.globalTeardown = function globalTeardown(
-            teardownFns = []
+            teardownFns = [],
         ) {
             teardownFns = utils.castArray(teardownFns);
             this.options.globalTeardown = teardownFns;
             debug(
                 "configured %d global teardown functions",
-                teardownFns.length
+                teardownFns.length,
             );
             return this;
         };
@@ -25465,7 +25467,7 @@
          * @returns {Promise<object>} Context object
          */
         Mocha.prototype.runGlobalSetup = async function runGlobalSetup(
-            context = {}
+            context = {},
         ) {
             const { globalSetup } = this.options;
             if (globalSetup && globalSetup.length) {
@@ -25487,7 +25489,7 @@
          * @returns {Promise<object>} Context object
          */
         Mocha.prototype.runGlobalTeardown = async function runGlobalTeardown(
-            context = {}
+            context = {},
         ) {
             const { globalTeardown } = this.options;
             if (globalTeardown && globalTeardown.length) {
@@ -25507,7 +25509,7 @@
          */
         Mocha.prototype._runGlobalFixtures = async function _runGlobalFixtures(
             fixtureFns = [],
-            context = {}
+            context = {},
         ) {
             for await (const fixtureFn of fixtureFns) {
                 await fixtureFn.call(context);
@@ -25524,7 +25526,7 @@
          * @returns {Mocha}
          */
         Mocha.prototype.enableGlobalSetup = function enableGlobalSetup(
-            enabled = true
+            enabled = true,
         ) {
             this.options.enableGlobalSetup = Boolean(enabled);
             return this;
@@ -25539,7 +25541,7 @@
          * @returns {Mocha}
          */
         Mocha.prototype.enableGlobalTeardown = function enableGlobalTeardown(
-            enabled = true
+            enabled = true,
         ) {
             this.options.enableGlobalTeardown = Boolean(enabled);
             return this;
