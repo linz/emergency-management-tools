@@ -71,7 +71,11 @@ body {
 }
 
 #mocha {
-    font: 20px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font:
+        20px/1.5 "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
     margin: 60px 50px;
 }
 
@@ -208,7 +212,9 @@ body {
     display: block;
     float: left;
     clear: left;
-    font: 12px/1.5 monaco, monospace;
+    font:
+        12px/1.5 monaco,
+        monospace;
     margin: 5px;
     padding: 15px;
     border: 1px solid var(--mocha-box-shadow-color);
@@ -250,7 +256,9 @@ body {
     display: block;
     float: left;
     clear: left;
-    font: 12px/1.5 monaco, monospace;
+    font:
+        12px/1.5 monaco,
+        monospace;
     margin: 5px;
     padding: 15px;
     border: 1px solid var(--mocha-box-shadow-color);

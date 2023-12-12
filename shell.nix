@@ -1,13 +1,16 @@
 let
   pkgs = import ./nixpkgs.nix;
+  poetry2nix = import ./poetry2nix.nix {
+    inherit pkgs;
+  };
   python = import ./python.nix {
     inherit pkgs;
   };
   sentinel1WaterExtractionPoetryPackages = import ./flooding/sentinel1_water_extraction/poetryPackages.nix {
-    inherit pkgs python;
+    inherit poetry2nix python;
   };
   sentinel2WaterExtractionPoetryPackages = import ./flooding/sentinel2_water_extraction/poetryPackages.nix {
-    inherit pkgs python;
+    inherit poetry2nix python;
   };
   pythonWithAllPackages =
     (

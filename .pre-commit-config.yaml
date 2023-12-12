@@ -152,7 +152,7 @@ repos:
         pass_filenames: false
         language: system
         stages: [commit]
-
-  - repo: meta
-    hooks:
-      - id: check-useless-excludes
+# TODO: Re-enable when https://github.com/NixOS/nixpkgs/issues/270805 is fixed
+#  - repo: meta
+#    hooks:
+#      - id: check-useless-excludes
