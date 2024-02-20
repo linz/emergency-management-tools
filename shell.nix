@@ -1,6 +1,5 @@
 let
-  sources = import ./nix/sources.nix;
-  pkgs = import sources.nixpkgs {};
+  pkgs = import ./nixpkgs.nix;
   python = import ./python.nix {
     inherit pkgs;
   };
@@ -41,7 +40,6 @@ in
       pkgs.gitFull
       pkgs.gitlint
       pkgs.nbqa
-      pkgs.niv
       pkgs.nodePackages.prettier
       pkgs.pre-commit
       pkgs.python3Packages.pydocstyle
