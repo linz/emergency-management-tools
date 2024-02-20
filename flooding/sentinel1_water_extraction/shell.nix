@@ -1,6 +1,5 @@
 let
-  sources = import ../../nix/sources.nix;
-  pkgs = import sources.nixpkgs {};
+  pkgs = import ../../nixpkgs.nix;
   python = import ../../python.nix {
     inherit pkgs;
   };
