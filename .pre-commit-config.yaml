@@ -26,7 +26,6 @@ repos:
         entry: deadnix
         args: [--edit, --fail]
         files: \.nix$
-        exclude: ^nix/sources\.nix$
         language: system
         stages: [commit]
 
@@ -148,7 +147,7 @@ repos:
       - id: statix
         name: statix
         entry: statix
-        args: [check, --ignore=nix/sources.nix]
+        args: [check]
         files: \.nix$
         pass_filenames: false
         language: system

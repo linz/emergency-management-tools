@@ -13,15 +13,15 @@ jobs:
         with:
           fetch-depth: 0 # Enable gitlint to check all PR commit messages
 
-      - uses: cachix/install-nix-action@7ac1ec25491415c381d9b62f0657c7a028df52a7 # v24
+      - uses: cachix/install-nix-action@8887e596b4ee1134dae06b98d573bd674693f47c # v26
 
-      - uses: cachix/cachix-action@6a2e08b5ebf7a9f285ff57b1870a4262b06e0bee # v13
+      - uses: cachix/cachix-action@18cf96c7c98e048e10a83abd92116114cd8504be # v14
         with:
           name: linz
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - name: Cache pre-commit
-        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
+        uses: actions/cache@ab5e6d0c87105b4c9c2047343972218f562e4319 # v4.0.1
         with:
           path: ~/.cache/pre-commit
           key:
@@ -46,9 +46,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
-      - uses: cachix/install-nix-action@7ac1ec25491415c381d9b62f0657c7a028df52a7 # v24
+      - uses: cachix/install-nix-action@8887e596b4ee1134dae06b98d573bd674693f47c # v26
 
-      - uses: cachix/cachix-action@6a2e08b5ebf7a9f285ff57b1870a4262b06e0bee # v13
+      - uses: cachix/cachix-action@18cf96c7c98e048e10a83abd92116114cd8504be # v14
         with:
           name: linz
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
@@ -73,9 +73,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
-      - uses: cachix/install-nix-action@7ac1ec25491415c381d9b62f0657c7a028df52a7 # v24
+      - uses: cachix/install-nix-action@8887e596b4ee1134dae06b98d573bd674693f47c # v26
 
-      - uses: cachix/cachix-action@6a2e08b5ebf7a9f285ff57b1870a4262b06e0bee # v13
+      - uses: cachix/cachix-action@18cf96c7c98e048e10a83abd92116114cd8504be # v14
         with:
           name: linz
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
@@ -121,7 +121,7 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Cache pip packages
-        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
+        uses: actions/cache@ab5e6d0c87105b4c9c2047343972218f562e4319 # v4.0.1
         with:
           path: ${{ matrix.pip-cache-dir }}
           key:
@@ -132,7 +132,7 @@ jobs:
             ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python }}
 
       - name: Cache Conda packages
-        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
+        uses: actions/cache@ab5e6d0c87105b4c9c2047343972218f562e4319 # v4.0.1
         with:
           path: ~/conda_pkgs_dir
           key:
@@ -148,7 +148,7 @@ jobs:
           echo "GDAL_VERSION=$GDAL_VERSION" >> $GITHUB_ENV
 
       - name: Setup Conda
-        uses: conda-incubator/setup-miniconda@11b562958363ec5770fef326fe8ef0366f8cbf8a # v3.0.1
+        uses: conda-incubator/setup-miniconda@030178870c779d9e5e1b4e563269f3aa69b04081 # v3.0.3
         with:
           channels: conda-forge
           python-version: ${{ matrix.python }}
@@ -164,7 +164,7 @@ jobs:
       - name:
           Install Python packages on Windows runner (Workaround for
           https://github.com/python-poetry/poetry/issues/1031)
-        uses: nick-fields/retry@14672906e672a08bd6eeb15720e9ed3ce869cdd4 # v2.9.0
+        uses: nick-fields/retry@7152eba30c6575329ac0576536151aca5a72780e # v3.0.0
         with:
           timeout_minutes: 9999 # Workaround for https://github.com/nick-fields/retry/issues/107
           max_attempts: 6
