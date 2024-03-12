@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0 # Enable gitlint to check all PR commit messages
 
-      - uses: cachix/install-nix-action@6004951b182f8860210c8d6f0d808ec5b1a33d28 # v25
+      - uses: cachix/install-nix-action@8887e596b4ee1134dae06b98d573bd674693f47c # v26
 
       - uses: cachix/cachix-action@18cf96c7c98e048e10a83abd92116114cd8504be # v14
         with:
@@ -21,7 +21,7 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - name: Cache pre-commit
-        uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
+        uses: actions/cache@ab5e6d0c87105b4c9c2047343972218f562e4319 # v4.0.1
         with:
           path: ~/.cache/pre-commit
           key:
@@ -46,7 +46,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
-      - uses: cachix/install-nix-action@6004951b182f8860210c8d6f0d808ec5b1a33d28 # v25
+      - uses: cachix/install-nix-action@8887e596b4ee1134dae06b98d573bd674693f47c # v26
 
       - uses: cachix/cachix-action@18cf96c7c98e048e10a83abd92116114cd8504be # v14
         with:
@@ -73,7 +73,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
-      - uses: cachix/install-nix-action@6004951b182f8860210c8d6f0d808ec5b1a33d28 # v25
+      - uses: cachix/install-nix-action@8887e596b4ee1134dae06b98d573bd674693f47c # v26
 
       - uses: cachix/cachix-action@18cf96c7c98e048e10a83abd92116114cd8504be # v14
         with:
@@ -120,7 +120,7 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Cache pip packages
-        uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
+        uses: actions/cache@ab5e6d0c87105b4c9c2047343972218f562e4319 # v4.0.1
         with:
           path: ${{ matrix.pip-cache-dir }}
           key:
@@ -131,7 +131,7 @@ jobs:
             ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python }}
 
       - name: Cache Conda packages
-        uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
+        uses: actions/cache@ab5e6d0c87105b4c9c2047343972218f562e4319 # v4.0.1
         with:
           path: ~/conda_pkgs_dir
           key:
@@ -147,7 +147,7 @@ jobs:
           echo "GDAL_VERSION=$GDAL_VERSION" >> $GITHUB_ENV
 
       - name: Setup Conda
-        uses: conda-incubator/setup-miniconda@392cf345b1784333caa1a1185081c71e6ffd61bc # v3.0.2
+        uses: conda-incubator/setup-miniconda@030178870c779d9e5e1b4e563269f3aa69b04081 # v3.0.3
         with:
           channels: conda-forge
           python-version: ${{ matrix.python }}
