@@ -22,6 +22,7 @@ Below are the instructions to get the notebook up and running.
    -  3.9
    -  3.10
    -  3.11
+   -  3.12
 
 ## Get the Jupyter Notebook
 
