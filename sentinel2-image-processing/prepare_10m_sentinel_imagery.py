@@ -23,6 +23,7 @@ GDAL_DIR = "C:/Program Files/QGIS 3.34.4/apps/Python39/Scripts"
 def make_directories(dir_name):
     """
     Create directors for the various processed images to be saved into.
+    If they already exist, they'll be deleted and recreated.
     """
     path = os.path.join(CWD, dir_name)
     if os.path.exists(path):
