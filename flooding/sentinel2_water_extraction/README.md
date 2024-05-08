@@ -40,8 +40,7 @@ If you can't use Nix, you will need the following. For each prerequisite, the
    -  Linux (tested on Ubuntu 22.04, Jammy Jellyfish)
    -  macOS (tested on version 12, Monterey)
    -  Windows (tested on Windows Server 2022)
--  [Python](https://www.python.org/downloads/) (tested with 3.8, 3.9, 3.10, and
-   3.11)
+-  [Python](https://www.python.org/downloads/) (tested with 3.9, 3.10, and 3.11)
 -  [Poetry](https://python-poetry.org/docs/#installation) (tested with 1.3.2)
 -  [GDAL](https://gdal.org/download.html) (tested with 3.6.4)
 
