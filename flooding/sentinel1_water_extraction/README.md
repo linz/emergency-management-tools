@@ -18,7 +18,6 @@ Below are the instructions to get the notebook up and running.
    -  macOS 12 (Monterey)
    -  Windows Server 2022
 -  Python:
-   -  3.8
    -  3.9
    -  3.10
    -  3.11
