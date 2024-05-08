@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Check out repository
-        uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
+        uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5
         with:
           fetch-depth: 0 # Enable gitlint to check all PR commit messages
 
@@ -44,7 +44,7 @@ jobs:
         working-directory: machine-readable-to-human-readable-date-time
     steps:
       - name: Check out repository
-        uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
+        uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5
 
       - uses: cachix/install-nix-action@8887e596b4ee1134dae06b98d573bd674693f47c # v26
 
@@ -71,7 +71,7 @@ jobs:
           - "2"
     steps:
       - name: Check out repository
-        uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
+        uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5
 
       - uses: cachix/install-nix-action@8887e596b4ee1134dae06b98d573bd674693f47c # v26
 
@@ -117,7 +117,7 @@ jobs:
             pip-cache-dir: ~\AppData\Local\pip\Cache
     steps:
       - name: Check out repository
-        uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
+        uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5
 
       - name: Cache pip packages
         uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
@@ -147,7 +147,7 @@ jobs:
           echo "GDAL_VERSION=$GDAL_VERSION" >> $GITHUB_ENV
 
       - name: Setup Conda
-        uses: conda-incubator/setup-miniconda@030178870c779d9e5e1b4e563269f3aa69b04081 # v3.0.3
+        uses: conda-incubator/setup-miniconda@a4260408e20b96e80095f42ff7f1a15b27dd94ca # v3.0.4
         with:
           channels: conda-forge
           python-version: ${{ matrix.python }}
