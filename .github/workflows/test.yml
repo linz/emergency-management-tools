@@ -92,7 +92,6 @@ jobs:
     runs-on: ${{ matrix.runner }}
     defaults:
       run:
-        shell: bash --login -o errexit {0} # https://github.com/conda-incubator/setup-miniconda/tree/7e642bb2e4ca56ff706818a0febf72bb226d348d#use-a-default-shell
         working-directory:
           flooding/sentinel${{ matrix.sentinel }}_water_extraction
     strategy:
@@ -130,14 +129,6 @@ jobs:
           restore-keys:
             ${{ runner.os }}-pip-${{ secrets.CACHE_SEED }}-${{ matrix.python }}
 
-      - name: Cache Conda packages
-        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
-        with:
-          path: ~/conda_pkgs_dir
-          key:
-            ${{ runner.os }}-conda-${{ secrets.CACHE_SEED }}-${{ matrix.python
-            }}
-
       - name: Get GDAL Python package version
         run: |
           GDAL_VERSION="$(grep --max-count=1 --only-matching 'file = "GDAL-.*\.tar\.gz"' poetry.lock)"
@@ -146,15 +137,8 @@ jobs:
           GDAL_VERSION="${GDAL_VERSION%????????}"
           echo "GDAL_VERSION=$GDAL_VERSION" >> $GITHUB_ENV
 
-      - name: Setup Conda
-        uses: conda-incubator/setup-miniconda@a4260408e20b96e80095f42ff7f1a15b27dd94ca # v3.0.4
-        with:
-          channels: conda-forge
-          python-version: ${{ matrix.python }}
-
-      - name: Install Conda environment packages
-        run: conda install --channel=conda-forge --quiet --yes gdal=${{
-          env.GDAL_VERSION }} poetry=1.3.2 # Workaround for https://github.com/python-poetry/poetry/issues/7589
+      - name: Install Poetry
+        run: pip install poetry==1.8.3
 
       - name: Install Python packages on non-Windows runner
         run: poetry install --only=main --no-root
