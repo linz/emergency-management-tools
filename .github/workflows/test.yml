@@ -153,8 +153,12 @@ jobs:
           python-version: ${{ matrix.python }}
 
       - name: Install Conda environment packages
-        run: conda install --channel=conda-forge --quiet --yes gdal=${{
-          env.GDAL_VERSION }} poetry=1.3.2 # Workaround for https://github.com/python-poetry/poetry/issues/7589
+        run:
+          conda install --channel=conda-forge --quiet --yes gdal=${{
+          env.GDAL_VERSION }}
+
+      - name: Install Poetry
+        run: pip install poetry==1.8.3
 
       - name: Install Python packages on non-Windows runner
         run: poetry install --only=main --no-root
