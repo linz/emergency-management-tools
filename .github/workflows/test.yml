@@ -157,6 +157,9 @@ jobs:
           conda install --channel=conda-forge --quiet --yes gdal=${{
           env.GDAL_VERSION }} poetry=1.8.3
 
+      - run: conda list
+      - run: conda info
+
       - name: Install Python packages on non-Windows runner
         run: poetry install --only=main --no-root
         if: ${{ !startsWith(runner.os, 'Windows') }}
