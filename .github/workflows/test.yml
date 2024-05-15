@@ -6,7 +6,7 @@ on:
 jobs:
   lint:
     name: Lint content
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Check out repository
         uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5
@@ -38,7 +38,7 @@ jobs:
 
   test-machine-readable-to-human-readable-date-time:
     name: Test machine readable to human-readable date/time using Nix
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: machine-readable-to-human-readable-date-time
@@ -58,7 +58,7 @@ jobs:
 
   test-sentinel-water-extraction-nix:
     name: Test Sentinel-${{ matrix.sentinel }} using Nix
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory:
@@ -101,6 +101,7 @@ jobs:
         runner:
           - macos-12
           - ubuntu-22.04
+          - ubuntu-24.04
           - windows-2022
         python:
           - "3.9"
@@ -112,6 +113,8 @@ jobs:
           - runner: macos-12
             pip-cache-dir: ~/Library/Caches/pip
           - runner: ubuntu-22.04
+            pip-cache-dir: ~/.cache/pip
+          - runner: ubuntu-24.04
             pip-cache-dir: ~/.cache/pip
           - runner: windows-2022
             pip-cache-dir: ~\AppData\Local\pip\Cache
@@ -186,7 +189,7 @@ jobs:
       - test-machine-readable-to-human-readable-date-time
       - test-sentinel-water-extraction-nix
       - test-sentinel-water-extraction-poetry
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Decide whether the needed jobs succeeded or failed
         uses: re-actors/alls-green@05ac9388f0aebcb5727afa17fcccfecd6f8ec5fe # v1.2.2
