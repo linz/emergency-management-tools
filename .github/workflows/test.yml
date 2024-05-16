@@ -161,7 +161,7 @@ jobs:
           env.GDAL_VERSION }}
 
       - name: Install Poetry
-        run: pipx install poetry==1.7.1
+        run: pipx install poetry==1.8.3
 
       - name: Install Python packages on non-Windows runner
         run: poetry install --only=main --no-root
