@@ -9,8 +9,6 @@ strict = true
 module = [
     "affine", # https://github.com/rasterio/affine/issues/74
     "geopandas", # https://github.com/geopandas/geopandas/issues/1974
-    "matplotlib", # https://github.com/matplotlib/matplotlib/issues/20504
-    "matplotlib.pyplot", # https://github.com/matplotlib/matplotlib/issues/20504
     "rasterio", # https://github.com/rasterio/rasterio/issues/2322
     "rasterio.plot", # https://github.com/rasterio/rasterio/issues/2322
     "satsearch", # https://github.com/sat-utils/sat-search/issues/131
