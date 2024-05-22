@@ -13,10 +13,12 @@ support emergency events
 
 Current automated processes
 
-### [Radar Flood Water Extraction](flooding/sentinel1_water_extraction/README.md)
+### [_Radar_ Flood Water Extraction](flooding/sentinel1_water_extraction/README.md)
+
+**This notebook is not yet ready for use!**
 
 Jupyter Notebook for extracting water from Sentinel 1 radar imagery.
 
-### [Optical Flood Water Extraction](flooding/sentinel2_water_extraction/README.md)
+### [_Optical_ Flood Water Extraction](flooding/sentinel2_water_extraction/README.md)
 
 Jupyter Notebook for extracting water from Sentinel 2 optical imagery.

@@ -15,7 +15,7 @@ jobs:
 
       - uses: cachix/install-nix-action@ba0dd844c9180cbf77aa72a116d6fbc515d0e87b # v27
 
-      - uses: cachix/cachix-action@18cf96c7c98e048e10a83abd92116114cd8504be # v14
+      - uses: cachix/cachix-action@ad2ddac53f961de1989924296a1f236fcfbaa4fc # v15
         with:
           name: linz
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
@@ -48,7 +48,7 @@ jobs:
 
       - uses: cachix/install-nix-action@ba0dd844c9180cbf77aa72a116d6fbc515d0e87b # v27
 
-      - uses: cachix/cachix-action@18cf96c7c98e048e10a83abd92116114cd8504be # v14
+      - uses: cachix/cachix-action@ad2ddac53f961de1989924296a1f236fcfbaa4fc # v15
         with:
           name: linz
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
@@ -75,7 +75,7 @@ jobs:
 
       - uses: cachix/install-nix-action@ba0dd844c9180cbf77aa72a116d6fbc515d0e87b # v27
 
-      - uses: cachix/cachix-action@18cf96c7c98e048e10a83abd92116114cd8504be # v14
+      - uses: cachix/cachix-action@ad2ddac53f961de1989924296a1f236fcfbaa4fc # v15
         with:
           name: linz
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
@@ -155,10 +155,13 @@ jobs:
           channels: conda-forge
           python-version: ${{ matrix.python }}
 
-      - name: Install Conda environment packages
+      - name: Install GDAL
         run:
           conda install --channel=conda-forge --quiet --yes gdal=${{
-          env.GDAL_VERSION }} poetry=1.7.1
+          env.GDAL_VERSION }}
+
+      - name: Install Poetry
+        run: pipx install poetry==1.8.3
 
       - name: Install Python packages on non-Windows runner
         run: poetry install --only=main --no-root
