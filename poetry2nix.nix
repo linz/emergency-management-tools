@@ -1,8 +1,9 @@
 {pkgs}:
 import (
   builtins.fetchTarball {
-    url = "https://github.com/nix-community/poetry2nix/archive/291a863e866972f356967d0a270b259f46bf987f.tar.gz";
-    sha256 = "1mzsvkbxh5c1j82gsghfa3gc0amnsajygbw7n6wxn9mg48j5y45x";
+    name = "poetry2nix-2024.6.557458";
+    url = "https://github.com/nix-community/poetry2nix/archive/81662ae1ad31491eae3bb1d976fb74c71853bc63.tar.gz";
+    sha256 = "1zvlhzlc7mxr74qii3mkyn4iyd5rdivrm40yf7r7jvj9ry5gnbx9";
   }
 ) {
   inherit pkgs;
