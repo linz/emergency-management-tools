@@ -12,7 +12,6 @@ module = [
     "rasterio", # https://github.com/rasterio/rasterio/issues/2322
     "rasterio.plot", # https://github.com/rasterio/rasterio/issues/2322
     "satsearch", # https://github.com/sat-utils/sat-search/issues/131
-    "satstac", # https://github.com/sat-utils/sat-stac/issues/72
     "shapely.geometry", # https://github.com/shapely/shapely/issues/721
 ]
 ignore_missing_imports = true

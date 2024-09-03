@@ -11,16 +11,15 @@ repos:
         language: system
         stages: [commit]
 
-      # TODO: Reintroduce once https://github.com/NixOS/nixpkgs/pull/273831 is in use
-      #      - id: check-github-workflows
-      #        name: check-github-workflows
-      #        description: Validate GitHub Workflows
-      #        entry: check-jsonschema
-      #        args: [--builtin-schema=vendor.github-workflows]
-      #        files: ^\.github/workflows/[^/]+$
-      #        types: [yaml]
-      #        language: system
-      #        stages: [commit]
+      - id: check-github-workflows
+        name: check-github-workflows
+        description: Validate GitHub Workflows
+        entry: check-jsonschema
+        args: [--builtin-schema=vendor.github-workflows]
+        files: ^\.github/workflows/[^/]+$
+        types: [yaml]
+        language: system
+        stages: [commit]
 
       - id: deadnix
         name: deadnix

@@ -14,23 +14,19 @@ let
   };
   pythonWithAllPackages =
     (
-      python.withPackages (
-        ps:
-          [
+      (
+        python.withPackages (
+          ps: [
             ps.mypy
             ps.pip
             ps.pylint
             ps.types-python-dateutil
           ]
-          ++ sentinel1WaterExtractionPoetryPackages.poetryPackages
-          ++ sentinel2WaterExtractionPoetryPackages.poetryPackages
+        )
       )
+      .withPackages (_ps: sentinel1WaterExtractionPoetryPackages.poetryPackages)
     )
-    .override (
-      _args: {
-        ignoreCollisions = true;
-      }
-    );
+    .withPackages (_ps: sentinel2WaterExtractionPoetryPackages.poetryPackages);
 in
   pkgs.mkShell {
     packages = [
