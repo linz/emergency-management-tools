@@ -1,2 +1,1 @@
-{pkgs}:
-pkgs.python3
+{ pkgs }: pkgs.python3

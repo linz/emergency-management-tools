@@ -1,7 +1,4 @@
-{
-  poetry2nix,
-  python,
-}:
+{ poetry2nix, python }:
 poetry2nix.mkPoetryPackages {
   inherit python;
   projectDir = builtins.path {

@@ -4,13 +4,6 @@
 repos:
   - repo: local
     hooks:
-      - id: alejandra
-        name: alejandra
-        entry: alejandra
-        files: \.nix$
-        language: system
-        stages: [commit]
-
       # TODO: Reintroduce once https://github.com/NixOS/nixpkgs/pull/273831 is in use
       #      - id: check-github-workflows
       #        name: check-github-workflows
@@ -93,6 +86,13 @@ repos:
         args: [pylint, --include-naming-hint=y]
         require_serial: true
         types_or: [jupyter, markdown]
+        language: system
+        stages: [commit]
+
+      - id: nixfmt
+        name: nixfmt
+        entry: nixfmt
+        files: \.nix$
         language: system
         stages: [commit]
 
