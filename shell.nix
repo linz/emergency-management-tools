@@ -6,31 +6,21 @@ let
   python = import ./python.nix {
     inherit pkgs;
   };
-  sentinel1WaterExtractionPoetryPackages = import ./flooding/sentinel1_water_extraction/poetryPackages.nix {
-    inherit poetry2nix python;
-  };
   sentinel2WaterExtractionPoetryPackages = import ./flooding/sentinel2_water_extraction/poetryPackages.nix {
     inherit poetry2nix python;
   };
   pythonWithAllPackages =
     (
       python.withPackages (
-        ps:
-          [
-            ps.mypy
-            ps.pip
-            ps.pylint
-            ps.types-python-dateutil
-          ]
-          ++ sentinel1WaterExtractionPoetryPackages.poetryPackages
-          ++ sentinel2WaterExtractionPoetryPackages.poetryPackages
+        ps: [
+          ps.mypy
+          ps.pip
+          ps.pylint
+          ps.types-python-dateutil
+        ]
       )
     )
-    .override (
-      _args: {
-        ignoreCollisions = true;
-      }
-    );
+    .withPackages (_ps: sentinel2WaterExtractionPoetryPackages.poetryPackages);
 in
   pkgs.mkShell {
     packages = [
