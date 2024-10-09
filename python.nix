@@ -1,2 +1,2 @@
 {pkgs}:
-pkgs.python3
+pkgs.python311
