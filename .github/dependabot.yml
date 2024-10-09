@@ -6,7 +6,6 @@ updates:
       interval: daily
   - package-ecosystem: pip
     directories:
-      - /flooding/sentinel1_water_extraction
       - /flooding/sentinel2_water_extraction
     schedule:
       interval: daily
