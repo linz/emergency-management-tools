@@ -42,7 +42,7 @@ If you can't use Nix, you will need the following. For each prerequisite, the
    -  Windows (tested on Windows Server 2022)
 -  [Python](https://www.python.org/downloads/) (tested with 3.9 and 3.11)
 -  [Poetry](https://python-poetry.org/docs/#installation) (tested with 1.8.3)
--  [GDAL](https://gdal.org/download.html) (tested with 3.6.4)
+-  [GDAL](https://gdal.org/download.html) (tested with 3.8.5)
 
 Once you have all of the above,
 `cd [emergency-management-tools path]/flooding/sentinel2_water_extraction` and
