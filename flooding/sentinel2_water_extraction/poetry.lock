@@ -2845,13 +2845,13 @@ files = [
 
 [[package]]
 name = "rio-tiler"
-version = "6.7.0"
+version = "7.0.0"
 description = "User friendly Rasterio plugin to read raster datasets."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "rio_tiler-6.7.0-py3-none-any.whl", hash = "sha256:0ced8f80c2e6ba8c7ccdb8b2ef59de1a3a0f524606f990f6aca7a6daa05165bd"},
-    {file = "rio_tiler-6.7.0.tar.gz", hash = "sha256:c4cbb8c95d9342d09ad52b16233bfddd5b1ff57586306d3f66deb1136ddd0b97"},
+    {file = "rio_tiler-7.0.0-py3-none-any.whl", hash = "sha256:4a6220c488cfe3c94a3127be7f889d3d4ce9500f53f06dc1ccd53c66780a9242"},
+    {file = "rio_tiler-7.0.0.tar.gz", hash = "sha256:bfaecc399ee03f2eb4c90f07fc2f1aa276fc6a55f72a3837c0d75b2d7b01403d"},
 ]
 
 [package.dependencies]
@@ -2859,19 +2859,20 @@ attrs = "*"
 cachetools = "*"
 color-operations = "*"
 httpx = "*"
-morecantile = ">=5.0,<6.0"
+morecantile = ">=5.0,<7.0"
 numexpr = "*"
 numpy = "*"
 pydantic = ">=2.0,<3.0"
 pystac = ">=0.5.4"
 rasterio = ">=1.3.0"
+typing-extensions = "*"
 
 [package.extras]
 benchmark = ["pytest", "pytest-benchmark"]
 dev = ["bump-my-version", "pre-commit"]
-docs = ["mkdocs", "mkdocs-jupyter", "mkdocs-material", "nbconvert", "pygments"]
+docs = ["griffe-inherited-docstrings (>=1.0.0)", "mkdocs (>=1.4.3)", "mkdocs-jupyter (>=0.24.5)", "mkdocs-material[imaging] (>=9.5)", "mkdocstrings[python] (>=0.25.1)", "pygments"]
 s3 = ["boto3"]
-test = ["boto3", "pytest", "pytest-cov", "rioxarray", "xarray"]
+test = ["boto3", "morecantile (>=6.0,<7.0)", "pytest", "pytest-cov", "rioxarray", "xarray"]
 tilebench = ["pytest", "tilebench"]
 xarray = ["rioxarray", "xarray"]
 
