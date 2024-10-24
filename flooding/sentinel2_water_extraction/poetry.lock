@@ -2845,13 +2845,13 @@ files = [
 
 [[package]]
 name = "rio-tiler"
-version = "7.0.0"
+version = "7.0.1"
 description = "User friendly Rasterio plugin to read raster datasets."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "rio_tiler-7.0.0-py3-none-any.whl", hash = "sha256:4a6220c488cfe3c94a3127be7f889d3d4ce9500f53f06dc1ccd53c66780a9242"},
-    {file = "rio_tiler-7.0.0.tar.gz", hash = "sha256:bfaecc399ee03f2eb4c90f07fc2f1aa276fc6a55f72a3837c0d75b2d7b01403d"},
+    {file = "rio_tiler-7.0.1-py3-none-any.whl", hash = "sha256:48ef5bce74796df2214d26f409574a501c61c5ed20a4c356f559a1560c3bf76b"},
+    {file = "rio_tiler-7.0.1.tar.gz", hash = "sha256:41f00569a293aa94180cde965f1e3ce2ebb1b77dfb75009f3ea3a3faf3c37ba1"},
 ]
 
 [package.dependencies]
