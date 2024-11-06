@@ -2845,13 +2845,13 @@ files = [
 
 [[package]]
 name = "rio-tiler"
-version = "7.1.0"
+version = "7.2.0"
 description = "User friendly Rasterio plugin to read raster datasets."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "rio_tiler-7.1.0-py3-none-any.whl", hash = "sha256:28e22271a7ab22891c82a070eaf459498a52184bb749e8ba7b78917e78d2fe5d"},
-    {file = "rio_tiler-7.1.0.tar.gz", hash = "sha256:4dfa60e441ef9e60706049ecb20f5fe2dd269ccdabcc7426ece1af98e903e8a9"},
+    {file = "rio_tiler-7.2.0-py3-none-any.whl", hash = "sha256:1077ee4b583db4b3e14bad43c75d5cae6e2d77540377f8df0777f72c52d55d38"},
+    {file = "rio_tiler-7.2.0.tar.gz", hash = "sha256:e307b7555ba1e13fa9f97cd16065832b41feeff92222993addddf327afcbcdb8"},
 ]
 
 [package.dependencies]
@@ -2872,7 +2872,7 @@ benchmark = ["pytest", "pytest-benchmark"]
 dev = ["bump-my-version", "pre-commit"]
 docs = ["griffe-inherited-docstrings (>=1.0.0)", "mkdocs (>=1.4.3)", "mkdocs-jupyter (>=0.24.5)", "mkdocs-material[imaging] (>=9.5)", "mkdocstrings[python] (>=0.25.1)", "pygments"]
 s3 = ["boto3"]
-test = ["boto3", "morecantile (>=6.0,<7.0)", "pytest", "pytest-cov", "rioxarray", "xarray"]
+test = ["boto3", "h5netcdf", "morecantile (>=6.0,<7.0)", "pytest", "pytest-cov", "rioxarray", "xarray"]
 tilebench = ["pytest", "tilebench"]
 xarray = ["rioxarray", "xarray"]
 
