@@ -170,7 +170,7 @@ jobs:
       - name:
           Install Python packages on Windows runner (Workaround for
           https://github.com/python-poetry/poetry/issues/1031)
-        uses: nick-fields/retry@7152eba30c6575329ac0576536151aca5a72780e # v3.0.0
+        uses: nick-fields/retry@ad984534de44a9489a53aefd81eb77f87c70dc60 # v4.0.0
         with:
           timeout_minutes: 9999 # Workaround for https://github.com/nick-fields/retry/issues/107
           max_attempts: 6
